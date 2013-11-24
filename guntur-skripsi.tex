@@ -1,0 +1,175 @@
+%Template pembuatan proposal skripsi.
+\documentclass{jtetiskripsi}
+
+%-----------------------------------------------------------------
+%Disini awal masukan untuk data proposal skripsi
+%-----------------------------------------------------------------
+\titleind{PENGEMBANGAN GATEWAY BERBASIS EMBEDDED DEVICE UNTUK INTEROPERABILITAS JARINGAN SENSOR NIRKABEL DAN PROTOKOL INTERNET}
+
+\fullname{GUNTUR DHARMA PUTRA}
+
+\idnum{09/284593/TK/35393}
+
+\approvaldate{13 November 2013}
+
+\degree{Sarjana Teknik Elektro}
+
+\yearsubmit{2013}
+
+\program{Teknik Elektro}
+
+\dept{Teknik Elektro dan Teknologi Informasi}
+
+\firstsupervisor{Sigit Basuki Wibowo, S.T., M.Eng.}
+\firstnip{1976 0501 2002 12 1 002}
+
+\secondsupervisor{Bimo Sunarfri Hantono, S.T., M.Eng.}
+\secondnip{1977 0131 2002 12 1 003}
+
+
+%-----------------------------------------------------------------
+%Disini akhir masukan untuk data proposal skripsi
+%-----------------------------------------------------------------
+
+\begin{document}
+
+\cover
+
+\approvalpage
+
+%-----------------------------------------------------------------
+%Disini awal masukan Acknowledment
+%-----------------------------------------------------------------
+\acknowledgment
+\begin{flushright}
+\emph{Karya sederhana ini kupersembahkan \\
+buat Bapak, Ibu,\\dan Adik tercinta}
+\end{flushright}
+
+%-----------------------------------------------------------------
+%Disini awal masukan untuk Prakata
+%-----------------------------------------------------------------
+\preface
+Segala puji dan syukur semata-mata hanya untuk Allah SWT, karena atas segala
+rahmat, hidayah dan bantuan-Nya jualah maka akhirnya Tesis dengan judul
+Analisis Teoretis Pemantulan dan Pembiasan Gelombang Elektromagnet Pada
+Bahan Magnetik Non Linear Orde Dua ini telah selesai penulis susun.
+
+Telah banyak bantuan yang penulis peroleh selama dalam penulisan Tesis ini
+, untuk itu tak lupa penulis ucapkan terima kasih yang sebesar-besarnya
+kepada:
+\begin{enumerate}
+\item{Bapak dan Mama yang selama ini telah sabar membimbing dan mendoakan
+penulis tanpa kenal untuk selama-lamanya,}
+\item{Prof. Drs. H. Muslim, Ph. D, selaku Pembimbing Utama, yang telah
+memberikan ilmunya kepada penulis serta dengan penuh kesabaran membimbing penulis,}
+\item{Drs. Kamsul Abraha, Ph. D, selaku Pembimbing Pendamping yang telah
+memberikan inspirasi kepada penulis,} 
+\item{Dr. Pekik Nurwantoro dan Dr. rer. nat. M. Farchani Rasyid
+yang telah memperkenalkan sistem operasi LINUX dan \LaTeX{} kepada penulis serta
+memberikan bimbingan penggunaan \LaTeX{} tersebut dengan sabar,} 
+\item{Segenap staf dan karyawan di jurusan Fisika FMIPA UGM, yang telah
+banyak bekerjasama dengan penulis selama belajar di FMIPA UGM,} 
+\item{Sahabat saya M. Rizal Ginanjar, yang selalu bersedia membantu penulis ketika
+menyelesaikan masalah-masalah komputer.} 
+\end{enumerate}
+
+Tesis ini tentunya tidak lepas dari segala kekurangan dan kelemahan, untuk itu
+segala kritikan dan saran yang bersifat membangun guna kesempurnaan Tesis ini
+sangat diharapkan. Semoga tesis ini dapat bermanfaat bagi kita semua dan lebih
+khusus lagi bagi pengembagan ilmu fisika.
+
+\begin{tabular}{p{7.5cm}c}
+&Yogyakarta, 12 Mei 1994\\
+&\\
+&\\
+&Penulis
+\end{tabular}
+
+%-----------------------------------------------------------------
+%Disini akhir masukan untuk muka skripsi
+%-----------------------------------------------------------------
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{DAFTAR ISI}
+\listoftables
+\addcontentsline{toc}{chapter}{DAFTAR TABEL}
+\listoffigures
+\addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+
+%-----------------------------------------------------------------
+%Disini awal masukan Intisari
+%-----------------------------------------------------------------
+\begin{abstractind}
+Penggunaan \emph{Wireless Sensor Network} (WSN) untuk gedung dan perumahan semakin populer karena dapat dimanfaatkan untuk berbagai kepentingan seperti \emph{home automation} dan \emph{home surveillance}. Oleh karena itu, untuk meningkatkan fleksibilitas penggunaan WSN, diperlukan sistem pengendalian yang dapat dikendalikan secara jarak jauh. Padahal pada umumnya, WSN dikendalikan oleh sebuah pengendali utama berada di sekitar tempat WSN itu berada.
+
+Penelitian ini mengusulkan integrasi dari WSN dengan \emph{Internet Protocol} (IP) yang memungkinkan WSN dapat dikendalikan dimanapun dan dengan apapun asalkan masih terhubung dengan jaringan internet. Penelitian ini memanfaatkan infrastruktur jaringan data yang sangat populer dan terhubung ke internet, yaitu jaringan area lokal nirkabel atau dikenal dengan nama WiFi. Salah satu perangkat utama dalam jaringan WiFi adalah \emph{Access Point} (AP) yang berfungsi sebagai koordinator simpul. Selain itu, AP juga berfungsi sebagai gateway yang menghubungkan berbagai piranti yang terhubung padanya ke internet. Oleh karena itu, penelitian ini akan mengembangkan perangkat lunak yang akan ditanamkan ke dalam AP sehingga menjadikan AP mempunyai kemampuan sebagai gateway untuk kedua jaringan WiFi dan beberapa protokol WSN ke dalam jaringan internet.
+
+
+\bigskip
+\textbf{Kata kunci} : \emph{wireless sensor network}, \emph{internet protokol}, WiFi, interoperabilitas.
+\end{abstractind}
+
+\begin{abstracteng}
+Penggunaan \emph{Wireless Sensor Network} (WSN) untuk gedung dan perumahan semakin populer karena dapat dimanfaatkan untuk berbagai kepentingan seperti \emph{home automation} dan \emph{home surveillance}. Oleh karena itu, untuk meningkatkan fleksibilitas penggunaan WSN, diperlukan sistem pengendalian yang dapat dikendalikan secara jarak jauh. Padahal pada umumnya, WSN dikendalikan oleh sebuah pengendali utama berada di sekitar tempat WSN itu berada.
+
+Penelitian ini mengusulkan integrasi dari WSN dengan \emph{Internet Protocol} (IP) yang memungkinkan WSN dapat dikendalikan dimanapun dan dengan apapun asalkan masih terhubung dengan jaringan internet. Penelitian ini memanfaatkan infrastruktur jaringan data yang sangat populer dan terhubung ke internet, yaitu jaringan area lokal nirkabel atau dikenal dengan nama WiFi. Salah satu perangkat utama dalam jaringan WiFi adalah \emph{Access Point} (AP) yang berfungsi sebagai koordinator simpul. Selain itu, AP juga berfungsi sebagai gateway yang menghubungkan berbagai piranti yang terhubung padanya ke internet. Oleh karena itu, penelitian ini akan mengembangkan perangkat lunak yang akan ditanamkan ke dalam AP sehingga menjadikan AP mempunyai kemampuan sebagai gateway untuk kedua jaringan WiFi dan beberapa protokol WSN ke dalam jaringan internet.
+
+
+\bigskip
+\textbf{Kata kunci} : \emph{wireless sensor network}, \emph{internet protokol}, WiFi, interoperabilitas.
+\end{abstracteng}
+%-----------------------------------------------------------------
+%Disini akhir masukan Intisari
+%-----------------------------------------------------------------
+
+%-----------------------------------------------------------------
+%Disini awal masukan untuk Bab
+%-----------------------------------------------------------------
+\include{bab1}
+
+\include{bab2}
+
+\include{bab3}
+
+%-----------------------------------------------------------------
+%Disini akhir masukan Bab
+%-----------------------------------------------------------------
+
+%-----------------------------------------------------------------
+%Disini awal masukan untuk Daftar Pustaka
+%-----------------------------------------------------------------
+%%\nocite{Abel2010,Guerbas201350}
+%%\bibliography{research-plan}
+%%\bibliographystyle{plainnat}
+\begin{thebibliography}{9}
+
+\bibitem[satu(2013)]{satu01}
+Spinar, R., dkk, ``Demo Abstract: Efficient Building Management with IP- based Wireless Sensor Network'', , 6th European Conference on Wireless Sensor Networks. Cork, Ireland 11-13 February 2009.
+
+\bibitem[dua(2013)]{dua02}
+Adam Dunkels, Thiemo Voigt, Niclas Bergman, dan Mats Jonsson ``The Design and Implementation of an IP-based Sensor Network for Intrusion Monitoring'', Swedish National Computer Networking Workshop, Sweden, 2004.
+
+\bibitem[tiga(2013)]{tiga03}
+Sigit B. Wibowo, dan Widyawan, ``Wireless Sensor Network and Internet Protocol Integration with COTS'', 2013 AUN/SEED-Net Regional Conference in Electrical and Electronics Engineering, Bangkok, Thailand, 2013.
+
+\bibitem[empat(2013)]{empat04}
+Dokumen online, http://www.iqrf.org/, IQRF, diakses pada Maret 2013
+
+\bibitem[lima(2013)]{lima05}
+Widyawan, Sigit B. Wibowo, dkk, ``iHome: Low-Cost Domotic for Residential Houses'', 5th AUN/SEED-Net Regional Conference on Information and Communications Technology (RCICT), Manila, Filipina, 2012.
+
+\bibitem[enam(2013)]{enam06}
+Dokumen online,https://openwrt.org/, diakses pada Maret 2013
+
+\bibitem[tujuh(2013)]{tujuh07}
+Dokumen online, http://www.digi.com/technology/rf-articles/wireless-zigbe,
+diakses pada Maret 2013.
+
+\end{thebibliography}
+\addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
+%-----------------------------------------------------------------
+%Disini akhir masukan Daftar Pustaka
+%-----------------------------------------------------------------
+
+\end{document}
