@@ -1,6 +1,16 @@
 %Template pembuatan proposal skripsi.
 \documentclass{jtetiskripsi}
 
+%Untuk prefiks pada daftar gambar dan tabel
+\usepackage[titles]{tocloft}
+\renewcommand\cftfigpresnum{Gambar\  }
+\renewcommand\cfttabpresnum{Tabel\   }
+
+\newlength{\mylenf}
+\settowidth{\mylenf}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+1.5em}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+1.5em}
+
 %-----------------------------------------------------------------
 %Disini awal masukan untuk data proposal skripsi
 %-----------------------------------------------------------------
@@ -25,7 +35,6 @@
 
 \secondsupervisor{Bimo Sunarfri Hantono, S.T., M.Eng.}
 \secondnip{1977 0131 2002 12 1 003}
-
 
 %-----------------------------------------------------------------
 %Disini akhir masukan untuk data proposal skripsi
@@ -59,6 +68,10 @@ Telah banyak bantuan yang penulis peroleh selama dalam penulisan Tesis ini
 , untuk itu tak lupa penulis ucapkan terima kasih yang sebesar-besarnya
 kepada:
 \begin{enumerate}
+\item{Bapak Sarjiya, S.T., M.T., Ph.D., selaku Ketua Jurusan Teknik Elektro dan Teknologi Informasi Fakultas Teknik Universitas Gadjah Mada.}
+\item{Bapak ………………. selaku dosen pembimbing pertama …………….}
+\item{Ibu ……………….. selaku dosen pembimbing kedua …………………
+}
 \item{Bapak dan Mama yang selama ini telah sabar membimbing dan mendoakan
 penulis tanpa kenal untuk selama-lamanya,}
 \item{Prof. Drs. H. Muslim, Ph. D, selaku Pembimbing Utama, yang telah
@@ -80,7 +93,7 @@ sangat diharapkan. Semoga tesis ini dapat bermanfaat bagi kita semua dan lebih
 khusus lagi bagi pengembagan ilmu fisika.
 
 \begin{tabular}{p{7.5cm}c}
-&Yogyakarta, 12 Mei 1994\\
+&Yogyakarta, 15 Januari 2014\\
 &\\
 &\\
 &Penulis

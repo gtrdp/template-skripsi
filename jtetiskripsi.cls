@@ -14,6 +14,7 @@
 \usepackage[pass]{geometry}
 \usepackage{verbatim,enumerate}
 
+
 \newif\if@msthesis
 \newif\if@msproposal
 \DeclareOption{skripsi}{\@msthesistrue\@msproposalfalse}
@@ -233,7 +234,7 @@
       \MakeUppercase{\normalfont\bfseries Skripsi}\\
       \vspace{1.0cm}
        \vfill
-       \includegraphics{gambar/logougm.png}
+       \includegraphics[width=0.5\textwidth]{gambar/logougm.png}
        \vfill
        {\normalfont
         \bfseries Disusun oleh:\\
