@@ -150,8 +150,9 @@
 \def\listtablename{DAFTAR TABEL}%
 \def\listappendixname{DAFTAR LAMPIRAN}%
 \def\nomenclaturename{DAFTAR LAMBANG DAN SINGKATAN}%
-\def\abstractname{INTISARI}%
+\def\abstractname{Intisari}%
 \def\acknowledgmentname{HALAMAN PERSEMBAHAN}%
+\def\approvalname{HALAMAN PENGESAHAN}
 \def\partname{BAGIAN}%
 \def\chaptername{BAB}%
 \def\appendixname{LAMPIRAN}%
@@ -171,7 +172,7 @@
 \def\listtablename{LIST OF TABLES}%
 \def\listappendixname{LIST OF APPENDICES}%
 \def\nomenclaturename{NOMENCLATURE}%
-\def\abstractname{ABSTRACT}%
+\def\abstractname{Abstract}%
 \def\partname{PART}%
 \def\chaptername{CHAPTER}%
 \def\appendixname{APPENDIX}%
@@ -257,11 +258,12 @@
 %Approval Page
 %------------------------------------------------------------
 \def\approvalpage{%
+  \chapter*{\approvalname}%
   %\newpage\thispagestyle{empty}%
   \begin{center}
   \begin{doublespace}
-    \MakeUppercase{\normalfont\bfseries\expandafter{Halaman Pengesahan}}\\
-    \vspace{1.0cm}
+    %\MakeUppercase{\normalfont\bfseries\expandafter{Halaman Pengesahan}}\\
+    %\vspace{1.0cm}
         \MakeUppercase{\normalfont\bfseries\@titleind}\par\nobreak
     \vspace{1.0cm}
     \MakeUppercase{\normalfont\bfseries\expandafter{Skripsi}}\\
@@ -292,19 +294,16 @@
 
   \end{doublespace}
   \end{center}
-\addcontentsline{toc}{chapter}{\MakeUppercase{Halaman Pengesahan}}
+\addcontentsline{toc}{chapter}{\approvalname}
 }
 
 %------------------------------------------------------------
 %Acknowlegment
 %------------------------------------------------------------
 \def\acknowledgment{%
-  \clearpage\thispagestyle{chapterheading}%
-  \begin{center}
-  \large\textbf{\acknowledgmentname}
-  \end{center}
+  \chapter*{\acknowledgmentname}%
 \null\vfill%Force the content of acknowledment to bottom page 
-\addcontentsline{toc}{chapter}{\MakeUppercase{Halaman Persembahan}}
+\addcontentsline{toc}{chapter}{\acknowledgmentname}
 }
 
 %------------------------------------------------------------
@@ -333,11 +332,11 @@
   {\large\textbf{\abstractname}} \\
   \vspace{1.0cm}
     }
-  \begin{onehalfspace}%
+  \begin{singlespacing}%
   \vskip 20\p@
   \addcontentsline{toc}{chapter}{\abstractname}
 }
-\def\endabstractind{\par\vfil\null\end{onehalfspace}}
+\def\endabstractind{\par\vfil\null\end{singlespacing}}
 
 %------------------------------------------------------------
 %Redefine Abstract in English
@@ -345,14 +344,14 @@
 \def\abstracteng{%
   \clearpage\thispagestyle{chapterheading}\selectlanguage{english}
   {\parindent \z@ \centering \normalfont
-  {\large\textbf{\abstractname}} \\
+  {\large\emph{\textbf{\abstractname}}} \\
   \vspace{1.0cm}
     }
-  \begin{onehalfspace}%
+  \begin{singlespacing}%
   \vskip 20\p@
   \addcontentsline{toc}{chapter}{\abstractname}
 }
-\def\endabstracteng{\par\vfil\null\end{onehalfspace}%
+\def\endabstracteng{\par\vfil\null\end{singlespacing}%
 \selectlanguage{bahasa}\clearpage\pagenumbering{arabic}\setcounter{page}{1}}
 
 %Tabularization
