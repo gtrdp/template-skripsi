@@ -39,9 +39,10 @@
 \LoadClass[a4paper,12pt]{report}
 \RequirePackage{natbib}
 \bibliographystyle{plainnat}
-\RequirePackage{nomencl}%
-\renewcommand{\nomname}{\nomenclaturename}%
+\RequirePackage{glossaries}%
+%\renewcommand{\nomname}{\nomenclaturename}%
 \makeglossary%
+%\makenomenclature
 
 %------------------------------------------------------------
 %Layout
@@ -149,7 +150,7 @@
 \def\listfigurename{DAFTAR GAMBAR}%
 \def\listtablename{DAFTAR TABEL}%
 \def\listappendixname{DAFTAR LAMPIRAN}%
-\def\nomenclaturename{DAFTAR LAMBANG DAN SINGKATAN}%
+\def\nomenclaturename{DAFTAR SINGKATAN}%
 \def\abstractname{Intisari}%
 \def\acknowledgmentname{HALAMAN PERSEMBAHAN}%
 \def\approvalname{HALAMAN PENGESAHAN}
@@ -259,11 +260,8 @@
 %------------------------------------------------------------
 \def\approvalpage{%
   \chapter*{\approvalname}%
-  %\newpage\thispagestyle{empty}%
   \begin{center}
   \begin{doublespace}
-    %\MakeUppercase{\normalfont\bfseries\expandafter{Halaman Pengesahan}}\\
-    %\vspace{1.0cm}
         \MakeUppercase{\normalfont\bfseries\@titleind}\par\nobreak
     \vspace{1.0cm}
     \MakeUppercase{\normalfont\bfseries\expandafter{Skripsi}}\\
@@ -317,9 +315,10 @@
 %------------------------------------------------------------
 %Nomenclature
 %------------------------------------------------------------
-\def\lambang{%
-  \clearpage\thispagestyle{chapterheading}%
-  \printglossary%
+\def\singkatan{%
+  %\clearpage\thispagestyle{chapterheading}%
+  \chapter*{\nomenclaturename}%
+  \printglossary
 \addcontentsline{toc}{chapter}{\nomenclaturename}
 }
 
