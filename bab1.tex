@@ -1,3 +1,8 @@
+%-------------------------------------------------------------------------------
+% 								BAB I
+% 							LATAR BELAKANG
+%-------------------------------------------------------------------------------
+
 \chapter{LATAR BELAKANG}
 
 \section{Latar Belakang Masalah}
@@ -11,17 +16,22 @@ Namun demikian, pada umumnya jaringan WSN tidak menggunakan IP, melainkan protok
 
 
 \section{Rumusan Masalah}
+Penggunaan WSN untuk sebuah gedung dan rumah semakin populer karena dapat dimanfaatkan untuk berbagai kepentingan misalnya home automation dan home surveillance. Permasalahan pada WSN adalah jika diinginkan pusat kendali berada pada tempat yang jauh dari jaringan sensornya maka jaringan internet yang memungkinkan untuk menyelesaikan permasalahan ini. Namun demikian, pada umumnya jaringan WSN tidak menggunakan IP sehingga diperlukan gateway yang mampu menghubungkan WSN dengan jaringan internet.
 
 
 \section{Batasan Masalah}
-
+Batasan masalah pada penelitian ini adalah:
+\begin{enumerate}
+\item Penelitian ini bertujuan untuk mengembangkan purwa rupa aplikasi berbasis web untuk integrasi beberapa WSN dengan Internet.
+\item Peranti WSN yang digunakan dan diujikan hanya IQRF dan XBee. Untuk XBee, peranti tersebut disambungkan dengan XBee Relay Shield dan Arduino Uno sebagai \emph{sensor node}.
+\item Aplikasi web dibangun menggunakan bahasa PHP, basis data MySQL, dan berjalan pada sistem operasi OpenWRT yang berbasis pada Linux.
+\item IQRF hanya digunakan untuk mendapatkan suhu sekitar dan XBee digunakan untuk menghidup dan mematikan relay.
+\item AP yang digunakan adalah TP-LINK MR3020 dengan sistem operasi OpenWRT.
+\end{enumerate}
 
 
 \section{Tujuan Penelitian}
 Tujuan penelitian ini adalah mempelajari kemungkinan pengembangan perangkat lunak yang akan ditanamkan ke dalam sebuah \emph{access point} untuk difungsikan sebagai gateway sehingga mampu digunakan untuk mengintegrasikan jaringan WiFi dan beberapa protokol WSN ke jaringan internet.
-
-
-\section{Metodologi Penelitian}
 
 
 \section{Manfaat Penelitian}
@@ -29,8 +39,28 @@ Dengan terhubungnya WSN ke jaringan internet dimungkinkan pengembangan aplikasi 
 
 Selain itu, pengintegrasian gateway untuk WiFi dan WSN dalam satu piranti juga membuka peluang besar untuk memecahkan persoalan interoperabilitas perangkat keras dan kemudahan sistem.
 
+
 \section{Keaslian Penelitian}
+Penelitian ini tidak untuk menguji hipotesis baru melainkan merupakan pengembangan perangkat lunak yang akan ditanamkan ke dalam gateway sehingga mampu menghubungkan jaringan WiFi dan WSN ke jaringan internet. Penelitian ini akan meningkatkan fungsi AP menjadi gateway yang menghubungkan WiFi dan WSN dengan jaringan internet.
 
 
 \section{Sistematika Penulisan}
+\noindent
+\textbf{BAB I : PENDAHULUAN}\\
+Pada bab ini dijelaskan latar belakang, rumusan masalah, batasan, tujuan, manfaat, keaslian penelitian, dan sistematika penulisan.\\
 
+\noindent
+\textbf{BAB II : TINJAUAN PUSTAKA DAN LANDASAN TEORI}\\
+Pada bab ini dijelaskan teori-teori dan penelitian terdahulu yang digunakan sebagai acuan dan dasar dalam penelitian.\\
+
+\noindent
+\textbf{BAB III : METODE PENELITIAN}\\
+Pada bab ini dijelaskan metode yang digunakan dalam penelitian meliputi langkah kerja, pertanyaan penilitian, alat dan bahan, serta tahapan dan alur penelitian.\\
+
+\noindent
+\textbf{BAB IV : HASIL DAN PEMBAHASAN}\\
+Pada bab ini dijelaskan hasil penelitian dan pembahasannya.\\
+
+\noindent
+\textbf{BAB V : KESIMPULAN DAN SARAN}\\
+Pada bab ini ditulis kesimpulan akhir dari penelitian dan saran untuk pengembangan penelitian selanjutnya.\\
