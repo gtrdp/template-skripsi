@@ -14,6 +14,7 @@
 \usepackage[pass]{geometry}
 \usepackage{verbatim,enumerate}
 
+\usepackage{booktabs}
 
 \newif\if@msthesis
 \newif\if@msproposal

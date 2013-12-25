@@ -1,52 +1,101 @@
-\chapter{METODOLOGI}
+%-------------------------------------------------------------------------------
+%                            BAB III
+%               		METODOLOGI PENELITIAN
+%-------------------------------------------------------------------------------
+
+\chapter{METODOLOGI PENELITIAN}
 
 \section{Alat dan Bahan}
-Bahan yang digunakan dalam penelitian ini adalah:
+	Alat dan bahan yang digunakan dalam penelitian ini adalah:
 
-\vspace{-0.5cm}
+	\subsection{Perangkat Keras}
+		\vspace{-0.5cm}
 
-\begin{enumerate}[a.]
-\begin{singlespace}
-\itemsep0em
-\item Kit pancar-rima (10 unit),
-\item Kit pengembangan program (2 unit),
-\item Kit pengunduh program (2 unit),
-\item Asesoris kit pancar-rima (10 unit),
-\item Kit ekspansi (5 unit),
-\item Access Point (3 unit).
-\end{singlespace}
-\end{enumerate}
+		\begin{enumerate}[a.]
+		\begin{singlespace}
+		\itemsep0em
+			\item Kit pancar-rima IQRF TR-53B (3 unit),
+			\item Kit pengunduh program CK-USB-04 (1 unit),
+			\item Kit pengembangan DK-EVAL-03 (2 unit),
+			\item Kit pengembangan CK-EVAL-04 (1 unit),
+			\item \emph{XBee 802.15.4 Radios (Series 1)} (3 unit),
+			\item \emph{XBee Explorer USB Board} (1 unit),
+			\item \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)} (2 unit),
+			\item Arduino Uno (2 unit),
+			\item TP-LINK MR3020 (1 unit),
+			\item Kabel USB ke Serial Prolific (1 unit).
+		\end{singlespace}
+		\end{enumerate}
 
-\section{Langkah Kerja}
-Rancangan arsitektur yang akan digunakan pada penelitian ini diilustrasikan seperti pada Gambar \ref{wifi}. Pada gambar tersebut diilustrasikan sebuah sistem yang terdiri atas dua buah WSN dengan protokol yang berbeda dan satu buah jaringan nirkabel lokal (WiFi). Protokol WSN yang akan digunakan dalam penelitian ini adalah dari IQRF dan ZigBee. Pelaksanaan penelitian ini akan dibagi menjadi tiga paket pekerjaan (Work Package, WP).
+	\subsection{Perangkat Lunak}
+		\vspace{-0.5cm}
 
-\textbf{WP 1: Perancangan Perangkat Lunak}
+		\begin{enumerate}[a.]
+		\begin{singlespace}
+		\itemsep0em
+			\item Arduino for Mac OSX,
+			\item CoolTerm,
+			\item Driver FTDI for Mac OSX,
+			\item PHP, MySQL, dan uHTTPd,
+			\item Python dan pustaka PySerial,
+			\item IQRF IDE v 2.08 for TR-53B,
+			\item SSHFS,
+			\item Sublime Text 3.
+		\end{singlespace}
+		\end{enumerate}
 
-Pada tahap ini akan dilakukan studi literatur yang dititikberatkan pada sistem operasi (Operating System, OS) untuk piranti tertanam (embedded device). Langkah selanjutnya adalah rerancangan perangkat lunak yang akan ditanamkan pada Access Point (AP). Perangkat lunak yang akan ditanamkan harus bekerja secara efisien karena kemampuan komputasi yang terbatas pada AP.
+\section{Alur Penelitian}
+	\subsection{Pra Penelitian}
+		Sebelum penelitian dimulai, dilakukan studi literatur terkait dengan sistem yang akan dibangun. Selain itu, analisis kebutuhan juga dirancang pada tahap ini. Setelah semua selesai, dilajutkan dengan penulisan proposal penelitian.
 
-\begin{figure}[ht!]
-  \centering
-    \includegraphics{gambar/wifi}
-    \caption{Arsitektur WSN dan WiFi dengan sebuah AP.}
-    \label{wifi}
-\end{figure}
+	\subsection{Pengembangan Aplikasi}
+		Ada tiga aplikasi yang akan dibangun, yaitu aplikasi berbasis bahasa C untuk masing sensor-sensor IQRF dan Arduino Uno, aplikasi berbasis web yang nantinya akan berinteraksi langsung dengan pengguna, dan aplikasi berbasis bahasa Python untuk mengomunikasikan sensor-sensor dengan aplikasi berbasis web.
 
-\textbf{WP 2: Implementasi Perangkat Lunak}
+		Aplikasi untuk sensor-sensor IQRF terdiri dari dua bagian, yaitu aplikasi untuk sensor koordinator dan sensor simpul. Namun demikian, aplikasi sama-sama ditulis dan kembangkan menggunakan Sublime Text 3. Setelah kode sesumber untuk aplikasi selesai dibuat, kode sesumber dikompiliasi menggunakan IDE IQRF untuk kemudian diunggah ke sensor menggunakan bantuan aplikasi yang sama. Aplikasi yang dikembangkan adalah hasil fork dari iHome, aplikasi rumah hijau yang dikembangkan oleh Wibowo, et. al.
 
-Implementasi perangkat lunak dilakukan pada tahap ini. Langkah pertama yang dilakukan adalah memastikan bahwa WSN dapat terhubungan dengan internet sesuai dengan yang direncanakan. Langkah selanjutnya adalah memastikan bahwa jaringan WiFi tidak mengalami gangguan setelah perangkat lunak yang baru tertanam pada AP. Penambahan layanan-layanan yang diperlukan dapat pula dilakukan pada tahap ini.
+		Sedangkan aplikasi untuk Arduino Uno, yang bertugas menyala-matikan relay dengan komunikasi berbasis ZigBee, dikembangkan dengan aplikasi Arduino for Mac OSX dengan bahasa pemrograman C. Proses kompilasi dan pengunggahan dilakukan dengan bantuan aplikasi yang sama.
 
-\textbf{WP 3: Integrasi dan Pengujian Seluruh Sistem}
+		
 
-Jika jaringan WiFi dan dua protokol WSN masing-masing dapat berhubungan dengan internet, maka pada tahap ini akan dilakukan pengujian sistem secara keseluruhan. Pengujian dinaikkan dari skala lab menjadi skala \emph{test-bed}. Pengujian dalam \emph{test-bed} dilakukan untuk menjamin bahwa sistem yang dikembangkan bekerja sesuai dengan yang direncanakan.
+	\subsection{Evaluasi dan Perbaikan}
+		Evaluasi dilakukan dengan pengujian apakah sistem sudah berlajan dengan semestinya. Kemudian Perbaikan dilakukan dengan bantuan SSHFS agar AP dapat mengakses direktori yang tersimpan pada komputer karena \emph{coding} tidak dilakukan pada AP itu sendiri, melainkan komputer.
+
+	\subsection{Pasca Penelitian}
+
+	\subsection{Diagram Alir Penelitian}
+
+
+\section{Tahapan Pelaksanaan}
+	Rancangan arsitektur yang akan digunakan pada penelitian ini diilustrasikan seperti pada Gambar \ref{wifi}. Pada gambar tersebut diilustrasikan sebuah sistem yang terdiri atas dua buah WSN dengan protokol yang berbeda dan satu buah jaringan nirkabel lokal (WiFi). Protokol WSN yang akan digunakan dalam penelitian ini adalah dari IQRF dan ZigBee. Pelaksanaan penelitian ini akan dibagi menjadi tiga paket pekerjaan (Work Package, WP).
+
+	\noindent\textbf{WP 1: Perancangan Perangkat Lunak}
+
+	Pada tahap ini akan dilakukan studi literatur yang dititikberatkan pada sistem operasi (Operating System, OS) untuk piranti tertanam (embedded device). Langkah selanjutnya adalah rerancangan perangkat lunak yang akan ditanamkan pada Access Point (AP). Perangkat lunak yang akan ditanamkan harus bekerja secara efisien karena kemampuan komputasi yang terbatas pada AP.
+
+		\begin{figure}[ht!]
+		  \centering
+		    \includegraphics{gambar/wifi}
+		    \caption{Arsitektur WSN dan WiFi dengan sebuah AP.}
+		    \label{wifi}
+		\end{figure}
+
+	\noindent\textbf{WP 2: Implementasi Perangkat Lunak}
+
+	Implementasi perangkat lunak dilakukan pada tahap ini. Langkah pertama yang dilakukan adalah memastikan bahwa WSN dapat terhubungan dengan internet sesuai dengan yang direncanakan. Langkah selanjutnya adalah memastikan bahwa jaringan WiFi tidak mengalami gangguan setelah perangkat lunak yang baru tertanam pada AP. Penambahan layanan-layanan yang diperlukan dapat pula dilakukan pada tahap ini.
+
+	\noindent\textbf{WP 3: Integrasi dan Pengujian Seluruh Sistem}
+
+	Jika jaringan WiFi dan dua protokol WSN masing-masing dapat berhubungan dengan internet, maka pada tahap ini akan dilakukan pengujian sistem secara keseluruhan. Pengujian dinaikkan dari skala lab menjadi skala \emph{test-bed}. Pengujian dalam \emph{test-bed} dilakukan untuk menjamin bahwa sistem yang dikembangkan bekerja sesuai dengan yang direncanakan.
+
 
 \section{Jadwal Kegiatan}
-Penelitian direncanakan akan dilaksanakan selama enam bulan. Rincian rencana jadwal penelitian dicantumkan dalam tabel berikut.
+	Penelitian direncanakan akan dilaksanakan selama enam bulan. Rincian rencana jadwal penelitian dicantumkan dalam tabel berikut.
 
-\begin{center}
-Tabel 3.1. Jadwal Penelitian.
-\end{center}
-\vspace{-0.5cm}
-\begin{figure}[ht!]
-  \centering
-    \includegraphics[width=13cm]{gambar/timeline}
-\end{figure}
+	\begin{center}
+	Tabel 3.1. Jadwal Penelitian.
+	\end{center}
+	\vspace{-0.5cm}
+	\begin{figure}[ht!]
+	  \centering
+	    \includegraphics[width=13cm]{gambar/timeline}
+	\end{figure}
