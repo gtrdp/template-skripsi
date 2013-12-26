@@ -15,6 +15,8 @@
 \usepackage{verbatim,enumerate}
 
 \usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage{multirow}
 
 \newif\if@msthesis
 \newif\if@msproposal

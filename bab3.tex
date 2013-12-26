@@ -6,7 +6,6 @@
 \chapter{METODOLOGI PENELITIAN}
 
 \section{Alat dan Bahan}
-	Alat dan bahan yang digunakan dalam penelitian ini adalah:
 
 	\subsection{Perangkat Keras}
 		\vspace{-0.5cm}
@@ -66,7 +65,12 @@
 		Setelah penelitian selesai dilakukan dan aplikasi siap untuk diimplementasikan, naskah skripsi dan makalah skripsi ditulis sebagai manifesto penelitian.
 
 	\subsection{Diagram Alir Penelitian}
-		
+		\begin{figure}[ht!]
+		  \centering
+		    \includegraphics[width=0.3\textwidth]{gambar/flowchart}
+		    \caption{Diagram alir penelitian.}
+		    \label{flowchart-penelitian}
+		\end{figure}
 
 
 \section{Tahapan Pelaksanaan}
@@ -93,13 +97,23 @@
 
 
 \section{Jadwal Kegiatan}
-	Penelitian direncanakan akan dilaksanakan selama enam bulan. Rincian rencana jadwal penelitian dicantumkan dalam tabel berikut.
+	Penelitian direncanakan akan dilaksanakan selama enam bulan. Rincian rencana jadwal penelitian dicantumkan dalam Tabel \ref{jadwal}.
 
-	\begin{center}
-	Tabel 3.1. Jadwal Penelitian.
-	\end{center}
-	\vspace{-0.5cm}
-	\begin{figure}[ht!]
-	  \centering
-	    \includegraphics[width=13cm]{gambar/timeline}
-	\end{figure}
+	% Please remember to add \use{multirow} to your document preamble in order to suppor multirow cells
+		\begin{table}[ht!]
+		\centering
+		\caption{Jadwal Penelitian.}
+		\label{jadwal}
+		\begin{tabular}{|c|l|l|l|l|l|l|l|}
+		\hline
+		\multirow{2}{*}{No} & \multirow{2}{*}{Keterangan} & \multicolumn{6}{c|}{Bulan}                                                                                                                          \\ \cline{3-8} 
+		                    &                             & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+		1                   & Studi literatur                                  &\cellcolor{gray} &\cellcolor{gray}&                        &                        &                        &                         \\ \hline
+		2                   & Desain                                           &                        &\cellcolor{gray}&\cellcolor{gray}&                        &                        &                         \\ \hline
+		3                   & Pembelian bahan                                  &                        &                        &\cellcolor{gray}&                        &                        &                         \\ \hline
+		4                   & Pembuatan prototipe                              &                        &                        &\cellcolor{gray}&\cellcolor{gray}&\cellcolor{gray}&                         \\ \hline
+		5                   & Uji coba dan perbaikan                           &                        &                        &                        &\cellcolor{gray}&\cellcolor{gray}&                         \\ \hline
+		6                   & Penulisan skripsi                                &                        &                        &                        &                        &                        &\cellcolor{gray}\\ \hline
+		\end{tabular}
+		\end{table}
+	
