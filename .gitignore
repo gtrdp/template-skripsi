@@ -30,6 +30,11 @@
 *.vrb
 *.xdy
 *.tdo
+
+# Untuk file file project sublime text
+# Karena saya mengembangkan dengan Sublime Text + LaTeX Tools
 *.sublime-project
 *.sublime-workspace
-*.dia
+
+# Untuk file .dia dari Dia Diagram Creator
+#*.dia

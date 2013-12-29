@@ -176,7 +176,7 @@
 \def\listtablename{LIST OF TABLES}%
 \def\listappendixname{LIST OF APPENDICES}%
 \def\nomenclaturename{NOMENCLATURE}%
-\def\abstractname{Abstract}%
+\def\abstractname{\emph{Abstract}}%
 \def\partname{PART}%
 \def\chaptername{CHAPTER}%
 \def\appendixname{APPENDIX}%
@@ -346,7 +346,7 @@
 \def\abstracteng{%
   \clearpage\thispagestyle{chapterheading}\selectlanguage{english}
   {\parindent \z@ \centering \normalfont
-  {\large\emph{\textbf{\abstractname}}} \\
+  {\large\textbf{\abstractname}} \\
   \vspace{1.0cm}
     }
   \begin{singlespacing}%
