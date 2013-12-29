@@ -165,20 +165,106 @@
 
 					Zona waktu standar pada OpenWRT adalah UTC yang belokasi pada kota Greenwich di Inggris Raya. Agar zona waktu dapat dikonfigurasi sesuai dengan zona waktu kota Yogyakarta, maka isi dari file /etc/config/system harus disesuaikan. Pada file tersebut, zona waktu UTC diganti menjadi WIT-7 atau \emph{Western Indonesian Time}-7.
 
-				\item Peranti XBee
-					
-
 				\item Konfigurasi Komputer untuk Pengembangan
 
-				Enable OpenSSH
+					Komputer yang digunakan dalam penelitian ini adalah MacBook Pro dengan sistem operasi Mac OSX Mountain Lion. Sedangkan aplikasi yang harus tersedia adalah Sublime Text 3, Arduino for Mac OSX, CoolTerm, Driver FTDI for Mac OSX, IQRF IDE v 2.08 for TR-53B.
+
+					Sublime Text 3 berperan banyak dalam mengedit kode-kode sesumber PHP, C, dan Python.
+
+					Sedangkan proses pengembangan dan pengunduhan aplikasi untuk Arduino sepenuhnya dilakukan dengan Arduino for Mac OSX karena aplikasi tersebut sudah mencakup editor teks dan alat kompilasi.
+
+					Agar komputer dapat membaca kanal serial sehingga dapat melakukan tugas-tugas seperti konfigurasi XBee Radio dan pengujian aplikasi Python, komputer membutuhkan aplikasi CoolTerm. Sebelum aplikaisi ini terinstal, pastikan driver FTDI untuk Mac OSX sudah terinstal, agar komputer dapat mendeteksi XBee yang terhubung melalui USB.
+
+					Walaupun kode sesumber untuk IQRF ditulis dengan bantuan Sublime Text 3, proses kompilasinya dilakukan dengan aplikasi IQRF IDE v 2.08 for TR-53B. Proses pengunduhan file ke IQRF juga dilakukan dengan aplikasi yang sama.
+
+					Semua proses instalasi aplikasi yang dibutuhkan dilakukan dengan prosedur standar dari Mac OSX. Yaitu memperoleh file binary-nya dan kemudian menyalin file tersebut ke direktori Application atau mengikuti prosedur standar dari masing-masing aplikasi.
+
+					Langkah terakhir yang dilakukan adalah memastikan AP dapat mengakses komputer melalui SSH. Pastikan \emph{remote sharing} dalam keadaan tercentang di \emph{System Preference}, \emph{Sharing}. Atau untuk lebih jelasnya dapat melihat pada Gambar \ref{mac-sharing}.
+
+					\begin{figure}[ht!]
+					  \centering
+					    \includegraphics{gambar/mac-sharing}
+					    \caption{Konfigurasi SSH pada Mac OSX.}
+					    \label{mac-sharing}
+					\end{figure}
+
+				\item Peranti XBee
+					Setiap peranti XBee yang akan digunakan harus terkonfigurasi terlebih dahulu. Parameter-parameter yang harus terkonfigurasi adalah ATID (alamat dari jaringan/\emph{network ID}), ATMY (alamat peranti itu sendiri), ATDH (\emph{destination address high}), dan ATDL (\emph{destination address low}).
+
+					Proses konfigurasi dilakukan dengan menyambungkan XBee Radio dengan \emph{XBee Explorer USB Board} ke komputer dan menjalankan aplikasi untuk membaca kanal serial, misalnya CoolTerm pada Mac OSX. Setelah CoolTerm dibuka, buka koneksi kanal serial ke XBee dan jalankan perintah dengan format:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+					    	+++		#masuk ke AT Mode
+							ATID <id jaringan>
+							ATMY <alamat dari zigbee>
+							ATDH <destination high>
+							ATDL <destination low>
+							ATWR 	#tulis ke non volatile memory
+					    \end{verbatim}  
+					\endgroup
+
+					Contoh perintahnya adalah:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+					    	+++		#masuk ke AT Mode
+							ATID 1234
+							ATMY 5
+							ATDH 0
+							ATDL 1
+							ATWR 	#tulis ke non volatile memory
+					    \end{verbatim}  
+					\endgroup
 			\end{enumerate}
+
 		\subsection{Pengembangan Aplikasi WSN}
+			\begin{enumerate}
+				\item IQRF
+
+					Peranti IQRF dalam penelitian ini ada dua jenis, begitu pula aplikasi/peranti lunak yang tertanam di dalamnya. Aplikasi tersebut adalah \emph{Sink} dan \emph{Node}. Aplikasi \emph{Sink} akan ditanamkan pada koordinator dari IQRF yang terhubung langsung dengan AP melalui kabel USB dan jumlahnya hanya satu. Sedangkan aplikasi \emph{Node} akan ditanamkan pada sensor-sensor IQRF yang akan saling membentuk jaringan jala (\emph{mesh network}) dan jumlahnya lebih dari satu.
+
+					Aplikasi \emph{Sink} lebih ditekankan pada pembentukan ikatan (\emph{bond}) antara koordinator dan sensor-sensor, pengendalian sensor-sensor, serta pengakuisisian data dari masing-masing sensor.
+
+					Sedangkan aplikasi \emph{Node} lebih bersifat pasif karena hanya akan merespon perintah-perintah yang akan dikirimkan oleh koordinator, seperti pembentukan ikatan dan pembacaan temperatur.
+
+					Data yang akan diakuisisi dari masing-masing sensor adalah temperatur yang terbaca di masing-masing sensor.
+
+					Aplikasi yang digunakan adalah hasil \emph{fork} dari aplikasi iHome yang dikembangkan oleh Sigit B. Wibowo dkk yang fiturnya tidak terbatas hanya pada pembacaan temperatur sekitar.
+
+				\item XBee
+
+					Sama seperti IQRF, peranti XBee terdiri dari dua jenis peranti, yaitu koordnator dan sensor-sensor. Koordinator bertugas menyala dan matikan relay-relay yang terdapat di masing-masing sensor sesuai permintaan pengguna.
+
+					Koordinator tersusun atas \emph{XBee 802.15.4 Radios (Series 1)} yang tertanam pada \emph{XBee Explorer USB Board} dan terkoneksi langsung dengan AP dengan kabel USB.
+
+					Sedangkan sensornya terdiri dari tiga bagian, yaitu \emph{XBee 802.15.4 Radios (Series 1)}, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan Arduino Uno. Ketiga bagian tersebut saling terhubung dengan pin-pin yang tersedia.
+
+					XBee pada hakikatnya hanya sebatas peranti komunikasi antara AP dengan relay-relay yang tersedia, sehingga pemrograman teletak pada masing-masing Arduino pada relay. Bahasa yang digunakan adalah bahasa C (Arduino). Aplikasi yang dikembangkan akan menunggu perintah dari AP untuk menyala dan matikan relay.
+
+			\end{enumerate}
+
 		\subsection{Pengembangan Aplikasi Python}
+			Aplikasi Python adalah jantung dari penelitian ini karena menghubungkan aplikasi berbasis web dengan peranti-peranti IQRF dan XBee.
+
+			Aplikasi terdiri dari tiga bagian.
+
+			\begin{enumerate}
+				\item IQRF
+				\item XBee
+				\item Profile
+			\end{enumerate}
+
 		\subsection{Pengembangan Aplikasi Berbasis Web}
 
 			ERD
 		\subsection{Evaluasi dan Perbaikan}
+			Peranan SSHFS.
+
 		\subsection{\emph{Screenshot} Aplikasi}
+
+			Tampilkan responsif untuk beberapa halaman.
+
 		\subsection{Kode Sesumber}
 			Kode sesumber dapat diperoleh pada situs GitHub dengan alamat URL \url{https://github.com/gtrdp/wsn-ip-interoperability}.
 
