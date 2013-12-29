@@ -55,26 +55,7 @@
 			    \includegraphics{gambar/sitemap}
 			    \caption{Peta situs aplikasi web.}
 			    \label{sitemap}
-			\end{figure}
-
-		\subsection{Diagram Alir Proses}
-			Diagram alir menambah peranti IQRF:
-
-			\begin{figure}[ht!]
-			  \centering
-			    \includegraphics{gambar/add-iqrf}
-			    \caption{Diagram Alir Penambahan Peranti IQRF ke Aplikasi.}
-			    \label{add-iqrf}
-			\end{figure}
-
-			Diagram alir menambah peranti XBee:
-
-			\begin{figure}[ht!]
-			  \centering
-			    \includegraphics{gambar/add-xbee}
-			    \caption{Diagram Alir Penambahan Peranti XBee ke Aplikasi.}
-			    \label{add-xbee}
-			\end{figure}
+			\end{figure}			
 
 		\subsection{Persiapan Pra Pengembangan Aplikasi}
 			\begin{enumerate}
@@ -189,6 +170,7 @@
 					\end{figure}
 
 				\item Peranti XBee
+
 					Setiap peranti XBee yang akan digunakan harus terkonfigurasi terlebih dahulu. Parameter-parameter yang harus terkonfigurasi adalah ATID (alamat dari jaringan/\emph{network ID}), ATMY (alamat peranti itu sendiri), ATDH (\emph{destination address high}), dan ATDL (\emph{destination address low}).
 
 					Proses konfigurasi dilakukan dengan menyambungkan XBee Radio dengan \emph{XBee Explorer USB Board} ke komputer dan menjalankan aplikasi untuk membaca kanal serial, misalnya CoolTerm pada Mac OSX. Setelah CoolTerm dibuka, buka koneksi kanal serial ke XBee dan jalankan perintah dengan format:
@@ -208,7 +190,7 @@
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \begin{verbatim}
-					    	+++		#masuk ke AT Mode
+							+++		#masuk ke AT Mode
 							ATID 1234
 							ATMY 5
 							ATDH 0
@@ -251,11 +233,110 @@
 
 			\begin{enumerate}
 				\item IQRF
+
+					Aplikasi Python IQRF memiliki kemampuan untuk melakukan \emph{bonding} antara koordinator dan sensor, dan pembacaan temperatur pada sensor dengan ID tertentu.
+
+					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-iqrf}.
+
+					\begin{figure}[ht!]
+					  \centering
+					    \includegraphics{gambar/python-iqrf}
+					    \caption{Diagram alir aplikasi Python untuk IQRF.}
+					    \label{python-iqrf}
+					\end{figure}
+
+					Aplikasi dijalankan dengan menjalankan format perintah berikut pada \emph{terminal console}:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+					    	$ python iqrf.py <perintah><ID node>
+					    \end{verbatim}  
+					\endgroup
+
+					Aplikasi ini berjalan dalam bentuk CLI dan membutuhkan satu parameter, yaitu perintah yang langsung disambung dengan ID node tanpa spasi. Perintah yang tersedia yaitu membaca gemperatur pada node ID tertentu (g), \emph{bonding} node ID tertentu (b), \emph{unbonding} node ID tertentu (u).
+
+					Sehingga contoh penggunaan aplikasi pada \emph{terminal console}:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+					    	$ python iqrf.py g3
+					    \end{verbatim}  
+					\endgroup
+					Perintah di atas adalah perintah untuk membaca temperatur pada node ID 3.
+
 				\item XBee
+
+					Aplikasi Python XBee memiliki kemampuan untuk menyala dan matikan relay pada peranti tertentu dan membaca status relay pada peranti tertentu, apakah relay tersebut sedang menyala atau mati.
+
+					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-xbee}.
+
+					\begin{figure}[ht!]
+					  \centering
+					    \includegraphics{gambar/python-xbee}
+					    \caption{Diagram alir aplikasi Python untuk menangani peranti XBee.}
+					    \label{python-xbee}
+					\end{figure}
+
+					Aplikasi dijalankan dengan menjalankan format perintah berikut pada \emph{terminal console}:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+					    	$ python xbee.py <perintah> <ATMY peranti> <ID relay>
+					    \end{verbatim}  
+					\endgroup
+
+					Aplikasi ini berjalan dalam bentuk CLI dan membutuhkan tiga parameter, yaitu perintah, alamat peranti (ATMY), dan ID relay (terdapat dua relay di tiap peranti). Perintah yang tersedia yaitu menyalakan relay, `on', mematikan relay, `off', dan membaca status relay, `status'.
+
+					Sehingga contoh penggunaan aplikasi pada \emph{terminal console}:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+					    	$ python iqrf.py status 2 1
+					    \end{verbatim}  
+					\endgroup
+					Perintah di atas akan membaca status (on/off) dari relay 1 pada peranti dengan alamat (ATMY) 2 dan menampilkannya pada layar dalam karakter `H' (menyala) atau `L' (mati).
+
 				\item Profile
+
+					Aplikasi ini memanfaatkan aplikasi \emph{at} pada Linux yang dapat menjalankan perintah tertentu di \emph{terminal console} pada waktu tertentu. Dengan aplikasi ini, pengguna dapat menyala-matikan relay pada waktu tertentu. Jika hal ini dikombinasikan dengan bacaan temperatur dari sensor IQRF, maka pengguna dapat menyala-matikan relay tertentu pada saat temperatur pada sensor IQRF node tertentu mencapai suhu tertentu, dan juga bisa hanya terjadi saat waktu tertentu.
+
+					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-profile}.
+
+					\begin{figure}[ht!]
+					  \centering
+					    \includegraphics{gambar/python-profile}
+					    \caption{Diagram alir aplikasi Python untuk menyala-matikan lampu pada kondisi tertentu.}
+					    \label{python-profile}
+					\end{figure}
+
 			\end{enumerate}
 
 		\subsection{Pengembangan Aplikasi Berbasis Web}
+			Aplikasi web untuk mengendalikan sensor-sensor IQRF dan XBee dibangun dengan PHP dan basis data MySQL. Aplikasi ini dibangun tanpa menggunakan \emph{framework} karena aplikasi ini tergolong tidak terlalu rumit, aplikasi ini hanya memliki lima halaman utama seperti terlihat pada sitemap Gambar \ref{sitemap}. Penggunaan \emph{framework} juga akan memakan sumber daya komputasi sedikit lebih banyak, padahal aplikasi ini akan diimplementasikan pada sebuah AP yang memiliki tingkat komputasi yang rendah.
+
+			Antarmuka yang dikembangkan adalah hasil \emph{fork} dari \emph{template} halaman administrator buatan Vince G. Antarmuka ditulis menggunakan HTML5 dan CSS3, dengan tambahan pemrograman JavaScript pada sisi klien agar menambah interaktivitas. Pustaka Bootstrap digunakan untuk membuat halaman web menjadi responsif, sehingga dapat menyesuaikan diri secara otomatis sesuai dengan ukuran layar. Pustaka jQuery digunakan untuk membantu pemrograman di sisi klien.
+
+			
+
+			Dikembangkan dengan pustaka Bootstrap.
+			Diagram alir menambah peranti IQRF:
+
+			\begin{figure}[ht!]
+			  \centering
+			    \includegraphics{gambar/add-iqrf}
+			    \caption{Diagram Alir Penambahan Peranti IQRF ke Aplikasi.}
+			    \label{add-iqrf}
+			\end{figure}
+
+			Diagram alir menambah peranti XBee:
+
+			\begin{figure}[ht!]
+			  \centering
+			    \includegraphics{gambar/add-xbee}
+			    \caption{Diagram Alir Penambahan Peranti XBee ke Aplikasi.}
+			    \label{add-xbee}
+			\end{figure}
+
 
 			ERD
 		\subsection{Evaluasi dan Perbaikan}
