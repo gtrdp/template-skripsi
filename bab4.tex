@@ -316,10 +316,18 @@
 
 			Antarmuka yang dikembangkan adalah hasil \emph{fork} dari \emph{template} halaman administrator buatan Vince G. Antarmuka ditulis menggunakan HTML5 dan CSS3, dengan tambahan pemrograman JavaScript pada sisi klien agar menambah interaktivitas. Pustaka Bootstrap digunakan untuk membuat halaman web menjadi responsif, sehingga dapat menyesuaikan diri secara otomatis sesuai dengan ukuran layar. Pustaka jQuery digunakan untuk membantu pemrograman di sisi klien.
 
-			
+			Kode sesumber untuk aplikasi berbasis web ditulis dengan bantuan Sublime Text 3.
 
-			Dikembangkan dengan pustaka Bootstrap.
-			Diagram alir menambah peranti IQRF:
+			Basis data yang dikembangkan tergolong sederhana karena hanya dimaksudkan untuk menyimpan data-data yang sifatnya kecil, seprti tampak pada Gambar \ref{erd}.
+
+			\begin{figure}[ht!]
+			  \centering
+			    \includegraphics{gambar/erd}
+			    \caption{Diagram alir aplikasi Python untuk menyala-matikan lampu pada kondisi tertentu.}
+			    \label{erd}
+			\end{figure}
+
+			Sedangkan diagram alir untuk menambah peranti IQRF dan XBee dijelaskan pada Gambar \ref{add-iqrf} dan Gambar \ref{add-xbee}.
 
 			\begin{figure}[ht!]
 			  \centering
@@ -328,8 +336,6 @@
 			    \label{add-iqrf}
 			\end{figure}
 
-			Diagram alir menambah peranti XBee:
-
 			\begin{figure}[ht!]
 			  \centering
 			    \includegraphics{gambar/add-xbee}
@@ -337,14 +343,60 @@
 			    \label{add-xbee}
 			\end{figure}
 
-
-			ERD
 		\subsection{Evaluasi dan Perbaikan}
-			Peranan SSHFS.
+			Evaluasi dilakukan dengan mengujikan semua fitur yang dimiliki oleh aplikasi. Jika terdapat kesalahan, maka dilacak dimanakah letak kesalahan berada, apakah pada aplikasi berbasis web, aplikasi Python, atau aplikasi C pada sensor.
+
+			Masalah yang timbul adalah saat akan merevisi aplikasi yang sudah terlanjur tertanam pada AP karena AP, dengan sistem operasi OpenWRT, tidak memiliki aplikasi teks editor yang mumpuni untuk melakukan pengeditan kode sesumber dengan nyaman. Oleh karena itu, seluruh kode sesumber tetap berada pada komputer agar tetap bisa dibuka dengan Sublime Text 3, namun AP me-\emph{mount}-nya dengan bantuan SSHFS sehingga seolah-olah kode sesumber tersebut berada dalam dua tempat dan saling tersinkronisasi.
+
+			Untuk melakukan \emph{mount} pada AP, menggunakan perintah:
+			\begingroup
+			    \fontsize{10pt}{12pt}\selectfont
+			    \begin{verbatim}
+			    	# sshfs /direktori/pada/ap <user>@<alamat IP>:/direktori/pada/komputer
+			    \end{verbatim}  
+			\endgroup
+			
 
 		\subsection{\emph{Screenshot} Aplikasi}
+			Bagian ini menampilkan beberapa \emph{screenshot} dari aplikasi web yang dikembangkan.
 
-			Tampilkan responsif untuk beberapa halaman.
+			\begin{itemize}
+				\item Halaman \emph{dashboard} saat belum ada peranti terpasang.
+
+					\begin{figure}[ht!]
+					  \centering
+					    \includegraphics[width=0.7\textwidth]{gambar/dashboard}
+					    \caption{Halaman \emph{dashboard} saat belum ada peranti terpasang.}
+					    \label{add-iqrf}
+					\end{figure}
+
+				\item Halaman \emph{dashboard} saat belum ada peranti terpasang (dibuka di layar kecil).
+
+					\begin{figure}[ht!]
+					  \centering
+					    \includegraphics[width=0.3\textwidth]{gambar/dashboard-small}
+					    \caption{Halaman \emph{dashboard} saat belum ada peranti terpasang (dibuka di layar kecil).}
+					    \label{add-iqrf}
+					\end{figure}
+
+				\item Halaman \emph{dashboard} saat peranti sudah terpasang.
+
+					\begin{figure}[ht!]
+					  \centering
+					    \includegraphics[width=0.3\textwidth]{gambar/dashboard-full}
+					    \caption{Halaman \emph{dashboard} saat peranti sudah terpasang.}
+					    \label{add-iqrf}
+					\end{figure}
+				\item Halaman \emph{dashboard} saat peranti sudah terpasang (dibuka di layar kecil).
+				\item Halaman daftar peranti IQRF yang terpasang.
+				\item Halaman daftar peranti XBee yang terpasang.
+				\item Halaman untuk menambahkan peranti IQRF.
+				\item Halaman untuk menambahkan peranti XBee.
+				\item Halaman untuk menambahkan profil.
+				\item Halaman yang menampilkan daftar pengguna.
+				\item Halaman untuk menambahkan pengguna baru.
+				\item Halaman login.
+			\end{itemize}
 
 		\subsection{Kode Sesumber}
 			Kode sesumber dapat diperoleh pada situs GitHub dengan alamat URL \url{https://github.com/gtrdp/wsn-ip-interoperability}.
@@ -355,5 +407,11 @@
 
 		\subsection{Hasil Akhir Perangkat Keras}
 		\subsection{Instalasi Aplikasi dan Perangkat Keras}
+			\begin{itemize}
+			\end{itemize}
+			
 		\subsection{Hasil Uji Coba Aplikasi}
 		\subsection{Masalah dan Penyelesaian}
+
+			Pyserial
+			Extroot harus direstart dulu sebelum bisa berjalan.
