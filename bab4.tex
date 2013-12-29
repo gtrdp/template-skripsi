@@ -88,8 +88,8 @@
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \begin{verbatim}
-							opkg update
-							opkg install block-extroot block-hotplug block-mount
+							# opkg update
+							# opkg install block-extroot block-hotplug block-mount
 					    \end{verbatim}  
 					\endgroup
 
@@ -97,7 +97,7 @@
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \begin{verbatim}
-							tar -C /overlay -cvf - . | tar -C /mnt/sda1 -xf -
+							# tar -C /overlay -cvf - . | tar -C /mnt/sda1 -xf -
 					    \end{verbatim}  
 					\endgroup
 
@@ -116,11 +116,67 @@
 					    \end{verbatim}  
 					\endgroup
 
+					Setelah proses implementasi extroot selesai, berarti AP sudah memiliki memori penyimpanan yang cukup (atau mungkin lebih) untuk menginstal aplikasi-aplikasi pendukung lainnya. Penelitian ini menggunakan memori USB 4 Gigabyte.
+
+					Agar TP-LINK MR3020 dapat membaca dan mengirimkan data dari dan ke WSN melalui kanal serial, dibutuhkan Python dan pustaka PySerial yang diinstal dengan perintah:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+							# opkg update
+							# opkg install python pyserial
+					    \end{verbatim}  
+					\endgroup
+
+					Sedangkan paket aplikasi `at' digunakan agar AP dapat menjalankan perintah untuk menyala-matikan relay pada waktu tertentu. Namun, sebelum at dapat berjalan, pada router sudah harus tersedia file /var/spool/cron/atjobs/.SEQ dan pemilik dari file tersebut harus diganti menjadi daemon.daemon. Aplikasi `at' diinstall dengan perintah:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+							# opkg update && opkg install at
+					    \end{verbatim}  
+					\endgroup
+					
+					Langkah selanjutnya adalah instalasi aplikasi pendukung aplikasi berbasis web yang nantinya akan dikembangkan yaitu Web Server, PHP, dan MySQL. Web server yang digunakan adalah yang sudah terinstal pada OpenWRT versi Attitude Adjustment yaitu uHTTPd. Sedangkan PHP dan MySQL harus diinstal dengan perintah:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+							# opkg update
+							# opkg install php5 php5-cgi mysql
+					    \end{verbatim}  
+					\endgroup
+
+					Setelah PHP berhasil terinstal, buka file /etc/config/uhttpd dan pastikan baris yang memuat
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \centering
+					    \begin{verbatim}
+							list interpreter ".php=/usr/bin/php-cgi"
+					    \end{verbatim}  
+					\endgroup
+					tidak dalam keadaan terkomentar.
+
+					Aplikasi yang terakhir yang harus diinstal adalah SSHFS yang berguna dalam uji coba dan perbaikan aplikasi. SSHFS dapat diinstal dengan perintah:
+					\begingroup
+					    \fontsize{10pt}{12pt}\selectfont
+					    \begin{verbatim}
+							# opkg update
+							# opkg install sshfs
+					    \end{verbatim}  
+					\endgroup
+
+					Zona waktu standar pada OpenWRT adalah UTC yang belokasi pada kota Greenwich di Inggris Raya. Agar zona waktu dapat dikonfigurasi sesuai dengan zona waktu kota Yogyakarta, maka isi dari file /etc/config/system harus disesuaikan. Pada file tersebut, zona waktu UTC diganti menjadi WIT-7 atau \emph{Western Indonesian Time}-7.
+
+				\item Peranti XBee
+					
+
 				\item Konfigurasi Komputer untuk Pengembangan
+
+				Enable OpenSSH
 			\end{enumerate}
 		\subsection{Pengembangan Aplikasi WSN}
 		\subsection{Pengembangan Aplikasi Python}
 		\subsection{Pengembangan Aplikasi Berbasis Web}
+
+			ERD
 		\subsection{Evaluasi dan Perbaikan}
 		\subsection{\emph{Screenshot} Aplikasi}
 		\subsection{Kode Sesumber}
@@ -131,6 +187,6 @@
 		Bagian ini menjelaskan hal-hal terkait instalasi aplikasi ke kondisi sesungguhnya, hasil uji coba, masalah, dan penyelesaian.
 
 		\subsection{Hasil Akhir Perangkat Keras}
-		\subsection{Instalasi Aplikasi}
+		\subsection{Instalasi Aplikasi dan Perangkat Keras}
 		\subsection{Hasil Uji Coba Aplikasi}
 		\subsection{Masalah dan Penyelesaian}
