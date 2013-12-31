@@ -17,6 +17,7 @@
 \usepackage{booktabs}
 \usepackage[table]{xcolor}
 \usepackage{multirow}
+\usepackage{float}
 
 \newif\if@msthesis
 \newif\if@msproposal
@@ -42,9 +43,9 @@
 \LoadClass[a4paper,12pt]{report}
 \RequirePackage{natbib}
 \bibliographystyle{plainnat}
-\RequirePackage{glossaries}%
+%\RequirePackage{glossaries}%
 %\renewcommand{\nomname}{\nomenclaturename}%
-\makeglossary%
+%\makeglossary%
 %\makenomenclature
 
 %------------------------------------------------------------
@@ -319,9 +320,10 @@
 %Nomenclature
 %------------------------------------------------------------
 \def\singkatan{%
-  %\clearpage\thispagestyle{chapterheading}%
   \chapter*{\nomenclaturename}%
-  \printglossary
+  %\clearpage\thispagestyle{chapterheading}%
+  %\chapter*{\nomenclaturename}%
+  %\printglossary
 \addcontentsline{toc}{chapter}{\nomenclaturename}
 }
 

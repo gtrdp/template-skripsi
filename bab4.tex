@@ -9,53 +9,54 @@
 
 		\subsection{Fitur-Fitur Aplikasi}
 			Kemampuan menangani sensor-sensor:
+			\vspace{-0.5cm}
 			\begin{itemize}
+			\begin{singlespace}
 				\item Mampu membaca dan menampilkan suhu yang terbaca pada sensor IQRF,
 				\item mampu menyala-matikan relay pada peranti yang diinginkan,
 				\item mampu menambah dan mengurangi peranti baru baik IQRF atau XBee,
 				\item mampu menjalankan profile tertentu dari kombinasi suhu dan relay atau waktu tertentu.
+			\end{singlespace}
 			\end{itemize}
 
 			Kemampuan menangani pengguna:
+			\vspace{-0.5cm}
 			\begin{itemize}
+			\begin{singlespace}
 				\item Mengharuskan pengguna untuk memasukkan nama dan kata sandi sebelum masuk ke aplikasi,
 				\item dapat menambah atau mengurangi pengguna yang dapat memasuki sistem.
+			\end{singlespace}
 			\end{itemize}
 
 		\subsection{\emph{Use Case Diagram}}
-			\begin{figure}[ht!]
+			\emph{Use case diagram} dapat dilihat pada Gambar \ref{usecase}.
+			\begin{figure}[H]
 			  \centering
-			    \includegraphics{gambar/usecase}
+			    \includegraphics[width=0.9\textwidth]{gambar/usecase}
 			    \caption{Diagram \emph{use case} dari penelitian.}
 			    \label{usecase}
 			\end{figure}
 
 		\subsection{Diagram Arsitektur Sistem}
-			\begin{figure}[ht!]
+			Diagram arsitektur sistem dapat dilihat pada Gambar \ref{system-architecture}.
+			\begin{figure}[H]
 			  \centering
-			    \includegraphics{gambar/system-architecture}
+			    \includegraphics[width=\textwidth]{gambar/system-architecture}
 			    \caption{Diagram Arsitektur Sistem.}
 			    \label{system-architecture}
 			\end{figure}
 
 		\subsection{SDLC}
-			\begin{figure}[ht!]
+			SDLC yang digunakan dapat dilihat pada Gambar \ref{sdlc}.
+			\begin{figure}[H]
 			  \centering
-			    \includegraphics{gambar/sdlc}
+			    \includegraphics[width=0.6\textwidth]{gambar/sdlc}
 			    \caption{Diagram SDLC.}
 			    \label{sdlc}
 			\end{figure}
 	
 	\section{Perancangan Aplikasi}
 		Bagian ini menjelaskan hal-hal terkait pengembangan aplikasi.
-
-		\subsection{Peta Situs}
-			\begin{figure}[ht!]
-			  \centering
-			    \includegraphics{gambar/sitemap}
-			    \caption{Peta situs aplikasi web.}
-			    \label{sitemap}
-			\end{figure}			
 
 		\subsection{Persiapan Pra Pengembangan Aplikasi}
 			\begin{enumerate}
@@ -125,15 +126,14 @@
 					    \end{verbatim}  
 					\endgroup
 
-					Setelah PHP berhasil terinstal, buka file /etc/config/uhttpd dan pastikan baris yang memuat
+					Setelah PHP berhasil terinstal, buka file /etc/config/uhttpd dan pastikan baris yang memuat baris di bawah ini tidak dalam keadaan terkomentar.
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \centering
 					    \begin{verbatim}
 							list interpreter ".php=/usr/bin/php-cgi"
 					    \end{verbatim}  
-					\endgroup
-					tidak dalam keadaan terkomentar.
+					\endgroup					
 
 					Aplikasi yang terakhir yang harus diinstal adalah SSHFS yang berguna dalam uji coba dan perbaikan aplikasi. SSHFS dapat diinstal dengan perintah:
 					\begingroup
@@ -162,9 +162,9 @@
 
 					Langkah terakhir yang dilakukan adalah memastikan AP dapat mengakses komputer melalui SSH. Pastikan \emph{remote sharing} dalam keadaan tercentang di \emph{System Preference}, \emph{Sharing}. Atau untuk lebih jelasnya dapat melihat pada Gambar \ref{mac-sharing}.
 
-					\begin{figure}[ht!]
+					\begin{figure}[H]
 					  \centering
-					    \includegraphics{gambar/mac-sharing}
+					    \includegraphics[width=0.8\textwidth]{gambar/mac-sharing}
 					    \caption{Konfigurasi SSH pada Mac OSX.}
 					    \label{mac-sharing}
 					\end{figure}
@@ -177,7 +177,7 @@
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \begin{verbatim}
-					    	+++		#masuk ke AT Mode
+							+++		#masuk ke AT Mode
 							ATID <id jaringan>
 							ATMY <alamat dari zigbee>
 							ATDH <destination high>
@@ -238,9 +238,9 @@
 
 					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-iqrf}.
 
-					\begin{figure}[ht!]
+					\begin{figure}[H]
 					  \centering
-					    \includegraphics{gambar/python-iqrf}
+					    \includegraphics[width=0.6\textwidth]{gambar/python-iqrf}
 					    \caption{Diagram alir aplikasi Python untuk IQRF.}
 					    \label{python-iqrf}
 					\end{figure}
@@ -249,7 +249,7 @@
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \begin{verbatim}
-					    	$ python iqrf.py <perintah><ID node>
+							$ python iqrf.py <perintah><ID node>
 					    \end{verbatim}  
 					\endgroup
 
@@ -259,7 +259,7 @@
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \begin{verbatim}
-					    	$ python iqrf.py g3
+							$ python iqrf.py g3
 					    \end{verbatim}  
 					\endgroup
 					Perintah di atas adalah perintah untuk membaca temperatur pada node ID 3.
@@ -270,9 +270,9 @@
 
 					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-xbee}.
 
-					\begin{figure}[ht!]
+					\begin{figure}[H]
 					  \centering
-					    \includegraphics{gambar/python-xbee}
+					    \includegraphics[width=0.6\textwidth]{gambar/python-xbee}
 					    \caption{Diagram alir aplikasi Python untuk menangani peranti XBee.}
 					    \label{python-xbee}
 					\end{figure}
@@ -281,7 +281,7 @@
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \begin{verbatim}
-					    	$ python xbee.py <perintah> <ATMY peranti> <ID relay>
+							$ python xbee.py <perintah> <ATMY peranti> <ID relay>
 					    \end{verbatim}  
 					\endgroup
 
@@ -291,7 +291,7 @@
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \begin{verbatim}
-					    	$ python iqrf.py status 2 1
+							$ python iqrf.py status 2 1
 					    \end{verbatim}  
 					\endgroup
 					Perintah di atas akan membaca status (on/off) dari relay 1 pada peranti dengan alamat (ATMY) 2 dan menampilkannya pada layar dalam karakter `H' (menyala) atau `L' (mati).
@@ -302,9 +302,9 @@
 
 					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-profile}.
 
-					\begin{figure}[ht!]
+					\begin{figure}[H]
 					  \centering
-					    \includegraphics{gambar/python-profile}
+					    \includegraphics[width=0.8\textwidth]{gambar/python-profile}
 					    \caption{Diagram alir aplikasi Python untuk menyala-matikan lampu pada kondisi tertentu.}
 					    \label{python-profile}
 					\end{figure}
@@ -317,28 +317,36 @@
 			Antarmuka yang dikembangkan adalah hasil \emph{fork} dari \emph{template} halaman administrator buatan Vince G. Antarmuka ditulis menggunakan HTML5 dan CSS3, dengan tambahan pemrograman JavaScript pada sisi klien agar menambah interaktivitas. Pustaka Bootstrap digunakan untuk membuat halaman web menjadi responsif, sehingga dapat menyesuaikan diri secara otomatis sesuai dengan ukuran layar. Pustaka jQuery digunakan untuk membantu pemrograman di sisi klien.
 
 			Kode sesumber untuk aplikasi berbasis web ditulis dengan bantuan Sublime Text 3.
+			
+			Peta situs dari aplikasi berbasis web yang dikembangkan dapat dilihat pada Gambar \ref{sitemap}.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.8\textwidth]{gambar/sitemap}
+			    \caption{Peta situs aplikasi web.}
+			    \label{sitemap}
+			\end{figure}
 
 			Basis data yang dikembangkan tergolong sederhana karena hanya dimaksudkan untuk menyimpan data-data yang sifatnya kecil, seprti tampak pada Gambar \ref{erd}.
 
-			\begin{figure}[ht!]
+			\begin{figure}[H]
 			  \centering
-			    \includegraphics{gambar/erd}
-			    \caption{Diagram alir aplikasi Python untuk menyala-matikan lampu pada kondisi tertentu.}
+			    \includegraphics[width=0.6\textwidth]{gambar/erd}
+			    \caption{\emph{Entity Relationship Diagram} dari basis data untuk aplikasi web.}
 			    \label{erd}
 			\end{figure}
 
 			Sedangkan diagram alir untuk menambah peranti IQRF dan XBee dijelaskan pada Gambar \ref{add-iqrf} dan Gambar \ref{add-xbee}.
 
-			\begin{figure}[ht!]
+			\begin{figure}[H]
 			  \centering
-			    \includegraphics{gambar/add-iqrf}
+			    \includegraphics[width=0.6\textwidth]{gambar/add-iqrf}
 			    \caption{Diagram Alir Penambahan Peranti IQRF ke Aplikasi.}
 			    \label{add-iqrf}
 			\end{figure}
 
-			\begin{figure}[ht!]
+			\begin{figure}[H]
 			  \centering
-			    \includegraphics{gambar/add-xbee}
+			    \includegraphics[width=0.6\textwidth]{gambar/add-xbee}
 			    \caption{Diagram Alir Penambahan Peranti XBee ke Aplikasi.}
 			    \label{add-xbee}
 			\end{figure}
@@ -352,7 +360,7 @@
 			\begingroup
 			    \fontsize{10pt}{12pt}\selectfont
 			    \begin{verbatim}
-			    	# sshfs /direktori/pada/ap <user>@<alamat IP>:/direktori/pada/komputer
+					# sshfs /direktori/pada/ap <user>@<alamat IP>:/direktori/pada/komputer
 			    \end{verbatim}  
 			\endgroup
 			
@@ -360,43 +368,101 @@
 		\subsection{\emph{Screenshot} Aplikasi}
 			Bagian ini menampilkan beberapa \emph{screenshot} dari aplikasi web yang dikembangkan.
 
-			\begin{itemize}
-				\item Halaman \emph{dashboard} saat belum ada peranti terpasang.
-
-					\begin{figure}[ht!]
+					\begin{figure}[H]
 					  \centering
-					    \includegraphics[width=0.7\textwidth]{gambar/dashboard}
+					    \includegraphics[width=0.9\textwidth]{gambar/dashboard}
 					    \caption{Halaman \emph{dashboard} saat belum ada peranti terpasang.}
-					    \label{add-iqrf}
+					    \label{dashboard}
 					\end{figure}
 
-				\item Halaman \emph{dashboard} saat belum ada peranti terpasang (dibuka di layar kecil).
 
-					\begin{figure}[ht!]
+					\begin{figure}[H]
 					  \centering
-					    \includegraphics[width=0.3\textwidth]{gambar/dashboard-small}
+					    \includegraphics[width=0.5\textwidth]{gambar/dashboard-small}
 					    \caption{Halaman \emph{dashboard} saat belum ada peranti terpasang (dibuka di layar kecil).}
-					    \label{add-iqrf}
+					    \label{dashboard-small}
 					\end{figure}
 
-				\item Halaman \emph{dashboard} saat peranti sudah terpasang.
 
-					\begin{figure}[ht!]
+					\begin{figure}[H]
 					  \centering
-					    \includegraphics[width=0.3\textwidth]{gambar/dashboard-full}
+					    \includegraphics[width=0.9\textwidth]{gambar/dashboard-full}
 					    \caption{Halaman \emph{dashboard} saat peranti sudah terpasang.}
-					    \label{add-iqrf}
+					    \label{dashboard-full}
 					\end{figure}
-				\item Halaman \emph{dashboard} saat peranti sudah terpasang (dibuka di layar kecil).
-				\item Halaman daftar peranti IQRF yang terpasang.
-				\item Halaman daftar peranti XBee yang terpasang.
-				\item Halaman untuk menambahkan peranti IQRF.
-				\item Halaman untuk menambahkan peranti XBee.
-				\item Halaman untuk menambahkan profil.
-				\item Halaman yang menampilkan daftar pengguna.
-				\item Halaman untuk menambahkan pengguna baru.
-				\item Halaman login.
-			\end{itemize}
+
+
+					\begin{figure}[H]
+					  \centering
+					    \includegraphics[width=0.6\textwidth]{gambar/dashboard-full-small}
+					    \caption{Halaman \emph{dashboard} saat peranti sudah terpasang (dibuka di layar kecil).}
+					    \label{dashboard-full-small}
+					\end{figure}
+
+
+					\begin{figure}[H]
+					  \centering
+					    \includegraphics[width=0.9\textwidth]{gambar/iqrf-list}
+					    \caption{Halaman daftar peranti IQRF yang terpasang.}
+					    \label{iqrf-list}
+					\end{figure}
+
+
+					\begin{figure}[H]
+					  \centering
+					    \includegraphics[width=0.9\textwidth]{gambar/xbee-list}
+					    \caption{Halaman daftar peranti XBee yang terpasang.}
+					    \label{xbee-list}
+					\end{figure}
+
+
+					\begin{figure}[H]
+					  \centering
+					    \includegraphics[width=0.9\textwidth]{gambar/iqrf-add}
+					    \caption{Halaman untuk menambahkan peranti IQRF.}
+					    \label{iqrf-add}
+					\end{figure}
+
+
+					\begin{figure}[H]
+					  \centering
+					    \includegraphics[width=0.9\textwidth]{gambar/xbee-add}
+					    \caption{Halaman untuk menambahkan peranti XBee.}
+					    \label{xbee-add}
+					\end{figure}
+
+
+					\begin{figure}[H]
+					  \centering
+					    \includegraphics[width=0.9\textwidth]{gambar/profile-add}
+					    \caption{Halaman untuk menambahkan profil.}
+					    \label{profile-add}
+					\end{figure}
+
+
+					\begin{figure}[H]
+					  \centering
+					    \includegraphics[width=0.9\textwidth]{gambar/user-list}
+					    \caption{Halaman yang menampilkan daftar pengguna.}
+					    \label{user-list}
+					\end{figure}
+
+
+					\begin{figure}[H]
+					  \centering
+					    \includegraphics[width=0.9\textwidth]{gambar/user-add}
+					    \caption{Halaman untuk menambahkan pengguna baru.}
+					    \label{user-add}
+					\end{figure}
+
+
+					\begin{figure}[H]
+					  \centering
+					    \includegraphics[width=0.9\textwidth]{gambar/login}
+					    \caption{Halaman login.}
+					    \label{login}
+					\end{figure}
+
 
 		\subsection{Kode Sesumber}
 			Kode sesumber dapat diperoleh pada situs GitHub dengan alamat URL \url{https://github.com/gtrdp/wsn-ip-interoperability}.
@@ -405,13 +471,104 @@
 	\section{Analisis Unjuk Kerja Aplikasi}
 		Bagian ini menjelaskan hal-hal terkait instalasi aplikasi ke kondisi sesungguhnya, hasil uji coba, masalah, dan penyelesaian.
 
-		\subsection{Hasil Akhir Perangkat Keras}
-		\subsection{Instalasi Aplikasi dan Perangkat Keras}
-			\begin{itemize}
-			\end{itemize}
-			
-		\subsection{Hasil Uji Coba Aplikasi}
-		\subsection{Masalah dan Penyelesaian}
+		\subsection{Instalasi Peranti}
+			Koordinator IQRF yang tersambung langsung pada AP terdiri atas kabel USB to Serial Prolific, kit pengembangan CK-EVAL-04, dan IQRF TR-52B seperti dapat dilihat pada Gambar \ref{iqrf-stripped}.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.7\textwidth]{gambar/iqrf-stripped}
+			    \caption{Koordinator IQRF saat belum dirakit.}
+			    \label{iqrf-stripped}
+			\end{figure}
 
-			Pyserial
-			Extroot harus direstart dulu sebelum bisa berjalan.
+			Semua bagian disambungkan pada tempatnya. Untuk kabel USB to Serial Prolific, posisi kabel \emph{ground} terpasang pada bagian bawah seperti terlihat pada Gambar \ref{iqrf-complete}.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.5\textwidth]{gambar/iqrf-complete}
+			    \caption{Koordinator IQRF saat telah dirakit.}
+			    \label{iqrf-complete}
+			\end{figure}
+
+			Koordinator XBee pada AP terdiri atas \emph{XBee 802.15.4 Radios (Series 1)} dan \emph{XBee Explorer USB Board} yang tersambung pada AP dengan kabel mini-USB seperti dapat dilihat pada Gambar \ref{xbee-sink-stripped} dan Gambar \ref{xbee-sink-complete}.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.5\textwidth]{gambar/xbee-sink-stripped}
+			    \caption{Koordinator XBee saat sebelum dirakit.}
+			    \label{xbee-sink-stripped}
+			\end{figure}
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.7\textwidth]{gambar/xbee-sink-complete}
+			    \caption{Koordinator XBee saat telah dirakit.}
+			    \label{xbee-sink-complete}
+			\end{figure}
+
+			AP yang digunakan adalah TP-LINK MR3020 dengan USB Hub guna menyambungkan USB \emph{flash drive}, koordinator IQRF, dan koordinator XBee. Urutan peranti yang terpasang ke AP, dari atas ke bawah, adalah USB \emph{flash drive}, koordinator XBee, dan koordinator IQRF. Posisi tersebut tidak boleh terbalik karena tidak sesuai dengan aplikasi yang sudah dirancang. Kondisi AP sebelum dan setelah terpasang dapat dilihat pada Gambar \ref{ap-stripped} dan Gambar \ref{ap-complete}.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.5\textwidth]{gambar/ap-stripped}
+			    \caption{AP saat sebelum dirakit.}
+			    \label{ap-stripped}
+			\end{figure}
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.7\textwidth]{gambar/ap-complete}
+			    \caption{AP saat telah dirakit.}
+			    \label{ap-complete}
+			\end{figure}
+
+			Sensor-sensor IQRF terdiri atas TR-52B dan kit pengembangan DK-EVAL-03 seperti dapat dilihat pada Gambar \ref{iqrf-node-stripped} dan Gambar \ref{iqrf-node-complete}.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.4\textwidth]{gambar/iqrf-node-stripped}
+			    \caption{Sensor IQRF saat sebelum dirakit.}
+			    \label{iqrf-node-stripped}
+			\end{figure}
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.4\textwidth]{gambar/iqrf-node-complete}
+			    \caption{Sensor IQRF saat telah dirakit.}
+			    \label{iqrf-node-complete}
+			\end{figure}
+
+			Sedangkan XBee relay terdiri atas \emph{XBee 802.15.4 Radios (Series 1)}, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan Arduino Uno yang tersambung ke sumber listrik dengan kabel USB seperti dapat dilihat pada Gambar \ref{xbee-stripped} dan Gambar \ref{xbee-complete}.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.7\textwidth]{gambar/xbee-stripped}
+			    \caption{XBee relay saat sebelum dirakit.}
+			    \label{xbee-stripped}
+			\end{figure}
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.7\textwidth]{gambar/xbee-complete}
+			    \caption{XBee relay saat telah dirakit.}
+			    \label{xbee-complete}
+			\end{figure}
+
+		\subsection{Hasil Uji Coba Aplikasi}
+			Uji coba yang dilakukan menggunakan satu set AP lengkap yang sudah dilengkapi dengan koordinator IQRF dan XBee. Sensor yang digunakan adalah dua buah IQRF dan satu buah XBee.
+
+			Uji coba pertama dilakukan dengan penambahan XBee Relay baru via aplikasi web dan menyalakan relay 1 dengan ponsel cerdas seperti dapat dilihat pada Gambar \ref{xbee-action}. Pada Gambar \ref{xbee-action} dapat dilihat bahwa relay 1 dalam keadaan menyala pada layar ponsel cerdas dan XBee Relay.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.7\textwidth]{gambar/xbee-action}
+			    \caption{Uji coba aplikasi dengan ponsel cerdas.}
+			    \label{xbee-action}
+			\end{figure}
+
+			Pengujian IQRF dilakukan dengan penambahan dua sensor via aplikasi web dan kemudian melihat temperatur yang terbaca. Salah satu sensor digenggam dengan tangan untuk memanipulasi temperatur. Hasilnya dapat dilihat pada Gambar \ref{screenshot-iqrf}.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.9\textwidth]{gambar/screenshot-iqrf}
+			    \caption{Membaca temperatur yang terbaca pada sensor.}
+			    \label{screenshot-iqrf}
+			\end{figure}
+			
+
+
+		\subsection{Masalah dan Penyelesaian}
+			Masalah yang pertamakali muncul adalah tentang extroot. TP-LINK MR3020 memiliki \emph{bug} yang membuat memori eksternal tidak berfungsi saat \emph{booting} pertamakali. Setelah TP-LINK MR3020 dijalankan ulang, memori eksternal baru terbaca. Penyebab dari masalah ini belum ditemukan, sehingga solusi untuk masalah ini adalah melakukan \emph{rebooting} jika TP-LINK MR3020 tidak membaca memori eksternal. Masalah ini tidak ditemukan pada AP dengan jenis lain.
+
+		%	Komunikasi serial yang kata perkata.
+			
+			IQRF dinilai kurang stabil, terlebih saat menancapkan kabel USB to Serial Prolific ke USB Hub pada AP saat AP sudah menyala. Jika kurang berhati-hati, AP justru akan menjadi tidak stabil. Gejala yang muncul seperti pustaka PHP yang tidak terbaca, sampai jaringan Wi-Fi yang terputus. Untuk mengantisipasi masalah ini, sebaiknya semua kabel terpasang sebelum AP dinyalakan.
+			
