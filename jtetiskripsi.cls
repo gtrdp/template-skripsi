@@ -1,3 +1,14 @@
+%-------------------------------------------------------------------------------
+% Template Skripsi untuk JTETI FT UGM
+%
+% Dibuat oleh @gunturdputra TE09
+% Hasil fork dari file asli Pak Pekik Nurwantoro FMIPA
+% dan Mas Yohan Fajar Sidik TE08
+% Silakan digunakan dan diedit seperlunya, semoga bermanfaat
+%
+% (c) 2013-2014
+%-------------------------------------------------------------------------------
+
 \NeedsTeXFormat{LaTeX2e}
 %Created by Pekik Nurwantoro, Universitas Gadjah Mada, Yogyakarta, Indonesia
 \ProvidesClass{jtetiskripsi}
@@ -18,6 +29,8 @@
 \usepackage[table]{xcolor}
 \usepackage{multirow}
 \usepackage{float}
+%\usepackage{caption}
+%\usepackage{subcaption}
 
 \newif\if@msthesis
 \newif\if@msproposal
@@ -68,7 +81,7 @@
 %------------------------------------------------------------
 %The form of page numbering
 %------------------------------------------------------------
-\pagestyle{plain}
+\pagestyle{headings}
 \markright{}
 
 %------------------------------------------------------------
@@ -331,9 +344,10 @@
 %Redefine Abstract in Indonesian
 %------------------------------------------------------------
 \def\abstractind{%
-  \clearpage\thispagestyle{chapterheading}%
+  \chapter*{\abstractname}%
+  %\clearpage\thispagestyle{chapterheading}%
   {\parindent \z@ \centering \normalfont
-  {\large\textbf{\abstractname}} \\
+  %{\large\textbf{\abstractname}} \\
   \vspace{1.0cm}
     }
   \begin{singlespacing}%
@@ -347,8 +361,9 @@
 %------------------------------------------------------------
 \def\abstracteng{%
   \clearpage\thispagestyle{chapterheading}\selectlanguage{english}
+  \chapter*{\abstractname}%
   {\parindent \z@ \centering \normalfont
-  {\large\textbf{\abstractname}} \\
+  %{\large\textbf{\abstractname}} \\
   \vspace{1.0cm}
     }
   \begin{singlespacing}%
