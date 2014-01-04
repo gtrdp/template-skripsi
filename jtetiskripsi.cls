@@ -31,6 +31,7 @@
 \usepackage{float}
 %\usepackage{caption}
 %\usepackage{subcaption}
+\usepackage{indentfirst}
 
 \newif\if@msthesis
 \newif\if@msproposal
