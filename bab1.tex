@@ -6,35 +6,30 @@
 \chapter{LATAR BELAKANG}
 
 \section{Latar Belakang Masalah}
-Jaringan sensor nirkabel, atau dikenal dengan istilah \emph{Wireless Sensor Network}, adalah jaringan simpul sensor otonom terdistribusi yang dapat digunakan untuk memonitor kondisi fisik atau lingkungan misalnya suhu, suara, getaran, kelembaban, dan lain-lain. 
-WSNs are not only an active area of research, but also are being widely applied to the areas of environmental research and monitoring, commercial/manufacturing processes, healthcare, military, and others.
-the wireless sensor network (WSN) [2] has been widely spread out in a variety of surveillance applications such as environmental monitoring [3][4], smart home facility [5], natural detecting and ecological tracking [6], industrial engineering and construction quality control [7], land sliding prediction [8], etc.
+Jaringan sensor nirkabel, atau juga dikenal dengan istilah \emph{Wireless Sensor Network}, adalah jaringan simpul sensor otonom terdistribusi yang dapat berkomunikasi satu sama lain secara nirkabel. WSN tidak hanya digunakan dalam lingkup penelitian tapi juga sudah digunakan serara luas dalam implementasinya di pengamatan lingkungan, fasilitas rumah cerdas, pelacakan alam dan ekologis, pengendalian kualitas dalam teknik industri dan pembangunan, prediksi tanah longsor, dan lain-lain.
 
-Penggunaan WSN untuk sebuah gedung dan rumah semakin populer karena dapat dimanfaatkan untuk berbagai kepentingan. Contoh penerapan WSN dalam rumah yang sangat populer adalah \emph{home surveillance} yaitu pemanfaatan WSN untuk mengawasi tiap sudut rumah secara \emph{realtime}. Dengan ini, sang pemilik rumah tidak perlu lagi khawatir karena rumahnya kurang pengawasan karena mengawasi rumah menjadi semakin mudah dengan bantuan WSN ini. Contoh lainnya adalah \emph{home automation} yaitu proses automatisasi segala urusan yang ada di rumah. Sebagai contoh, sang pemilik rumah harus menyalakan lampu di kala waktu sudah senja dan atau menyalakan pendingin ruangan saat pemilik baru saja pulang dari bekerja. Segala sesuatu yang mungkin untuk diautomatisasi, dapat terealisasi dengan bantuan WSN.
+Penggunaan WSN untuk sebuah gedung dan perumahan kian populer karena dapat dimanfaatkan untuk berbagai kepentingan. Contoh penerapan WSN dalam rumah yang sangat populer adalah \emph{home surveillance} yaitu pemanfaatan WSN untuk mengawasi tiap sudut rumah secara \emph{realtime}. Dengan ini, sang pemilik rumah tidak perlu lagi khawatir jika rumahnya kurang pengawasan karena mengawasi rumah menjadi semakin mudah dengan bantuan teknologi WSN ini. Contoh lainnya adalah \emph{home automation} yaitu proses automatisasi segala rutinitas yang ada di rumah. Sebagai contoh, sang pemilik rumah harus menyalakan lampu di kala waktu sudah senja dan atau menyalakan pendingin ruangan saat pemilik baru saja pulang dari bekerja. Segala sesuatu yang mungkin untuk diautomatisasi, dapat terealisasi dengan bantuan WSN.
 
-Pada umumnya, WSN dikendalikan oleh \emph{sink node} yang berada dekat pada wilayah jaringan sensornya. Sehingga permasalahan pada WSN adalah jika diinginkan pusat kendali berada pada tempat yang jauh dari jaringan sensornya. Solusi yang mungkin dari permasalahan ini adalah penggunaan \emph{Internet Protocol} (IP) karena jaringan IP sangat luas dan dapat diakses dimanapun dan dengan apapun.
+Pada umumnya, WSN dikendalikan oleh sebuah \emph{sink node} yang berada dekat pada wilayah jaringan sensornya. Padahal, pengendalian WSN sebagai fasilitas rumah cerdas acap kali memerlukan pendendalian secara jarak jauh karena sang pemilik rumah tidak selalu berada di dalam rumah.
 
-Namun demikian, pada umumnya jaringan WSN tidak menggunakan IP, melainkan protokolnya sendiri, seperti protokol \emph{zigbee}. Oleh karena itu, diperlukan sebuah gateway yang mampu menghubungkan WSN dari berbagai macam \emph{vendor} dengan jaringan internet.
+Selain itu, sebuah \emph{sink node}-pun juga memiliki keterbatasan, terlebih dalam hal menangani beberapa WSN yang berasal dari berbagai \emph{vendor}. Sebagai contoh, sebuah \emph{sink node} keluaran IQRF tidak dapat menangani WSN lain selain dari IQRF. Begitu pula \emph{sink node} produk XBee, misalnya, tidak bisa menangani sama sekali sensor-sensor selain produk XBee.
+
+Lebih jauh lagi, protokol yang digunakan dalam WSN adalah protokol yang sifatnya \emph{proprietary} yang sifatnya tertutup dan tidak mendukung interoperabilitas. Hal ini menyebabkan tiap WSN dari \emph{vendor} yang berbeda tidak dapat saling berkomunikasi.
+
+Protokol Internet menawarkan fleksibilitas dan interoperabilitas WSN dengan peranti lain, bahkan dengan peranti selain WSN seperti komputer dan telepon seluler. Namun demikian, protokol Internet boros dalam pengkonsumsian daya listrik. Ada beberapa cara untuk mengintegrasikan IP dengan WSN, salah satu caranya adalah dengan membangun \emph{gateway} yang terhubung dengan \emph{sink node} dari WSN.
 
 
 \section{Rumusan Masalah}
-Bagaimana membangun sistem pengendalian WSN yang dapat dikendalikan secara jarak jauh dengan interoperabilitas WSN dan protokol Internet. Tidak seperti gateway yang sudah ada, diinginkan sebuah gateway yang juga dapat mengendalikan beberapa macam WSN.
-
-Penggunaan WSN untuk sebuah gedung dan rumah semakin populer karena dapat dimanfaatkan untuk berbagai kepentingan misalnya home automation dan home surveillance. Permasalahan pada WSN adalah jika diinginkan pusat kendali berada pada tempat yang jauh dari jaringan sensornya maka jaringan internet yang memungkinkan untuk menyelesaikan permasalahan ini. Namun demikian, pada umumnya jaringan WSN tidak menggunakan IP sehingga diperlukan gateway yang mampu menghubungkan WSN dengan jaringan internet.
+Bagaimana cara membangun sistem pengendalian WSN yang dapat dikendalikan secara jarak jauh dengan interoperabilitas WSN dan protokol Internet. Selain itu, sistem pengendalian yang dibangun juga harus dapat mengintegrasikan beberapa vendor WSN ke dalam sebuah \emph{gateway} yang sama.
 
 
 \section{Batasan Masalah}
 Batasan masalah pada penelitian ini adalah:
 \begin{enumerate}
-\item Penelitian ini bertujuan untuk mengembangkan sebuah aplikasi pada sebuah gateway untuk interoperabilitas WSN dan IP.
+\item Penelitian ini difokuskan pada interoperabilitas beberapa \emph{vendor} WSN dan protokol Internet.
 \item Tipe WSN yang digunakan dalam penelitian ini dibatasi dua buah.
 \item Pengujian yang dilakukan hanya sebatas eksperimen dalam lingkup laboratorium.
-
-\item Penelitian ini bertujuan untuk mengembangkan purwarupa aplikasi berbasis web untuk integrasi beberapa WSN dengan Internet.
-\item Peranti WSN yang digunakan dan diujikan hanya IQRF dan XBee. Untuk XBee, peranti tersebut disambungkan dengan XBee Relay Shield dan Arduino Uno sebagai \emph{sensor node}.
-\item Aplikasi web dibangun menggunakan bahasa PHP, basis data MySQL, dan berjalan pada sistem operasi OpenWRT yang berbasis pada Linux.
-\item IQRF hanya digunakan untuk mendapatkan suhu sekitar dan XBee digunakan untuk menghidup dan mematikan relay.
-\item AP yang digunakan adalah TP-LINK MR3020 dengan sistem operasi OpenWRT.
+\item Purwarupa yang dihasilkan akan diimplementasikan pada sebuah AP.
 \end{enumerate}
 
 
