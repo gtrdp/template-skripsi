@@ -4,7 +4,7 @@
 % 						(c) @gunturdputra 2013
 %-------------------------------------------------------------------------------
 
-%Template pembuatan proposal skripsi.
+%Template pembuatan naskah skripsi.
 \documentclass{jtetiskripsi}
 
 %Untuk prefiks pada daftar gambar dan tabel
@@ -21,6 +21,8 @@
 
 %Untuk Bold Face pada Keterangan Gambar
 \usepackage[labelfont=bf]{caption}
+
+
 
 %-----------------------------------------------------------------
 %Disini awal masukan untuk data proposal skripsi
@@ -62,8 +64,8 @@
 %-----------------------------------------------------------------
 \acknowledgment
 \begin{flushright}
-\emph{Karya sederhana ini kupersembahkan \\
-buat Bapak, Ibu,\\dan Adik tercinta}
+\emph{Karya sederhana ini kupersembahkan\\
+untuk Ibu, Bapak,\\dan Adik-adikku tercinta.}
 \end{flushright}
 
 %-----------------------------------------------------------------
@@ -153,6 +155,12 @@ FUSE & & Filesystem in Userspace\\
 \end{tabular}
 
 \begin{tabular}{p{20pt}p{3pt}l}
+\textbf{I}\\
+IP & & Internet Protocol\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
 \textbf{J}\\
 JTETI & & Jurusan Teknik Elektro dan Teknologi Informasi\\
 \\
@@ -197,9 +205,17 @@ WSN & & Wireless Sensor Network\\
 %Disini awal masukan Intisari
 %-----------------------------------------------------------------
 \begin{abstractind}
-Penggunaan \emph{Wireless Sensor Network} (WSN) untuk gedung dan perumahan semakin populer karena dapat dimanfaatkan untuk berbagai kepentingan seperti \emph{home automation} dan \emph{home surveillance}. Oleh karena itu, untuk meningkatkan fleksibilitas penggunaan WSN, diperlukan sistem pengendalian yang dapat dikendalikan secara jarak jauh. Padahal pada umumnya, WSN dikendalikan oleh sebuah pengendali utama berada di sekitar tempat WSN itu berada.
+Penggunaan \emph{Wireless Sensor Network} (WSN) untuk gedung dan perumahan kian populer karena dapat dimanfaatkan untuk berbagai kepentingan seperti \emph{home automation} dan \emph{home surveillance}. Oleh karena itu, untuk meningkatkan fleksibilitas penggunaan WSN, diperlukan sistem pengendalian yang dapat dikendalikan secara jarak jauh. Padahal pada umumnya, WSN dikendalikan oleh sebuah pengendali utama yang berada di sekitar tempat WSN itu berada.
 
-Penelitian ini mengusulkan integrasi dari WSN dengan \emph{Internet Protocol} (IP) yang memungkinkan WSN dapat dikendalikan dimanapun dan dengan apapun asalkan masih terhubung dengan jaringan internet. Penelitian ini memanfaatkan infrastruktur jaringan data yang sangat populer dan terhubung ke internet, yaitu jaringan area lokal nirkabel atau dikenal dengan nama WiFi. Salah satu perangkat utama dalam jaringan WiFi adalah \emph{Access Point} (AP) yang berfungsi sebagai koordinator simpul. Selain itu, AP juga berfungsi sebagai gateway yang menghubungkan berbagai piranti yang terhubung padanya ke internet. Oleh karena itu, penelitian ini akan mengembangkan perangkat lunak yang akan ditanamkan ke dalam AP sehingga menjadikan AP mempunyai kemampuan sebagai gateway untuk kedua jaringan WiFi dan beberapa protokol WSN ke dalam jaringan internet.
+Penelitian ini mengusulkan integrasi dari WSN dengan \emph{Internet Protocol} (IP) yang memungkinkan WSN dapat dikendalikan dimanapun dan dengan apapun selama masih terhubung dengan jaringan internet. Penelitian ini menggunakan metode bla bla karena bla bla.
+
+Dalam penelitian ini digunakan metode Agile dan model proses pengembangan extreme programming, metode ini dipilih karena dianggap paling sesuai.
+
+Diperlukan sebuah gateway yang dapat mengintegrasikan beberapa WSN ke dalam sebuah gateway.
+
+Penelitian ini akan mengembangkan sebuah aplikasi berbasis web yang akan diimplementasikan pada sebuah AP sehingga dapat diakses dengan Wi-Fi secara mudah guna mengendalikan WSN.
+
+Penelitian ini mengusulkan integrasi dari WSN dengan \emph{Internet Protocol} (IP) yang memungkinkan WSN dapat dikendalikan dimanapun dan dengan apapun selama masih terhubung dengan jaringan internet. Penelitian ini memanfaatkan infrastruktur jaringan data yang sangat populer dan terhubung ke internet, yaitu jaringan area lokal nirkabel atau dikenal dengan nama WiFi. Salah satu perangkat utama dalam jaringan WiFi adalah \emph{Access Point} (AP) yang berfungsi sebagai koordinator simpul. Selain itu, AP juga berfungsi sebagai gateway yang menghubungkan berbagai piranti yang terhubung padanya ke internet. Oleh karena itu, penelitian ini akan mengembangkan perangkat lunak yang akan ditanamkan ke dalam AP sehingga menjadikan AP mempunyai kemampuan sebagai gateway untuk kedua jaringan WiFi dan beberapa protokol WSN ke dalam jaringan internet.
 
 
 \bigskip
@@ -244,7 +260,7 @@ This research proposes integration of WSN and Internet Protocol (IP), that enabl
 %-----------------------------------------------------------------
 %Disini awal masukan untuk Daftar Pustaka
 %-----------------------------------------------------------------
-%\nocite{Abel2010,Guerbas201350}
+\nocite{Erratt2013,Elias2012,widyawan2012ihome,OpenWrtProject2013}
 \bibliography{daftar-pustaka}
 \addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
 %-----------------------------------------------------------------
