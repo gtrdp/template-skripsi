@@ -262,10 +262,8 @@
         \MakeUppercase{\normalfont\bfseries \@idnum}}\\
        \vspace{1.5cm}
        {\normalfont 
-         \MakeUppercase{\normalfont\bfseries Program Studi \@program}\\
          \MakeUppercase{\normalfont\bfseries Jurusan \@dept}\\
-         \MakeUppercase{\normalfont\bfseries\@faculty}\\
-         \MakeUppercase{\normalfont\bfseries\@university}\\
+         \MakeUppercase{\normalfont\bfseries\@faculty} \MakeUppercase{\normalfont\bfseries\@university}\\
          \MakeUppercase{\normalfont\bfseries\@city}\\
          \vspace{0.5cm}
          {\normalfont\bfseries\@yearsubmit}}\\
