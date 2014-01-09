@@ -6,8 +6,11 @@
 \chapter{METODOLOGI PENELITIAN}
 
 \section{Alat dan Bahan}
+	Alat dan bahan yang digunakan pada penelitian ini terbagi atas perangkat keras dan perangkat lunak yang akan dijelaskan seperti berikut.
 
 	\subsection{Perangkat Keras}
+		Perangkat keras yang digunakan secara garis besar terdiri atas kit-kit WSN dari \emph{vendor} IQRF dan XBee, dan sebuah AP TP-LINK MR3020 yang bertindak sebagai \emph{gateway}. Untuk lebih jelasnya dapat dilihat pada daftar berikut.
+
 		\vspace{-0.5cm}
 
 		\begin{enumerate}[a.]
@@ -27,6 +30,8 @@
 		\end{enumerate}
 
 	\subsection{Perangkat Lunak}
+		Perangkat lunak yang digunakan terdiri atas perangkat lunak yang digunakan untuk mengembangkan aplikasi dan perangkat lunak yang digunakan untuk men-\emph{deploy} aplikasi pada AP. Daftar berikut menjelaskan secara lebih detail tentang aplikasi yang digunakan.
+
 		\vspace{-0.5cm}
 
 		\begin{enumerate}[a.]
@@ -48,9 +53,18 @@
 		Sebelum penelitian dimulai, dilakukan studi literatur terkait dengan sistem yang akan dibangun. Selain itu, analisis kebutuhan juga dirancang pada tahap ini. Setelah semua selesai, dilajutkan dengan penulisan proposal penelitian.
 
 	\subsection{Pengembangan Aplikasi}
-		Ada tiga aplikasi yang akan dibangun, yaitu aplikasi berbasis bahasa C untuk masing sensor-sensor IQRF dan Arduino Uno, aplikasi berbasis web yang nantinya akan berinteraksi langsung dengan pengguna, dan aplikasi berbasis bahasa Python untuk mengomunikasikan sensor-sensor dengan aplikasi berbasis web.
+		Ada tiga aplikasi yang akan dibangun, yaitu aplikasi berbasis bahasa C untuk masing sensor-sensor IQRF dan Arduino Uno, aplikasi berbasis web yang nantinya akan berinteraksi langsung dengan pengguna, dan aplikasi berbasis bahasa Python untuk mengomunikasikan sensor-sensor dengan aplikasi berbasis web seperti yang diilustrasikan pada Gambar \ref{aplikasi}.
 
-		Aplikasi untuk sensor-sensor IQRF \cite{widyawan2012ihome} terdiri dari dua bagian, yaitu aplikasi untuk sensor koordinator dan sensor simpul. Namun demikian, aplikasi sama-sama ditulis dan kembangkan menggunakan Sublime Text 3. Setelah kode sesumber untuk aplikasi selesai dibuat, kode sesumber dikompiliasi menggunakan IDE IQRF untuk kemudian diunggah ke sensor menggunakan bantuan aplikasi yang sama. Aplikasi yang dikembangkan adalah hasil fork dari iHome, aplikasi rumah hijau yang dikembangkan oleh Wibowo, et. al.
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.9\textwidth]{gambar/aplikasi}
+			    \caption{Diagram ilustrasi aplikasi yang dibangun.}
+			    \label{aplikasi}
+			\end{figure}
+
+		Seperti yang dapat dilihat pada Gambar \ref{aplikasi}, aplikasi berbasis web dan aplikasi Python berjalan pada AP, sedangakan aplikasi C berjalan pada masing-masing sensor IQRF dan XBee (lebih tepatnya Arduino Uno).
+
+		Aplikasi untuk sensor-sensor IQRF terdiri dari dua bagian, yaitu aplikasi untuk sensor koordinator dan sensor simpul. Namun demikian, aplikasi sama-sama ditulis dan kembangkan menggunakan Sublime Text 3. Setelah kode sesumber untuk aplikasi selesai dibuat, kode sesumber dikompiliasi menggunakan IDE IQRF untuk kemudian diunggah ke sensor menggunakan bantuan aplikasi yang sama. Aplikasi yang dikembangkan adalah hasil fork dari iHome, aplikasi rumah hijau yang dikembangkan oleh \cite{widyawan2012ihome}.
 
 		Sedangkan aplikasi untuk Arduino Uno, yang bertugas menyala-matikan relay dengan komunikasi berbasis ZigBee, dikembangkan dengan aplikasi Arduino for Mac OSX dengan bahasa pemrograman C. Proses kompilasi dan pengunggahan dilakukan dengan bantuan aplikasi yang sama.
 
