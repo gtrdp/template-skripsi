@@ -29,8 +29,6 @@
 \usepackage[table]{xcolor}
 \usepackage{multirow}
 \usepackage{float}
-%\usepackage{caption}
-%\usepackage{subcaption}
 \usepackage{indentfirst}
 
 \newif\if@msthesis

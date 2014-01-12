@@ -6,12 +6,16 @@
 \chapter{KESIMPULAN DAN SARAN}
 
 \section{Kesimpulan}
+	Berdasarkan hasil analisis dan pengujian fungsional aplikasi ini, didapat kesimpulan sebagai berikut:
+
 	\begin{enumerate}
-		\item Diperlukan pengendalian yang dapat mengendalikan atau mengakuisisi data dari WSN secara jarak jauh.
-		\item Solusi pengendalian WSN jarak jauh adalah interoperabilitas dengan protokol Internet.
-		\item Namun, Internet gateway untuk WSN biasanya hanya diperuntukkan untuk vendor WSN tertentu.
-		\item Dengan AP yang rendah biaya, kita dapat membangun aplikasi sebagai gateway WSN bermacam vendor ke Internet.
-		\item Penelitian ini menunjukkan bahwa dengan TP-LINK MR3020 dengan sistem operasi OpenWRT yang terinstal aplikasi-aplikasi pendukung, seperti Python, PySerial, PHP, uHTTPd, dan at, Gateway WSN \emph{multiple vendor} untuk interoperabilitas dengan protokol Internet dapat terwujud.
+		\item Interoperabilitas WSN dengan IP dapat tercapai dengan bantuan aplikasi berbasis web yang didukung dengan aplikasi Python untuk berkomunikasi dengan WSN yang terisi dengan aplikasi C.
+
+		\item Sesuai pengujian yang dilakukan dalam skala laboratorium, aplikasi dapat berjalan baik sesuai dengan fitur-fitur yang dirancang.
+
+		\item Salah satu kendala yang dihadapi adalah tidak stabilnya AP seri TP-LINK MR3020 dalam pembacaan memori eksternal. Saat pertama kali dinyalakan, AP tidak membaca memori eksternal yang sudah dipasang. Setelah AP dinyalakan ulang, baru AP dapat membaca memori eksternal.
+
+		\item Masalah lain yang dihadapi juga masalah ketidakstabilan koordinator IQRF yang tertancap pada AP. Agar tidak terjadi kesalahan perangkat keras, sebaiknya koordinator IQRF sudah terpasang pada saat AP masih dalam kondisi mati.
 	\end{enumerate}
 
 
@@ -19,7 +23,7 @@
 	\begin{enumerate}
 		\item Penelitian selanjutnya dapat menggunakan AP selain TP-LINK MR3020 sebagai gateway dan membandingkannya dengan performa TP-LINK MR3020 yang memiliki \emph{bug} pada extroot.
 		\item Penelitian ini menggunakan Python untuk berkomunikasi dengan kanal serial, penelitian selanjutnya dapat menggunakan pendekatan yang lain, seperti membangun aplikasi dengan bahasa C.
-		\item Penelitian selanjutnya dapat menggunakan jenis-jenis WSN yang lebih bervariatif.
+		\item Penelitian selanjutnya dapat menggunakan jenis-jenis WSN yang lebih bervariatif guna interoperabilitas yang lebih luas.
 	\end{enumerate}
 
 	
