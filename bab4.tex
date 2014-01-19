@@ -55,14 +55,17 @@
 
 			Seperti terlihat pada Gambar \ref{system-architecture}, pengguna yang ingin mengakses aplikasi berbasis web guna mengendalikan sensor harus menggunakan web browser. Web browser yang dimaksud tidak terbatas hanya yang terinstal pada komputer, namun juga web browser yang terdapat pada ponsel cerdas atau komputer tablet.
 
-		\subsection{SDLC}
-			SDLC yang digunakan dapat dilihat pada Gambar \ref{sdlc}.
+		\subsection{\emph{Software Development Life Cycle} (SDLC)}
+			Pengembangan aplikasi ini menggunakan konsep pengembangan iteratif dan inkremental. Pada konsep pengembangan ini, kode-kode aplikasi dirancang, dikembangkan, dan diuji pada siklus yang terulang. Pada tiap iterasi, fitur tambahan dapat dirancang, dikembangkan, dan diuji sampai terbangun aplikasi yang berfungsi seperti yang dikehendaki. Ilustrasi SDLC yang digunakan dapat dilihat pada Gambar \ref{sdlc}.
+
 			\begin{figure}[H]
 			  \centering
 			    \includegraphics[width=0.6\textwidth]{gambar/sdlc}
 			    \caption{Diagram SDLC.}
 			    \label{sdlc}
 			\end{figure}
+
+			Aplikasi akan dikembangkan fitur demi fitur dan diuji apakah masing-masing fitur dapat berjalan sebagaimana mestinya. Masing-masing aplikasi yang dikembangkan (aplikasi web, Python, dan C) juga akan dikembangkan dan diuji apakah masing-masing aplikasi dapat saling berinteraksi. Iterasi terus dilakukan hingga fitur-fitur dan aplikasi-aplikasi tersebut dapat berfungsi untuk interoperabilitas \emph{Wireless Sensor Network} (WSN) dan protokol Internet.
 	
 	\section{Pengembangan Aplikasi}
 		Tahap-tahap dalam pengembangan aplikasi adalah persiapan, pengembangan aplikasi WSN yang ditulis dengan bahasa C, pengembangan aplikasi Python untuk menghubungkan aplikasi web dan sensor, pengembangan aplikasi berbasis web, serta evaluasi dan perbaikan.
@@ -616,8 +619,8 @@
 				    \caption{AP saat telah dirakit.}
 				    \label{ap-complete}
 				\end{subfigure}
-				\caption{Koordinator peranti XBee yang akan disambungkan pada AP.}
-				\label{xbee-sink}
+				\caption{AP TP-LINK MR3020.}
+				\label{ap}
 			\end{figure}
 
 			Urutan peranti yang terpasang ke AP, dari atas ke bawah, adalah USB \emph{flash drive}, koordinator XBee, dan koordinator IQRF. Posisi tersebut tidak boleh terbalik karena tidak sesuai dengan konfigurasi aplikasi yang sudah dirancang dan kembangkan. Sehingga kondisi saat semua peranti sudah dipasangkan dapat dilihat pada Gambar \ref{ap-complete}.

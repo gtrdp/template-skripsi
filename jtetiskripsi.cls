@@ -331,7 +331,7 @@
 %------------------------------------------------------------
 \def\singkatan{%
   \chapter*{\nomenclaturename}%
-  %\clearpage\thispagestyle{chapterheading}%
+  \thispagestyle{plain}
   %\chapter*{\nomenclaturename}%
   %\printglossary
 \addcontentsline{toc}{chapter}{\nomenclaturename}
@@ -341,8 +341,8 @@
 %Redefine Abstract in Indonesian
 %------------------------------------------------------------
 \def\abstractind{%
+  \clearpage\thispagestyle{chapterheading}%
   \chapter*{\abstractname}%
-  %\clearpage\thispagestyle{chapterheading}%
   {\parindent \z@ \centering \normalfont
   %{\large\textbf{\abstractname}} \\
   \vspace{1.0cm}
