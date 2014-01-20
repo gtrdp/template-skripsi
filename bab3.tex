@@ -64,16 +64,16 @@
 
 		Seperti yang dapat dilihat pada Gambar \ref{aplikasi}, aplikasi berbasis web dan aplikasi Python berjalan pada AP, sedangakan aplikasi C berjalan pada masing-masing sensor IQRF dan XBee (lebih tepatnya Arduino Uno).
 
-		Aplikasi untuk sensor-sensor IQRF terdiri dari dua bagian, yaitu aplikasi untuk sensor koordinator dan sensor simpul. Namun demikian, aplikasi sama-sama ditulis dan kembangkan menggunakan Sublime Text 3. Setelah kode sesumber untuk aplikasi selesai dibuat, kode sesumber dikompiliasi menggunakan IDE IQRF untuk kemudian diunggah ke sensor menggunakan bantuan aplikasi yang sama. Aplikasi yang dikembangkan adalah hasil fork dari iHome, aplikasi rumah hijau yang dikembangkan oleh \cite{widyawan2012ihome}.
+		Aplikasi untuk sensor-sensor IQRF terdiri dari dua bagian, yaitu aplikasi untuk sensor koordinator dan sensor simpul. Namun demikian, aplikasi sama-sama ditulis dan kembangkan menggunakan Sublime Text 3. Setelah kode sumber untuk aplikasi selesai dibuat, kode sumber dikompiliasi menggunakan IDE IQRF untuk kemudian diunggah ke sensor menggunakan bantuan aplikasi yang sama. Aplikasi yang dikembangkan adalah hasil fork dari iHome, aplikasi rumah hijau yang dikembangkan oleh \cite{widyawan2012ihome}.
 
 		Sedangkan aplikasi untuk Arduino Uno, yang bertugas menyala-matikan relay dengan komunikasi berbasis ZigBee, dikembangkan dengan aplikasi Arduino for Mac OSX dengan bahasa pemrograman C. Proses kompilasi dan pengunggahan dilakukan dengan bantuan aplikasi yang sama.
 
 		Aplikasi web dikembangkan dengan bahasa PHP pada server (terletak pada AP) dan JavaScript pada klien. Halaman yang tertampil pada web browser disusun menggunakan HTML5 dan CSS3 dengan bantuan pustaka Bootstrap agar halaman dapat bersifat responsif, yaitu dapat menyesuaikan tampilan sesuai ukuran layar web browser. AJAX diterapkan dalam pengembangan agar halaman web yang ditampilkan bersifat dinamis.
 
-		Aplikasi berbasis bahasa Python dikembangkan dengan bantuan pustaka PySerial. Pustaka ini diperlukan agar Python dapat berkomunikasi dengan \emph{port} serial, yaitu antar muka untuk berkomunikasi dengan sensor. Kode sesumber ditulis menggunakan Sublime Text 3.
+		Aplikasi berbasis bahasa Python dikembangkan dengan bantuan pustaka (\emph{library}) PySerial. Pustaka ini diperlukan agar Python dapat berkomunikasi dengan \emph{port} serial, yaitu antar muka untuk berkomunikasi dengan sensor. Kode sumber ditulis menggunakan Sublime Text 3.
 
 	\subsection{Evaluasi dan Perbaikan}
-		Evaluasi dilakukan dengan melakukan simulasi dalam skala laboratorium. Simulasi yang diujikan mencakup semua fitur yang dimiliki oleh aplikasi untuk memastikan bahwa aplikasi dapat berjalan dengan semestinya. Kemudian Perbaikan dilakukan dengan bantuan SSHFS agar AP dapat mengakses direktori yang tersimpan pada komputer karena \emph{coding} tidak dilakukan pada AP itu sendiri, melainkan komputer.
+		Evaluasi dilakukan dengan melakukan simulasi dalam skala laboratorium. Simulasi yang diujikan mencakup semua fitur yang dimiliki oleh aplikasi untuk memastikan bahwa aplikasi dapat berjalan dengan semestinya. Kemudian Perbaikan dilakukan dengan bantuan SSHFS agar AP dapat mengakses direktori yang tersimpan pada komputer karena \emph{coding} tidak dilakukan pada AP itu sendiri, melainkan komputer. Perbaikan dilakukan pada komputer karena OpenWRT tidak memiliki antar muka berbasis grafis \emph{Graphical User Interface}.
 
 	\subsection{Pasca Penelitian}
 		Setelah penelitian selesai dilakukan dan aplikasi siap untuk diimplementasikan, naskah skripsi dan makalah skripsi ditulis sebagai manifesto penelitian.
@@ -88,11 +88,11 @@
 
 
 \section{Tahapan Pelaksanaan}
-	Rancangan arsitektur yang akan digunakan pada penelitian ini diilustrasikan seperti pada Gambar \ref{wifi}. Pada gambar tersebut diilustrasikan sebuah sistem yang terdiri atas dua buah WSN dengan protokol yang berbeda dan satu buah jaringan nirkabel lokal (WiFi). Protokol WSN yang akan digunakan dalam penelitian ini adalah dari IQRF dan ZigBee. Pelaksanaan penelitian ini akan dibagi menjadi tiga paket pekerjaan (Work Package, WP).
+	Rancangan arsitektur yang akan digunakan pada penelitian ini diilustrasikan seperti pada Gambar \ref{wifi}. Pada gambar tersebut diilustrasikan sebuah sistem yang terdiri atas dua buah WSN dengan protokol yang berbeda dan satu buah jaringan nirkabel lokal (WiFi). Protokol WSN yang akan digunakan dalam penelitian ini adalah dari IQRF dan ZigBee. Pelaksanaan penelitian ini akan dibagi menjadi tiga paket pekerjaan atau \emph{Work Package} (WP).
 
 	\noindent\textbf{WP 1: Perancangan Perangkat Lunak}
 
-	Pada tahap ini akan dilakukan studi literatur yang dititikberatkan pada sistem operasi (Operating System, OS) untuk piranti tertanam (embedded device). Langkah selanjutnya adalah rerancangan perangkat lunak yang akan ditanamkan pada Access Point (AP). Perangkat lunak yang akan ditanamkan harus bekerja secara efisien karena kemampuan komputasi yang terbatas pada AP.
+	Pada tahap ini akan dilakukan studi literatur yang dititikberatkan pada sistem operasi untuk piranti tertanam (\emph{embedded device}). Langkah selanjutnya adalah rerancangan perangkat lunak yang akan ditanamkan pada \emph{Access Point} (AP). Perangkat lunak yang akan ditanamkan harus bekerja secara efisien karena kemampuan komputasi yang terbatas pada AP.
 
 		\begin{figure}[ht!]
 		  \centering
