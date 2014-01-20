@@ -301,7 +301,7 @@
       \vspace{0.5cm} & \vspace{0.5cm} & \vspace{0.5cm}\\
       \textbf{\underline{\@firstsupervisor}}& &
       \textbf{\underline{\@secondsupervisor}} \\
-      \bfseries NIP \@firstnip & & \bfseries NIP \@secondnip    
+      \bfseries NIP. \@firstnip & & \bfseries NIP. \@secondnip    
     \end{tabular}
 
   \end{doublespace}
