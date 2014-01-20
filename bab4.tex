@@ -5,7 +5,7 @@
 
 \chapter{HASIL DAN PEMBAHASAN}
 	\section{Analisis Kebutuhan Sistem}
-		Bagian ini menjelaskan hal-hal yang terkait tentang pengembangan aplikasi sebelum penulisan code sesumber.
+		Bagian ini menjelaskan hal-hal yang terkait tentang pengembangan aplikasi sebelum penulisan kode sumber.
 
 		\subsection{Fitur-Fitur Aplikasi}
 			Kemampuan utama dari aplikasi yang dibangun adalah dapat mengendalikan sensor-sensor yang terhubung dengan \emph{gateway}. Pengendalian yang dimaksud adalah menyala-matikan \emph{relay} dan membaca temperatur yang terbaca. Selain itu, aplikasi juga dapat menambahkan sensor baru atau menghapus sensor lama. Untuk mendukung automatisasi, aplikasi juga dapat menjalankan \emph{profile} tertentu dari kombinasi suhu dan relay atau waktu tertentu. Kemampuan aplikasi dapat dilihat pada daftar berikut.
@@ -74,13 +74,13 @@
 			Persiapan yang harus dilakukan sebelum mengembangkan aplikasi adalah mengkonfigurasi router/AP, mengkonfigurasi komputer yang akan digunakan untuk pengembangan aplikasi, dan mengkonfigurasi pengalamatan pada XBee.
 
 			\begin{enumerate}
-				\item Konfigurasi Router/AP
+				\item Konfigurasi Router/\emph{Access Point} (AP)
 
 					Penelitian ini menggunakan AP keluaran TP-LINK seri MR3020. AP jenis ini dipilih karena bentuknya yang kecil sehingga mudah dibawa atau dipindahkan dan kemudahannya untuk dimodifikasi. TP-LINK MR3020 juga terbilang populer di ranah komunitas sistem benam (\emph{embedded device}) sehingga memiliki dukungan yang baik dari pabrikan dan komunitas. 
 
 					Sebelum digunakan, \emph{firmware} bawaan TP-LINK MR3020 harus diganti dengan sistem operasi OpenWRT. Proses penggantian cukup mudah karena hanya memanfaatkan menu \emph{firmware upgrade} dari web admin yang sudah tersedia.	Sistem Operasi OpenWRT yang digunakan adalah Attitude Adjustment versi 12.09 dengan Linux kernel 3.3.8. \emph{Image file} sistem operasi tersebut bisa diunduh secara gratis pada situs \url{www.openwrt.org}.
 
-					Setelah OpenWRT berhasil terinstall, langkah selanjutnya adalah mengimplementasikan \emph{extroot}. \emph{Extroot} dapat memperbesar memori penyimpanan dengan bantuan USB \emph{flash drive}. Langkah yang harus dilakukan pertamakali adalah menginstall perangkat lunak dengan perintah sebagai berikut:
+					Setelah OpenWRT berhasil terinstall, langkah selanjutnya adalah mengimplementasikan \emph{extroot}. \emph{Extroot} adalah fitur dari OpenWRT yang dapat memetakan direktori \emph{root} pada memori eksternal, sehingga \emph{extroot} dapat memperbesar memori penyimpanan dengan bantuan USB \emph{flash drive}. Langkah yang harus dilakukan pertamakali adalah menginstall perangkat lunak dengan perintah sebagai berikut:
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \begin{verbatim}
@@ -112,6 +112,8 @@
 					    \end{verbatim}  
 					\endgroup
 
+					Konfigurasi di atas akan memetakan direktori \emph{root} (/) ke dalam peranti (\emph{device}) /dev/sda1 yang di-\emph{mount} pada direktori /mnt dengan format \emph{filesystem} ext3 dan dan mode baca tulis.
+
 					Setelah proses implementasi extroot selesai, berarti AP sudah memiliki memori penyimpanan yang cukup (atau mungkin lebih) untuk menginstal aplikasi-aplikasi pendukung lainnya. Penelitian ini menggunakan memori USB 4 Gigabyte.
 
 					Agar TP-LINK MR3020 dapat membaca dan mengirimkan data dari dan ke WSN melalui kanal serial, dibutuhkan Python dan pustaka PySerial yang diinstal dengan perintah:
@@ -141,6 +143,7 @@
 					\endgroup
 
 					Setelah PHP berhasil terinstal, buka file /etc/config/uhttpd dan pastikan baris yang memuat baris di bawah ini tidak dalam keadaan terkomentar.
+
 					\begingroup
 					    \fontsize{10pt}{12pt}\selectfont
 					    \centering
@@ -164,13 +167,13 @@
 
 					Komputer yang digunakan dalam penelitian ini adalah MacBook Pro dengan sistem operasi Mac OS X Mountain Lion. Sedangkan aplikasi yang harus tersedia adalah Sublime Text 3, Arduino for Mac OS X, CoolTerm, Driver FTDI for Mac OS X, IQRF IDE v 2.08 for TR-53B.
 
-					Sublime Text 3 berperan banyak dalam mengedit kode-kode sesumber PHP, C, dan Python.
+					Sublime Text 3 berperan banyak dalam mengedit kode-kode sumber PHP, C, dan Python.
 
 					Sedangkan proses pengembangan dan pengunduhan aplikasi untuk Arduino sepenuhnya dilakukan dengan Arduino for Mac OS X karena aplikasi tersebut sudah mencakup editor teks dan alat kompilasi.
 
-					Agar komputer dapat membaca kanal serial sehingga dapat melakukan tugas-tugas seperti konfigurasi XBee Radio dan pengujian aplikasi Python, komputer membutuhkan aplikasi CoolTerm. Sebelum aplikaisi ini terinstal, pastikan driver FTDI untuk Mac OS X sudah terinstal, agar komputer dapat mendeteksi XBee yang terhubung melalui USB.
+					Agar komputer dapat membaca kanal serial sehingga dapat melakukan tugas-tugas seperti konfigurasi XBee Radio dan pengujian aplikasi Python, komputer membutuhkan aplikasi CoolTerm. Sebelum aplikasi ini terinstal, pastikan \emph{driver} FTDI untuk Mac OS X sudah terinstal, agar komputer dapat mendeteksi XBee yang terhubung melalui USB.
 
-					Walaupun kode sesumber untuk IQRF ditulis dengan bantuan Sublime Text 3, proses kompilasinya dilakukan dengan aplikasi IQRF IDE v 2.08 for TR-53B. Proses pengunduhan file ke IQRF juga dilakukan dengan aplikasi yang sama.
+					Walaupun kode sumber untuk IQRF ditulis dengan bantuan Sublime Text 3, proses kompilasinya dilakukan dengan aplikasi IQRF IDE v 2.08 for TR-53B. Proses pengunduhan file ke IQRF juga dilakukan dengan aplikasi yang sama.
 
 					Semua proses instalasi aplikasi yang dibutuhkan dilakukan dengan prosedur standar dari Mac OS X. Yaitu memperoleh file binary-nya dan kemudian menyalin file tersebut ke direktori Application atau mengikuti prosedur standar dari masing-masing aplikasi.
 
@@ -215,12 +218,12 @@
 			\end{enumerate}
 
 		\subsection{Pengembangan Aplikasi WSN}
-			Langkah selanjutnya yang dilakukan dalam pengembangan adalah pengembangan aplikasi untuk WSN yang terdiri atas aplikasi C yang masing-masing ditujukan untuk IQRF dan XBee. Setelah aplikasi selesai ditulis, kode sesumber kemudian di-\emph{compile} dan diunduh ke dalam WSN.
+			Langkah selanjutnya yang dilakukan dalam pengembangan adalah pengembangan aplikasi untuk WSN yang terdiri atas aplikasi C yang masing-masing ditujukan untuk IQRF dan XBee. Setelah aplikasi selesai ditulis, kode sumber kemudian di-\emph{compile} dan diunduh ke dalam WSN.
 
 			\begin{enumerate}
 				\item IQRF
 
-					Peranti IQRF dalam penelitian ini ada dua jenis, begitu pula aplikasi/peranti lunak yang tertanam di dalamnya. Aplikasi tersebut adalah \emph{Sink} dan \emph{Node}. Aplikasi \emph{Sink} akan ditanamkan pada koordinator dari IQRF yang terhubung langsung dengan AP melalui kabel USB dan jumlahnya hanya satu. Sedangkan aplikasi \emph{Node} akan ditanamkan pada sensor-sensor IQRF yang akan saling membentuk jaringan jala (\emph{mesh network}) dan jumlahnya lebih dari satu.
+					Peranti IQRF dalam penelitian ini ada dua jenis, begitu pula aplikasi yang tertanam di dalamnya. Aplikasi tersebut adalah \emph{Sink} dan \emph{Node}. Aplikasi \emph{Sink} akan ditanamkan pada koordinator dari IQRF yang terhubung langsung dengan AP melalui kabel USB dan jumlahnya hanya satu. Sedangkan aplikasi \emph{Node} akan ditanamkan pada sensor-sensor IQRF yang akan saling membentuk jaringan jala (\emph{mesh network}) dan jumlahnya lebih dari satu.
 
 					Aplikasi \emph{Sink} lebih ditekankan pada pembentukan ikatan (\emph{bond}) antara koordinator dan sensor-sensor, pengendalian sensor-sensor, serta pengakuisisian data dari masing-masing sensor.
 
@@ -228,17 +231,17 @@
 
 					Data yang akan diakuisisi dari masing-masing sensor adalah temperatur yang terbaca di masing-masing sensor.
 
-					Aplikasi yang digunakan adalah hasil \emph{fork} dari aplikasi iHome yang dikembangkan oleh \cite{widyawan2012ihome} yang fiturnya sebenarnya tidak terbatas hanya pada pembacaan temperatur sekitar.
+					Aplikasi yang digunakan adalah aplikasi iHome yang dikembangkan oleh \cite{widyawan2012ihome} yang fiturnya sebenarnya tidak terbatas hanya pada pembacaan temperatur sekitar.
 
 				\item XBee
 
-					Sama seperti IQRF, peranti XBee terdiri dari dua jenis peranti, yaitu koordnator dan sensor-sensor. Koordinator bertugas menyala dan matikan relay-relay yang terdapat di masing-masing sensor sesuai permintaan pengguna.
+					Sama seperti IQRF, peranti XBee terdiri dari dua jenis peranti, yaitu koordinator dan sensor-sensor. Koordinator bertugas menyalakan atau mematikan relay-relay yang terdapat di masing-masing sensor sesuai permintaan pengguna.
 
 					Koordinator tersusun atas \emph{XBee 802.15.4 Radios (Series 1)} yang tertanam pada \emph{XBee Explorer USB Board} dan terkoneksi langsung dengan AP dengan kabel USB.
 
 					Sedangkan sensornya terdiri dari tiga bagian, yaitu \emph{XBee 802.15.4 Radios (Series 1)}, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan Arduino Uno. Ketiga bagian tersebut saling terhubung dengan pin-pin yang tersedia.
 
-					XBee pada hakikatnya hanya sebatas peranti komunikasi antara AP dengan relay-relay yang tersedia, sehingga pemrograman teletak pada masing-masing Arduino pada relay. Bahasa yang digunakan adalah bahasa C (Arduino). Aplikasi yang dikembangkan akan menunggu perintah dari AP untuk menyala dan matikan relay.
+					XBee pada hakikatnya hanya sebatas peranti komunikasi antara AP dengan relay-relay yang tersedia, sehingga pemrograman teletak pada masing-masing Arduino pada relay. Bahasa yang digunakan adalah bahasa C (Arduino). Aplikasi yang dikembangkan akan menunggu perintah dari AP untuk menyalakan atau mematikan relay.
 
 			\end{enumerate}
 
@@ -280,7 +283,7 @@
 
 				\item XBee
 
-					Aplikasi Python XBee memiliki kemampuan untuk menyala dan matikan relay pada peranti tertentu dan membaca status relay pada peranti tertentu, apakah relay tersebut sedang menyala atau mati.
+					Aplikasi Python XBee memiliki kemampuan untuk menyalakan atau mematikan relay pada peranti tertentu dan membaca status relay pada peranti tertentu, apakah relay tersebut sedang menyala atau mati.
 
 					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-xbee}.
 
@@ -330,7 +333,7 @@
 
 			Antarmuka yang dikembangkan adalah hasil \emph{fork} dari \emph{template} halaman administrator buatan Vince G. Antarmuka ditulis menggunakan HTML5 dan CSS3, dengan tambahan pemrograman JavaScript pada sisi klien agar menambah interaktivitas. Pustaka Bootstrap digunakan untuk membuat halaman web menjadi responsif, sehingga dapat menyesuaikan diri secara otomatis sesuai dengan ukuran layar. Pustaka jQuery digunakan untuk membantu pemrograman di sisi klien.
 
-			Kode sesumber untuk aplikasi berbasis web ditulis dengan bantuan Sublime Text 3.
+			Kode sumber untuk aplikasi berbasis web ditulis dengan bantuan Sublime Text 3.
 			
 			Peta situs dari aplikasi berbasis web yang dikembangkan dapat dilihat pada Gambar \ref{sitemap}.
 			
@@ -343,7 +346,7 @@
 
 			Total halaman utama dari situs ada enam halaman, seperti dapat dilihat pada Gambar \ref{sitemap} dengan tambahan halaman login, halaman yang harus diakses sebelum pengguna dapat masuk ke dalam sistem. Empat halaman utama mempunyai halaman anak yang secara garis besar ditujukan untuk melihat, menghapus dan menambah peranti, profil, atau pengguna.
 
-			Basis data yang dikembangkan tergolong sederhana karena hanya dimaksudkan untuk menyimpan data-data yang sifatnya kecil, seprti tampak pada Gambar \ref{erd}.
+			Basis data yang dikembangkan tergolong sederhana karena hanya dimaksudkan untuk menyimpan data-data yang sifatnya kecil, seperti tampak pada Gambar \ref{erd}.
 
 			\begin{figure}[H]
 			  \centering
@@ -375,7 +378,7 @@
 		\subsection{Evaluasi dan Perbaikan}
 			Evaluasi dilakukan dengan mengujikan semua fitur yang dimiliki oleh aplikasi. Jika terdapat kesalahan, maka dilacak dimanakah letak kesalahan berada, apakah pada aplikasi berbasis web, aplikasi Python, atau aplikasi C pada sensor.
 
-			Masalah yang timbul adalah saat akan merevisi aplikasi yang sudah terlanjur tertanam pada AP karena AP, dengan sistem operasi OpenWRT, tidak memiliki aplikasi teks editor yang mumpuni untuk melakukan pengeditan kode sesumber dengan nyaman. Oleh karena itu, seluruh kode sesumber tetap berada pada komputer agar tetap bisa dibuka dengan Sublime Text 3, namun AP me-\emph{mount}-nya dengan bantuan SSHFS sehingga seolah-olah kode sesumber tersebut berada dalam dua tempat dan saling tersinkronisasi.
+			Masalah yang timbul adalah saat akan merevisi aplikasi yang sudah terlanjur tertanam pada AP karena AP, dengan sistem operasi OpenWRT, tidak memiliki aplikasi teks editor yang mumpuni untuk melakukan pengeditan kode sumber dengan nyaman. Oleh karena itu, seluruh kode sumber tetap berada pada komputer agar tetap bisa dibuka dengan Sublime Text 3, namun AP me-\emph{mount}-nya dengan bantuan SSHFS sehingga seolah-olah kode sumber tersebut berada dalam dua tempat dan saling tersinkronisasi.
 
 			Untuk melakukan \emph{mounting} pada AP, menggunakan perintah:
 			\begingroup
@@ -551,8 +554,8 @@
 			Pendekatan yang dilakukan pada aplikasi ini tidak seperti aplikasi web pada umumnya, di mana pengguna dapat mengklik tautan registrasi yang biasanya terdapat pada halaman \emph{log in}. Pendekatan yang dilakukan seperti pada proses \emph{log in} pada komputer. Jadi jika pengguna baru ingin masuk, ia bisa mendaftarkan dirinya melalui pengguna lama yang sudah dapat \emph{log in}, menggunakan halaman yang sudah dijelaskan sebelumnya pada Gambar \ref{user-add}.
 
 
-		\subsection{Kode Sesumber}
-			Kode sesumber dapat diperoleh pada situs GitHub dengan alamat URL \url{https://github.com/gtrdp/wsn-ip-interoperability}. Pada laman tersebut, kode sesumber dapat diunduh dalam format .zip. Dengan bantuan aplikasi git, \emph{project} dari aplikasi ini, lengkap dari aplikasi C, Python, dan Web, dapat di-kloning.
+		\subsection{Kode Sumber}
+			Kode sumber dapat diperoleh pada situs GitHub dengan alamat URL \url{https://github.com/gtrdp/wsn-ip-interoperability}. Pada laman tersebut, kode sumber dapat diunduh dalam format .zip. Dengan bantuan aplikasi git, \emph{project} dari aplikasi ini, lengkap dari aplikasi C, Python, dan Web, dapat di-kloning.
 
 
 	\section{Analisis Unjuk Kerja Aplikasi}
@@ -693,11 +696,13 @@
 			\end{figure}
 
 			Jarum penunjuk pada masing-masing penampil akan bergerak sesuai dengan bacaan temperatur dari masing-masing sensor IQRF. Gerakan akan terjadi secara langsung, tanpa pengguna harus memuat ulang halaman web.
+
+			Pengujian yang dilakukan pada penelitian ini tidak ditujukan pada ketelitian pembacaan temperatur pada sensor IQRF karena penelitian ini hanya berfokus pada fungsionalitas sistem.
 			
 			Dari hasil pengujian di atas, didapati bahwa aplikasi yang dibangun sudah dapat berfungsi sebagaimana mestinya.
 
 		\subsection{Masalah dan Penyelesaian}
-			Masalah yang pertamakali muncul adalah tentang extroot. TP-LINK MR3020 memiliki \emph{bug} yang membuat memori eksternal tidak berfungsi saat \emph{booting} pertamakali. Setelah TP-LINK MR3020 dijalankan ulang, memori eksternal baru terbaca. Penyebab dari masalah ini belum ditemukan, sehingga solusi untuk masalah ini adalah melakukan \emph{rebooting} jika TP-LINK MR3020 tidak membaca memori eksternal. Masalah ini tidak ditemukan pada AP dengan jenis lain.
+			Masalah yang pertamakali muncul adalah tentang extroot. TP-LINK MR3020 memiliki \emph{bug} yang membuat memori eksternal tidak berfungsi saat \emph{booting} pertamakali. Setelah TP-LINK MR3020 dijalankan ulang, memori eksternal baru terbaca. Penyebab dari masalah ini belum ditemukan, sehingga solusi untuk masalah ini adalah melakukan \emph{rebooting} jika TP-LINK MR3020 tidak membaca memori eksternal. Masalah ini tidak ditemukan pada AP dengan jenis lain seperti pada penelitian yang dilakukan oleh \cite{wibowo2013wireless}.
 
 		%	Komunikasi serial yang kata perkata.
 			
