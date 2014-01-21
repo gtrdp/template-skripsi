@@ -9,7 +9,7 @@
 	Alat dan bahan yang digunakan pada penelitian ini terbagi atas perangkat keras dan perangkat lunak yang akan dijelaskan seperti berikut.
 
 	\subsection{Perangkat Keras}
-		Perangkat keras yang digunakan secara garis besar terdiri atas kit-kit WSN dari \emph{vendor} IQRF dan XBee, dan sebuah AP TP-LINK MR3020 yang bertindak sebagai \emph{gateway}. Untuk lebih jelasnya dapat dilihat pada daftar berikut.
+		Perangkat keras yang digunakan secara garis besar terdiri atas kit-kit \emph{Wireless Sensor Network} (WSN) dari \emph{vendor} IQRF dan XBee, dan sebuah \emph{Access Point} (AP) TP-LINK MR3020 yang bertindak sebagai \emph{gateway}. Untuk lebih jelasnya dapat dilihat pada daftar berikut.
 
 		\vspace{-0.5cm}
 
@@ -37,9 +37,9 @@
 		\begin{enumerate}[a.]
 		\begin{singlespace}
 		\itemsep0em
-			\item Arduino for Mac OSX,
+			\item Arduino for Mac OS X,
 			\item CoolTerm,
-			\item Driver FTDI for Mac OSX,
+			\item Driver FTDI for Mac OS X,
 			\item PHP, MySQL, dan uHTTPd,
 			\item Python dan pustaka PySerial,
 			\item IQRF IDE v 2.08 for TR-53B,
@@ -66,7 +66,7 @@
 
 		Aplikasi untuk sensor-sensor IQRF terdiri dari dua bagian, yaitu aplikasi untuk sensor koordinator dan sensor simpul. Namun demikian, aplikasi sama-sama ditulis dan kembangkan menggunakan Sublime Text 3. Setelah kode sumber untuk aplikasi selesai dibuat, kode sumber dikompiliasi menggunakan IDE IQRF untuk kemudian diunggah ke sensor menggunakan bantuan aplikasi yang sama. Aplikasi yang dikembangkan adalah hasil fork dari iHome, aplikasi rumah hijau yang dikembangkan oleh \cite{widyawan2012ihome}.
 
-		Sedangkan aplikasi untuk Arduino Uno, yang bertugas menyala-matikan relay dengan komunikasi berbasis ZigBee, dikembangkan dengan aplikasi Arduino for Mac OSX dengan bahasa pemrograman C. Proses kompilasi dan pengunggahan dilakukan dengan bantuan aplikasi yang sama.
+		Sedangkan aplikasi untuk Arduino Uno, yang bertugas menyala-matikan relay dengan komunikasi berbasis ZigBee, dikembangkan dengan aplikasi Arduino for Mac OS X dengan bahasa pemrograman C. Proses kompilasi dan pengunggahan dilakukan dengan bantuan aplikasi yang sama.
 
 		Aplikasi web dikembangkan dengan bahasa PHP pada server (terletak pada AP) dan JavaScript pada klien. Halaman yang tertampil pada web browser disusun menggunakan HTML5 dan CSS3 dengan bantuan pustaka Bootstrap agar halaman dapat bersifat responsif, yaitu dapat menyesuaikan tampilan sesuai ukuran layar web browser. AJAX diterapkan dalam pengembangan agar halaman web yang ditampilkan bersifat dinamis.
 
@@ -114,7 +114,7 @@
 	Penelitian direncanakan akan dilaksanakan selama enam bulan. Rincian rencana jadwal penelitian dicantumkan dalam Tabel \ref{jadwal}.
 
 	% Please remember to add \use{multirow} to your document preamble in order to suppor multirow cells
-		\begin{table}[ht!]
+		\begin{table}[H]
 		\centering
 		\caption{Jadwal Penelitian.}
 		\label{jadwal}
