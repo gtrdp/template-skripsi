@@ -53,8 +53,8 @@
 \ExecuteOptions{jtetiskripsi,satusetengahspasi,indonesia}
 \ProcessOptions
 \LoadClass[a4paper,12pt]{report}
-\RequirePackage{natbib}
-\bibliographystyle{plainnat}
+%\RequirePackage{natbib}
+\bibliographystyle{IEEEtran}
 %\RequirePackage{glossaries}%
 %\renewcommand{\nomname}{\nomenclaturename}%
 %\makeglossary%
@@ -296,13 +296,15 @@
     pada tanggal \@approvaldate
     \vspace{1.0cm}
 
+    \begin{singlespace}
     \begin{tabular}{ccc}
       Dosen Pembimbing I & & Dosen Pembimbing II \\
-      \vspace{0.5cm} & \vspace{0.5cm} & \vspace{0.5cm}\\
+      \vspace{1cm} & \vspace{1cm} & \vspace{1cm}\\
       \textbf{\underline{\@firstsupervisor}}& &
       \textbf{\underline{\@secondsupervisor}} \\
       \bfseries NIP. \@firstnip & & \bfseries NIP. \@secondnip    
     \end{tabular}
+    \end{singlespace}
 
   \end{doublespace}
   \end{center}

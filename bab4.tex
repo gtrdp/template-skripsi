@@ -701,6 +701,33 @@
 			
 			Dari hasil pengujian di atas, didapati bahwa aplikasi yang dibangun sudah dapat berfungsi sebagaimana mestinya.
 
+		\subsection{Kelebihan dan Kekurangan Sistem}
+			Secara garis besar, sistem yang dibangun mampu menginteroperabilitaskan dua jenis jaringan sensor nirkabel dan protokol internet dengan biaya yang rendah. Untuk lebih jelasnya, kelebihan sistem yang dibangun dijelaskan pada daftar berikut,
+
+			\vspace{-0.5cm}
+			\begin{itemize}
+			\begin{singlespace}
+				\item mampu mengintegerasikan dua jenis WSN,
+				\item jumlah peranti yang terpasang dapat ditambah dan dikurangi secara mudah,
+				\item aplikasi web yang dibangun dapat diakses dari komputer maupun ponsel cerdas karena bersifat responsif,
+				\item mendukung fitur profil guna mendukung implementasinya pada \emph{green building} dan \emph{smart house},
+				\item biaya yang dibutuhkan tergolong murah, dan
+				\item AP berukuran kecil sehingga mudah ditempatkan di sudut ruangan.
+			\end{singlespace}
+			\end{itemize}
+
+			Sedangkan kekurangan sistem yang dapat dikembangkan atau diperbaiki pada penelitian selanjutnya dijelaskan pada daftar berikut ini,
+
+			\vspace{-0.5cm}
+			\begin{itemize}
+			\begin{singlespace}
+				\item skalabilitas yang kurang karena hanya mampu mendukung dua jenis WSN secara \emph{default},
+				\item baterai IQRF \emph{node} harus diisi ulang dalam waktu berkala,
+				\item memori eksternal dari AP kurang stabil, baru terbaca setelah AP dinyalakan ulang, dan
+				\item sistem tidak memiliki baterai cadangan apabila listrik mati.
+			\end{singlespace}
+			\end{itemize}
+
 		\subsection{Masalah dan Penyelesaian}
 			Masalah yang pertamakali muncul adalah tentang extroot. TP-LINK MR3020 memiliki \emph{bug} yang membuat memori eksternal tidak berfungsi saat \emph{booting} pertamakali. Setelah TP-LINK MR3020 dijalankan ulang, memori eksternal baru terbaca. Penyebab dari masalah ini belum ditemukan, sehingga solusi untuk masalah ini adalah melakukan \emph{rebooting} jika TP-LINK MR3020 tidak membaca memori eksternal. Masalah ini tidak ditemukan pada AP dengan jenis lain seperti pada penelitian yang dilakukan oleh \cite{wibowo2013wireless}.
 
