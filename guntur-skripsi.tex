@@ -4,7 +4,7 @@
 % 						(c) @gunturdputra 2013
 %-------------------------------------------------------------------------------
 
-%Template pembuatan proposal skripsi.
+%Template pembuatan naskah skripsi.
 \documentclass{jtetiskripsi}
 
 %Untuk prefiks pada daftar gambar dan tabel
@@ -16,11 +16,16 @@
 \usepackage{hyperref}
 \newlength{\mylenf}
 \settowidth{\mylenf}{\cftfigpresnum}
-\setlength{\cftfignumwidth}{\dimexpr\mylenf+1.5em}
-\setlength{\cfttabnumwidth}{\dimexpr\mylenf+1.5em}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+2em}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+2em}
 
 %Untuk Bold Face pada Keterangan Gambar
 \usepackage[labelfont=bf]{caption}
+
+%Untuk caption dan subcaption
+\usepackage{caption}
+\usepackage{subcaption}
+
 
 %-----------------------------------------------------------------
 %Disini awal masukan untuk data proposal skripsi
@@ -62,52 +67,46 @@
 %-----------------------------------------------------------------
 \acknowledgment
 \begin{flushright}
-\emph{Karya sederhana ini kupersembahkan \\
-buat Bapak, Ibu,\\dan Adik tercinta}
+\emph{Untuk Ibu, Bapak,\\dan Adik-adikku tercinta.}
 \end{flushright}
 
 %-----------------------------------------------------------------
 %Disini awal masukan untuk Prakata
 %-----------------------------------------------------------------
 \preface
-Segala puji dan syukur semata-mata hanya untuk Allah SWT, karena atas segala
-rahmat, hidayah dan bantuan-Nya jualah maka akhirnya Tesis dengan judul
-Analisis Teoretis Pemantulan dan Pembiasan Gelombang Elektromagnet Pada
-Bahan Magnetik Non Linear Orde Dua ini telah selesai penulis susun.
+Assalamu'alaikum Wr. Wb.
 
-Telah banyak bantuan yang penulis peroleh selama dalam penulisan Tesis ini
-, untuk itu tak lupa penulis ucapkan terima kasih yang sebesar-besarnya
-kepada:
+\vspace{0.5cm}
+
+Puji syukur penulis panjatkan ke hadirat Allah SWT karena hanya dengan rahmat dan hidayah-Nya, Tugas Akhir ini dapat terselesaikan tanpa halangan berarti. Keberhasilan dalam menyusun laporan Tugas Akhir ini tidak lepas dari bantuan berbagai pihak yang mana dengan tulus dan ikhlas memberikan masukan guna sempurnanya Tugas Akhir ini. Oleh karena itu dalam kesempatan ini, dengan kerendahan hati penulis mengucapkan terima kasih kepada:
+
 \begin{enumerate}
-\item{Bapak Sarjiya, S.T., M.T., Ph.D., selaku Ketua Jurusan Teknik Elektro dan Teknologi Informasi Fakultas Teknik Universitas Gadjah Mada.}
-\item{Bapak...selaku dosen pembimbing pertama ...}
-\item{Ibu... selaku dosen pembimbing kedua ...}
-\item{Bapak... selaku dosen pembimbing akademis.}
-\item{Bapak dan Mama yang selama ini telah sabar membimbing dan mendoakan
-penulis tanpa kenal untuk selama-lamanya,}
-\item{Prof. Drs. H. Muslim, Ph. D, selaku Pembimbing Utama, yang telah
-memberikan ilmunya kepada penulis serta dengan penuh kesabaran membimbing penulis,}
-\item{Drs. Kamsul Abraha, Ph. D, selaku Pembimbing Pendamping yang telah
-memberikan inspirasi kepada penulis,} 
-\item{Dr. Pekik Nurwantoro dan Dr. rer. nat. M. Farchani Rasyid
-yang telah memperkenalkan sistem operasi LINUX dan \LaTeX{} kepada penulis serta
-memberikan bimbingan penggunaan \LaTeX{} tersebut dengan sabar,} 
-\item{Segenap staf dan karyawan di jurusan Fisika FMIPA UGM, yang telah
-banyak bekerjasama dengan penulis selama belajar di FMIPA UGM,} 
-\item{Sahabat saya M. Rizal Ginanjar, yang selalu bersedia membantu penulis ketika
-menyelesaikan masalah-masalah komputer.} 
+\item{Bapak Sarjiya, S.T., M.T., Ph.D., selaku Ketua Jurusan Teknik Elektro dan Teknologi Informasi Fakultas Teknik Universitas Gadjah Mada,}
+\item{Bapak Sigit Basuki Wibowo, S.T., M.Eng. selaku dosen pembimbing pertama yang telah memberikan banyak bantuan, bimbingan, serta arahan dalam Tugas Akhir ini,}
+\item{Bapak Bimo Sunarfri Hantono, S.T., M.Eng. selaku dosen pembimbing kedua yang juga telah memberikan banyak bantuan, bimbingan, serta arahan dalam Tugas Akhir ini,}
+\item{Bapak Warsun Najib, S.T., M.Sc. selaku dosen pembimbing akademis penulis dan juga dosen pembimbing lapangan penulis pada KKN-PPM UGM 2013 Unit SLM07,}
+\item{Ibu dan Bapak yang selama ini telah sabar membimbing, mengarahkan, dan mendoakan penulis tanpa kenal lelah untuk selama-lamanya,}
+\item{Segenap staf dan karyawan di JTETI FT UGM, yang telah banyak bekerjasama dengan penulis selama belajar di JTETI FT UGM. Khususnya staf bagian pengajaran S1 JTETI, Mas Mery, Mas Tri, dan Mas Nanang; Mbak Ria Ryong; Mas Jeff dan Mbak Lilik Ruang Server yang telah meminjamkan ruang server untuk interview Skype; Mas Rudy, Mas Yaenuri, dan staff TU JTETI; Mas Dedy S2 JTETI atas ilmu-ilmunya,} 
+\item{Senior-senior saya Teknik Elektro angkatan 2005, Mas Galang, Mas Giovanni Yoko, dkk; 2006, Mas Bagor, Mbak Geo, dkk; 2007, Mas Canggih, Mas Nasikun, Mas Odit, Mas Adit, dkk; dan 2008, Mas Qius, Mas Azka, Mas Kuntoro, Mas Andika, Mas Mas Ajay, dkk. atas segala ilmu dan pengalaman yang telah dibagi,}
+\item{Teman-teman di Laboratorium Sistem Frekuensi Tinggi, Mas Yanto, Mas Nanang, dkk atas keramahan dan kehangatannya; Sistem Elektronis, Mas Heru atas share pengalamannya; Jaringan Komputer, atas keramahan, kehangatan, konsumsi, dan logistik walaupun saya member baru; dan Informatika, Pak Muji atas K3-nya,}
+\item{Teman-teman seperjuangan Teknik Elektro konsentrasi SKI angkatan 2009, Damar, Putra, Danu, Karin, Momon, Gilang, Billy, Aldo, Rawamantan (semoga cepat lulus), Amy, Dandy, Nufus, Dedy, Dino, Reza, Age, Firdy, dkk,}
+\item{Junior-junior saya Teknik Elektro dan Teknologi Informasi, mulai dari angkatan 2010 sampai seterusnya yang saya tidak bisa sebutkan satu-satu,}
+\item{Teman-teman KKN SLM 07 di dusun Gamplong I, II, dan III, Ayu, Fitra, Mala, Syefira, dan Nitiya,}
+\item{Bapak dan Ibu Pondokan Rumah Pintar Mentari, Pak Wid, Bu Tati, Mas Novi, Mba Endang, Mas Fajar, dan Miya, di Dusun Gamplong III, Desa Sumberrahayu, Moyudan, Sleman, D.I.Yogyakarta,}
+\item{dan semua yang saya tidak bisa sebutkan satu-satu pada kata pengantar ini.}
 \end{enumerate}
 
-Tesis ini tentunya tidak lepas dari segala kekurangan dan kelemahan, untuk itu
-segala kritikan dan saran yang bersifat membangun guna kesempurnaan Tesis ini
-sangat diharapkan. Semoga tesis ini dapat bermanfaat bagi kita semua dan lebih
-khusus lagi bagi pengembagan ilmu fisika.
+Penulis menyadari bahwa penyusunan Tugas Akhir ini jauh dari sempurna. Kritik dan saran yang membangun sangat kami harapkan untuk kesempurnaan Tugas Akhir ini. Kritik dan saran dapat ditujukan langsung pada e-mail atau \emph{mention} langsung pada akun twitter saya. Akhir kata penulis mohon maaf yang sebesar-besarnya apabila ada kekeliruan di dalam penulisan Tugas Akhir ini.
+
+\vspace{0.5cm}
+
+Wassalamu'alaikum Wr. Wb.
 
 \begin{tabular}{p{7.5cm}c}
 &Yogyakarta, 15 Januari 2014\\
 &\\
 &\\
-&Penulis
+&@gunturdputra
 \end{tabular}
 
 %-----------------------------------------------------------------
@@ -128,13 +127,21 @@ khusus lagi bagi pengembagan ilmu fisika.
 
 \begin{tabular}{p{20pt}p{3pt}l}
 \textbf{A}\\
+AJAX & & Asynchronous JavaScript and XML\\
 AP & & Access Point\\
+API & & Application Programming Interface\\
 \\
 \end{tabular}
 
 \begin{tabular}{p{20pt}p{3pt}l}
 \textbf{C}\\
 CLI & & Command Line Interface\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{C}\\
+DFM & & Discovered Full Mesh\\
 \\
 \end{tabular}
 
@@ -148,6 +155,12 @@ ERD & & Entity Relationship Diagram\\
 \textbf{F}\\
 FTDI & & Future Technology Devices International\\
 FUSE & & Filesystem in Userspace\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{I}\\
+IP & & Internet Protocol\\
 \\
 \end{tabular}
 
@@ -185,6 +198,12 @@ USB & & Universal Serial Bus\\
 \end{tabular}
 
 \begin{tabular}{p{20pt}p{3pt}l}
+\textbf{V}\\
+VRS & & Virtual Routing Structure\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
 \textbf{W}\\
 WAP & & Wireless Access Point\\
 WIT & & Western Indonesian Time\\
@@ -196,9 +215,9 @@ WSN & & Wireless Sensor Network\\
 %Disini awal masukan Intisari
 %-----------------------------------------------------------------
 \begin{abstractind}
-Penggunaan \emph{Wireless Sensor Network} (WSN) untuk gedung dan perumahan semakin populer karena dapat dimanfaatkan untuk berbagai kepentingan seperti \emph{home automation} dan \emph{home surveillance}. Oleh karena itu, untuk meningkatkan fleksibilitas penggunaan WSN, diperlukan sistem pengendalian yang dapat dikendalikan secara jarak jauh. Padahal pada umumnya, WSN dikendalikan oleh sebuah pengendali utama berada di sekitar tempat WSN itu berada.
+Penggunaan \emph{Wireless Sensor Network} (WSN) untuk gedung dan perumahan kian populer karena dapat dimanfaatkan untuk berbagai kepentingan seperti \emph{home automation} dan \emph{home surveillance}. Oleh karena itu, untuk meningkatkan fleksibilitas penggunaan WSN, diperlukan sistem pengendalian yang dapat dikendalikan secara jarak jauh. Padahal pada umumnya, WSN dikendalikan oleh sebuah pengendali utama yang berada di sekitar tempat WSN itu berada.
 
-Penelitian ini mengusulkan integrasi dari WSN dengan \emph{Internet Protocol} (IP) yang memungkinkan WSN dapat dikendalikan dimanapun dan dengan apapun asalkan masih terhubung dengan jaringan internet. Penelitian ini memanfaatkan infrastruktur jaringan data yang sangat populer dan terhubung ke internet, yaitu jaringan area lokal nirkabel atau dikenal dengan nama WiFi. Salah satu perangkat utama dalam jaringan WiFi adalah \emph{Access Point} (AP) yang berfungsi sebagai koordinator simpul. Selain itu, AP juga berfungsi sebagai gateway yang menghubungkan berbagai piranti yang terhubung padanya ke internet. Oleh karena itu, penelitian ini akan mengembangkan perangkat lunak yang akan ditanamkan ke dalam AP sehingga menjadikan AP mempunyai kemampuan sebagai gateway untuk kedua jaringan WiFi dan beberapa protokol WSN ke dalam jaringan internet.
+Dengan menggunakan metode pengembangan iteratif, yang sesuai untuk pengembangan aplikasi utama dan aplikasi-aplikasi pendukung pada penelitian ini dengan beberapa kali iterasi, penelitian ini mengusulkan interoperabilitas WSN dan \emph{Internet Protocol} (IP) yang memungkinkan WSN untuk dapat dikendalikan dari manapun dan dengan apapun selama masih terhubung dengan jaringan Internet. Pada akhirnya, penelitian ini menghasilkan sebuah aplikasi berbasis web yang diimplementasikan pada sebuah \emph{Access Point} (AP) nirkabel sehingga dapat diakses dengan Wi-Fi secara mudah guna pengendalian WSN secara jarak jauh.
 
 
 \bigskip
@@ -208,11 +227,9 @@ Penelitian ini mengusulkan integrasi dari WSN dengan \emph{Internet Protocol} (I
 
 \begin{abstracteng}
 \emph{
-Wireless Sensor Network (WSN) usage for buildings and household has been increasingly popular because it offers many benefits, such as home automation and home surveilliance. Therefore, in order to increase WSN flexibility usage, remote controlling which enables administration is needed. In fact, generally WSN is controlled by a coordinator (sink node) which is located near the WSN area itself.}
+Wireless Sensor Network (WSN) usage for buildings and household has been increasingly popular because it offers various benefits, such as home automation and home surveilliance. Therefore, in order to increase WSN usage flexibility, remote controlling which enables remote administration is needed. In fact, generally WSN is controlled by a coordinator (sink node) that is located closely to the WSN area itself.}
 
-\emph{
-This research proposes integration of WSN and Internet Protocol (IP), that enables remote controlling and administration through the Internet Protocol stack. This research utilizes the wireless local area network or commonly known as WiFi. One of main components on this WiFi network is Access Point (AP) that acts as node coordinator. Furthermore, AP also serves as a gateway that connects multiple devices, that is connected to the AP, to the Internet. Therefore, this research will develop a software which is going to be implemented to the AP so that the AP has a capability as a gateway for both WiFi network and several WSN protocols to the Internet.}
-
+\emph{By utilizing iterative development, which is suitable for main and supporting application development with several iteration, this research proposes WSN and Internet Protocol interoperability that enables remote controlling through Internet. Eventually, this research creates a web-based application which will be implemented to a wireless AP for easier WSN remote controlling.}
 
 \bigskip
 \noindent
@@ -239,40 +256,12 @@ This research proposes integration of WSN and Internet Protocol (IP), that enabl
 %Disini akhir masukan Bab
 %-----------------------------------------------------------------
 
+
 %-----------------------------------------------------------------
 %Disini awal masukan untuk Daftar Pustaka
 %-----------------------------------------------------------------
-%%\nocite{Abel2010,Guerbas201350}
-%%\bibliography{research-plan}
-%%\bibliographystyle{plainnat}
-\begin{thebibliography}{9}
-
-\bibitem[satu(2013)]{satu01}
-Spinar, R., dkk, ``Demo Abstract: Efficient Building Management with IP- based Wireless Sensor Network'', , 6th European Conference on Wireless Sensor Networks. Cork, Ireland 11-13 February 2009.
-
-\bibitem[dua(2013)]{dua02}
-Adam Dunkels, Thiemo Voigt, Niclas Bergman, dan Mats Jonsson ``The Design and Implementation of an IP-based Sensor Network for Intrusion Monitoring'', Swedish National Computer Networking Workshop, Sweden, 2004.
-
-\bibitem[tiga(2013)]{tiga03}
-Sigit B. Wibowo, dan Widyawan, ``Wireless Sensor Network and Internet Protocol Integration with COTS'', 2013 AUN/SEED-Net Regional Conference in Electrical and Electronics Engineering, Bangkok, Thailand, 2013.
-
-\bibitem[empat(2013)]{empat04}
-Dokumen online, http://www.iqrf.org/, IQRF, diakses pada Maret 2013
-
-\bibitem[lima(2013)]{lima05}
-Widyawan, Sigit B. Wibowo, dkk, ``iHome: Low-Cost Domotic for Residential Houses'', 5th AUN/SEED-Net Regional Conference on Information and Communications Technology (RCICT), Manila, Filipina, 2012.
-
-\bibitem[enam(2013)]{enam06}
-Dokumen online,https://openwrt.org/, diakses pada Maret 2013
-
-\bibitem[tujuh(2013)]{tujuh07}
-Dokumen online, http://www.digi.com/technology/rf-articles/wireless-zigbe,
-diakses pada Maret 2013
-
-\bibitem[delapan(2013)]{delapan08}
-Dokumen online, http://vinceg.github.io/Bootstrap-Admin-Theme/, diakses pada 29 Desember 2013.
-
-\end{thebibliography}
+\nocite{Erratt2013,Elias2012,widyawan2012ihome,OpenWrtProject2013,Spinar2009,Dunkels2004,wibowo2013wireless,MICRORISCs.r.o.2013,DigiInternationalInc.2013,Gabriel2013,Network2014}
+\bibliography{IEEEabrv,daftar-pustaka}
 \addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
 %-----------------------------------------------------------------
 %Disini akhir masukan Daftar Pustaka

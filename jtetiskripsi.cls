@@ -1,3 +1,14 @@
+%-------------------------------------------------------------------------------
+% Template Skripsi untuk JTETI FT UGM
+%
+% Dibuat oleh @gunturdputra TE09
+% Hasil fork dari file asli Pak Pekik Nurwantoro FMIPA
+% dan Mas Yohan Fajar Sidik TE08
+% Silakan digunakan dan diedit seperlunya, semoga bermanfaat
+%
+% (c) 2013-2014
+%-------------------------------------------------------------------------------
+
 \NeedsTeXFormat{LaTeX2e}
 %Created by Pekik Nurwantoro, Universitas Gadjah Mada, Yogyakarta, Indonesia
 \ProvidesClass{jtetiskripsi}
@@ -18,6 +29,7 @@
 \usepackage[table]{xcolor}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{indentfirst}
 
 \newif\if@msthesis
 \newif\if@msproposal
@@ -41,8 +53,8 @@
 \ExecuteOptions{jtetiskripsi,satusetengahspasi,indonesia}
 \ProcessOptions
 \LoadClass[a4paper,12pt]{report}
-\RequirePackage{natbib}
-\bibliographystyle{plainnat}
+%\RequirePackage{natbib}
+\bibliographystyle{IEEEtran}
 %\RequirePackage{glossaries}%
 %\renewcommand{\nomname}{\nomenclaturename}%
 %\makeglossary%
@@ -68,7 +80,7 @@
 %------------------------------------------------------------
 %The form of page numbering
 %------------------------------------------------------------
-\pagestyle{plain}
+\pagestyle{myheadings}
 \markright{}
 
 %------------------------------------------------------------
@@ -248,10 +260,8 @@
         \MakeUppercase{\normalfont\bfseries \@idnum}}\\
        \vspace{1.5cm}
        {\normalfont 
-         \MakeUppercase{\normalfont\bfseries Program Studi \@program}\\
          \MakeUppercase{\normalfont\bfseries Jurusan \@dept}\\
-         \MakeUppercase{\normalfont\bfseries\@faculty}\\
-         \MakeUppercase{\normalfont\bfseries\@university}\\
+         \MakeUppercase{\normalfont\bfseries\@faculty} \MakeUppercase{\normalfont\bfseries\@university}\\
          \MakeUppercase{\normalfont\bfseries\@city}\\
          \vspace{0.5cm}
          {\normalfont\bfseries\@yearsubmit}}\\
@@ -286,13 +296,15 @@
     pada tanggal \@approvaldate
     \vspace{1.0cm}
 
+    \begin{singlespace}
     \begin{tabular}{ccc}
       Dosen Pembimbing I & & Dosen Pembimbing II \\
-      \vspace{0.5cm} & \vspace{0.5cm} & \vspace{0.5cm}\\
+      \vspace{1cm} & \vspace{1cm} & \vspace{1cm}\\
       \textbf{\underline{\@firstsupervisor}}& &
       \textbf{\underline{\@secondsupervisor}} \\
-      \bfseries NIP \@firstnip & & \bfseries NIP \@secondnip    
+      \bfseries NIP. \@firstnip & & \bfseries NIP. \@secondnip    
     \end{tabular}
+    \end{singlespace}
 
   \end{doublespace}
   \end{center}
@@ -321,7 +333,7 @@
 %------------------------------------------------------------
 \def\singkatan{%
   \chapter*{\nomenclaturename}%
-  %\clearpage\thispagestyle{chapterheading}%
+  \thispagestyle{plain}
   %\chapter*{\nomenclaturename}%
   %\printglossary
 \addcontentsline{toc}{chapter}{\nomenclaturename}
@@ -332,8 +344,9 @@
 %------------------------------------------------------------
 \def\abstractind{%
   \clearpage\thispagestyle{chapterheading}%
+  \chapter*{\abstractname}%
   {\parindent \z@ \centering \normalfont
-  {\large\textbf{\abstractname}} \\
+  %{\large\textbf{\abstractname}} \\
   \vspace{1.0cm}
     }
   \begin{singlespacing}%
@@ -347,8 +360,9 @@
 %------------------------------------------------------------
 \def\abstracteng{%
   \clearpage\thispagestyle{chapterheading}\selectlanguage{english}
+  \chapter*{\abstractname}%
   {\parindent \z@ \centering \normalfont
-  {\large\textbf{\abstractname}} \\
+  %{\large\textbf{\abstractname}} \\
   \vspace{1.0cm}
     }
   \begin{singlespacing}%
