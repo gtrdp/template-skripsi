@@ -64,6 +64,23 @@
 
 		Seperti yang dapat dilihat pada Gambar \ref{aplikasi}, aplikasi berbasis web dan aplikasi Python berjalan pada AP, sedangakan aplikasi C berjalan pada masing-masing sensor IQRF dan XBee (lebih tepatnya Arduino Uno).
 
+		\subsubsection{Pendekatan Interoperabilitas} \
+		
+		Secara lebih detil, ilustrasi komponen-komponen sistem yang dibangun beserta alur komunikasi dari masing-masing bagian dapat dilihat pada Gambar berikut.
+
+			\begin{figure}[H]
+			  \centering
+			    \includegraphics[width=0.9\textwidth]{gambar/communication}
+			    \caption{Diagram ilustrasi detil komponen-komponen dari sistem beserta alur komunikasinya.}
+			    \label{communication}
+			\end{figure}
+
+		Dari Gambar \ref{communication}, dapat dilihat bahwa pendekatan untuk menginteroperabilitaskan dua jenis WSN dengan IP dilakukan pada aras data, seperti yang dapat ditengarai pada gambar bahwa komunikasi antara WSN dan aplikasi web (IP based) dijembatani oleh aplikasi Python. Pendekatan interoperabilitas tidak dilakukan pada aras protokol karena masing-masing WSN yang diinteroperabilitaskan memiliki protokol sendiri dan tingkat kerumitan yang berbeda sehingga sulit untuk dikomunikasikan. Oleh karena itu, celah yang ada adalah pada level data karena masing-masing WSN bermuara pada \emph{sink-node} atau koordinator yang sama-sama dapat diakses melalui port serial.
+
+		Celah interoperabilitas yang lain adalah pada aras aplikasi atau aras 7 pada pemodelan \emph{Open Systems Interconnection} (OSI). Pendekatan cara ini akan melakukan komunikasi dari masing-masing WSN melalui \emph{web-service} sehingga memiliki skalabilitas yang tinggi. Namun, pendekatan ini memerlukan \emph{gateway} internet dari masing-masing WSN sebelum disambungkan dengan AP. Padahal harga dari \emph{gateway} tersebut mencapai kisaran ratusan Dolar Amerika atau jutaan Rupiah sehingga sangat bertolak belakang dengan tujuan penelitian, yaitu mengembangkan sistem dengan biaya yang murah.\\ \\
+
+		\subsubsection{Teknis Pengembangan} \
+
 		Aplikasi untuk sensor-sensor IQRF terdiri dari dua bagian, yaitu aplikasi untuk sensor koordinator dan sensor simpul. Namun demikian, aplikasi sama-sama ditulis dan kembangkan menggunakan Sublime Text 3. Setelah kode sumber untuk aplikasi selesai dibuat, kode sumber dikompiliasi menggunakan IDE IQRF untuk kemudian diunggah ke sensor menggunakan bantuan aplikasi yang sama. Aplikasi yang dikembangkan adalah hasil fork dari iHome, aplikasi rumah hijau yang dikembangkan oleh \cite{widyawan2012ihome}.
 
 		Sedangkan aplikasi untuk Arduino Uno, yang bertugas menyala-matikan relay dengan komunikasi berbasis ZigBee, dikembangkan dengan aplikasi Arduino for Mac OS X dengan bahasa pemrograman C. Proses kompilasi dan pengunggahan dilakukan dengan bantuan aplikasi yang sama.

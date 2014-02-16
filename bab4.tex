@@ -73,260 +73,267 @@
 		\subsection{Persiapan Pra Pengembangan Aplikasi}
 			Persiapan yang harus dilakukan sebelum mengembangkan aplikasi adalah mengkonfigurasi router/AP, mengkonfigurasi komputer yang akan digunakan untuk pengembangan aplikasi, dan mengkonfigurasi pengalamatan pada XBee.
 
-			\begin{enumerate}
-				\item Konfigurasi Router/\emph{Access Point} (AP)
+			
+			\subsubsection{Konfigurasi Router/\emph{Access Point} (AP)} \
 
-					Penelitian ini menggunakan AP keluaran TP-LINK seri MR3020. AP jenis ini dipilih karena bentuknya yang kecil sehingga mudah dibawa atau dipindahkan dan kemudahannya untuk dimodifikasi. TP-LINK MR3020 juga terbilang populer di ranah komunitas sistem benam (\emph{embedded device}) sehingga memiliki dukungan yang baik dari pabrikan dan komunitas. 
+				Penelitian ini menggunakan AP keluaran TP-LINK seri MR3020. AP jenis ini dipilih karena bentuknya yang kecil sehingga mudah dibawa atau dipindahkan dan kemudahannya untuk dimodifikasi. TP-LINK MR3020 juga terbilang populer di ranah komunitas sistem benam (\emph{embedded device}) sehingga memiliki dukungan yang baik dari pabrikan dan komunitas. 
 
-					Sebelum digunakan, \emph{firmware} bawaan TP-LINK MR3020 harus diganti dengan sistem operasi OpenWRT. Proses penggantian cukup mudah karena hanya memanfaatkan menu \emph{firmware upgrade} dari web admin yang sudah tersedia.	Sistem Operasi OpenWRT yang digunakan adalah Attitude Adjustment versi 12.09 dengan Linux kernel 3.3.8. \emph{Image file} sistem operasi tersebut bisa diunduh secara gratis pada situs \url{www.openwrt.org}.
+				Sebelum digunakan, \emph{firmware} bawaan TP-LINK MR3020 harus diganti dengan sistem operasi OpenWRT. Proses penggantian cukup mudah karena hanya memanfaatkan menu \emph{firmware upgrade} dari web admin yang sudah tersedia.	Sistem Operasi OpenWRT yang digunakan adalah Attitude Adjustment versi 12.09 dengan Linux kernel 3.3.8. \emph{Image file} sistem operasi tersebut bisa diunduh secara gratis pada situs \url{www.openwrt.org}.
 
-					Setelah OpenWRT berhasil terinstall, langkah selanjutnya adalah mengimplementasikan \emph{extroot}. \emph{Extroot} adalah fitur dari OpenWRT yang dapat memetakan direktori \emph{root} pada memori eksternal, sehingga \emph{extroot} dapat memperbesar memori penyimpanan dengan bantuan USB \emph{flash drive}. Langkah yang harus dilakukan pertamakali adalah menginstall perangkat lunak dengan perintah sebagai berikut:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							# opkg update
-							# opkg install block-extroot block-hotplug block-mount
-					    \end{verbatim}  
-					\endgroup
+				Setelah OpenWRT berhasil terinstall, langkah selanjutnya adalah mengimplementasikan \emph{extroot}. \emph{Extroot} adalah fitur dari OpenWRT yang dapat memetakan direktori \emph{root} pada memori eksternal, sehingga \emph{extroot} dapat memperbesar memori penyimpanan dengan bantuan USB \emph{flash drive}. Langkah yang harus dilakukan pertamakali adalah menginstall perangkat lunak dengan perintah sebagai berikut:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						# opkg update
+						# opkg install block-extroot block-hotplug block-mount
+				    \end{verbatim}  
+				\endgroup
 
-					Kemudian dilanjutkan dengan menyalin isi dari memori internal TP-LINK MR3020 ke USB \emph{flash drive} yang di-\emph{mount} pada direktori /mnt/sda1 dengan perintah:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							# tar -C /overlay -cvf - . | tar -C /mnt/sda1 -xf -
-					    \end{verbatim}  
-					\endgroup
+				Kemudian dilanjutkan dengan menyalin isi dari memori internal TP-LINK MR3020 ke USB \emph{flash drive} yang di-\emph{mount} pada direktori /mnt/sda1 dengan perintah:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						# tar -C /overlay -cvf - . | tar -C /mnt/sda1 -xf -
+				    \end{verbatim}  
+				\endgroup
 
-					Langkah terakhir adalah mengkonfigurasi file /etc/config/fstab dan menyalakan ulang AP. Konfigurasi diganti dengan detil sebagai berikut:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							config mount
-						        option target        /mnt
-						        option device        /dev/sda1
-						        option fstype        ext3
-						        option options       rw,sync
-						        option enabled       1
-						        option enabled_fsck  0
-						        option is_rootfs     1
-					    \end{verbatim}  
-					\endgroup
+				Langkah terakhir adalah mengkonfigurasi file /etc/config/fstab dan menyalakan ulang AP. Konfigurasi diganti dengan detil sebagai berikut:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						config mount
+					        option target        /mnt
+					        option device        /dev/sda1
+					        option fstype        ext3
+					        option options       rw,sync
+					        option enabled       1
+					        option enabled_fsck  0
+					        option is_rootfs     1
+				    \end{verbatim}  
+				\endgroup
 
-					Konfigurasi di atas akan memetakan direktori \emph{root} (/) ke dalam peranti (\emph{device}) /dev/sda1 yang di-\emph{mount} pada direktori /mnt dengan format \emph{filesystem} ext3 dan dan mode baca tulis.
+				Konfigurasi di atas akan memetakan direktori \emph{root} (/) ke dalam peranti (\emph{device}) /dev/sda1 yang di-\emph{mount} pada direktori /mnt dengan format \emph{filesystem} ext3 dan dan mode baca tulis.
 
-					Setelah proses implementasi extroot selesai, berarti AP sudah memiliki memori penyimpanan yang cukup (atau mungkin lebih) untuk menginstal aplikasi-aplikasi pendukung lainnya. Penelitian ini menggunakan memori USB 4 Gigabyte.
+				Setelah proses implementasi extroot selesai, berarti AP sudah memiliki memori penyimpanan yang cukup (atau mungkin lebih) untuk menginstal aplikasi-aplikasi pendukung lainnya. Penelitian ini menggunakan memori USB 4 Gigabyte.
 
-					Agar TP-LINK MR3020 dapat membaca dan mengirimkan data dari dan ke WSN melalui kanal serial, dibutuhkan Python dan pustaka PySerial yang diinstal dengan perintah:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							# opkg update
-							# opkg install python pyserial
-					    \end{verbatim}  
-					\endgroup
+				Agar TP-LINK MR3020 dapat membaca dan mengirimkan data dari dan ke WSN melalui kanal serial, dibutuhkan Python dan pustaka PySerial yang diinstal dengan perintah:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						# opkg update
+						# opkg install python pyserial
+				    \end{verbatim}  
+				\endgroup
 
-					Sedangkan paket aplikasi `at' digunakan agar AP dapat menjalankan perintah untuk menyala-matikan relay pada waktu tertentu. Namun, sebelum at dapat berjalan, pada router sudah harus tersedia file /var/spool/cron/atjobs/.SEQ dan pemilik dari file tersebut harus diganti menjadi daemon.daemon. Aplikasi `at' diinstall dengan perintah:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							# opkg update && opkg install at
-					    \end{verbatim}  
-					\endgroup
-					
-					Langkah selanjutnya adalah instalasi aplikasi pendukung aplikasi berbasis web yang nantinya akan dikembangkan yaitu Web Server, PHP, dan MySQL. Web server yang digunakan adalah yang sudah terinstal pada OpenWRT versi Attitude Adjustment yaitu uHTTPd. Sedangkan PHP dan MySQL harus diinstal dengan perintah:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							# opkg update
-							# opkg install php5 php5-cgi mysql
-					    \end{verbatim}  
-					\endgroup
+				Sedangkan paket aplikasi `at' digunakan agar AP dapat menjalankan perintah untuk menyala-matikan relay pada waktu tertentu. Namun, sebelum at dapat berjalan, pada router sudah harus tersedia file /var/spool/cron/atjobs/.SEQ dan pemilik dari file tersebut harus diganti menjadi daemon.daemon. Aplikasi `at' diinstall dengan perintah:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						# opkg update && opkg install at
+				    \end{verbatim}  
+				\endgroup
+				
+				Langkah selanjutnya adalah instalasi aplikasi pendukung aplikasi berbasis web yang nantinya akan dikembangkan yaitu Web Server, PHP, dan MySQL. Web server yang digunakan adalah yang sudah terinstal pada OpenWRT versi Attitude Adjustment yaitu uHTTPd. Sedangkan PHP dan MySQL harus diinstal dengan perintah:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						# opkg update
+						# opkg install php5 php5-cgi mysql
+				    \end{verbatim}  
+				\endgroup
 
-					Setelah PHP berhasil terinstal, buka file /etc/config/uhttpd dan pastikan baris yang memuat baris di bawah ini tidak dalam keadaan terkomentar.
+				Setelah PHP berhasil terinstal, buka file /etc/config/uhttpd dan pastikan baris yang memuat baris di bawah ini tidak dalam keadaan terkomentar.
 
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \centering
-					    \begin{verbatim}
-							list interpreter ".php=/usr/bin/php-cgi"
-					    \end{verbatim}  
-					\endgroup					
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \centering
+				    \begin{verbatim}
+						list interpreter ".php=/usr/bin/php-cgi"
+				    \end{verbatim}  
+				\endgroup					
 
-					Aplikasi yang terakhir yang harus diinstal adalah SSHFS yang berguna dalam uji coba dan perbaikan aplikasi. SSHFS dapat diinstal dengan perintah:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							# opkg update
-							# opkg install sshfs
-					    \end{verbatim}  
-					\endgroup
+				Aplikasi yang terakhir yang harus diinstal adalah SSHFS yang berguna dalam uji coba dan perbaikan aplikasi. SSHFS dapat diinstal dengan perintah:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						# opkg update
+						# opkg install sshfs
+				    \end{verbatim}  
+				\endgroup
 
-					Zona waktu standar pada OpenWRT adalah UTC yang berlokasi pada kota Greenwich di Inggris Raya. Agar zona waktu dapat dikonfigurasi sesuai dengan zona waktu kota Yogyakarta, maka isi dari file /etc/config/system harus disesuaikan. Pada file tersebut, zona waktu UTC diganti menjadi WIT-7 atau \emph{Western Indonesian Time}-7.
+				Zona waktu standar pada OpenWRT adalah UTC yang berlokasi pada kota Greenwich di Inggris Raya. Agar zona waktu dapat dikonfigurasi sesuai dengan zona waktu kota Yogyakarta, maka isi dari file /etc/config/system harus disesuaikan. Pada file tersebut, zona waktu UTC diganti menjadi WIT-7 atau \emph{Western Indonesian Time}-7.
 
-				\item Konfigurasi Komputer untuk Pengembangan
+			\subsubsection{Konfigurasi Komputer untuk Pengembangan} \
 
-					Komputer yang digunakan dalam penelitian ini adalah MacBook Pro dengan sistem operasi Mac OS X Mountain Lion. Sedangkan aplikasi yang harus tersedia adalah Sublime Text 3, Arduino for Mac OS X, CoolTerm, Driver FTDI for Mac OS X, IQRF IDE v 2.08 for TR-53B.
+				Komputer yang digunakan dalam penelitian ini adalah MacBook Pro dengan sistem operasi Mac OS X Mountain Lion. Sedangkan aplikasi yang harus tersedia adalah Sublime Text 3, Arduino for Mac OS X, CoolTerm, Driver FTDI for Mac OS X, IQRF IDE v 2.08 for TR-53B.
 
-					Sublime Text 3 berperan banyak dalam mengedit kode-kode sumber PHP, C, dan Python.
+				Sublime Text 3 berperan banyak dalam mengedit kode-kode sumber PHP, C, dan Python.
 
-					Sedangkan proses pengembangan dan pengunduhan aplikasi untuk Arduino sepenuhnya dilakukan dengan Arduino for Mac OS X karena aplikasi tersebut sudah mencakup editor teks dan alat kompilasi.
+				Sedangkan proses pengembangan dan pengunduhan aplikasi untuk Arduino sepenuhnya dilakukan dengan Arduino for Mac OS X karena aplikasi tersebut sudah mencakup editor teks dan alat kompilasi.
 
-					Agar komputer dapat membaca kanal serial sehingga dapat melakukan tugas-tugas seperti konfigurasi XBee Radio dan pengujian aplikasi Python, komputer membutuhkan aplikasi CoolTerm. Sebelum aplikasi ini terinstal, pastikan \emph{driver} FTDI untuk Mac OS X sudah terinstal, agar komputer dapat mendeteksi XBee yang terhubung melalui USB.
+				Agar komputer dapat membaca kanal serial sehingga dapat melakukan tugas-tugas seperti konfigurasi XBee Radio dan pengujian aplikasi Python, komputer membutuhkan aplikasi CoolTerm. Sebelum aplikasi ini terinstal, pastikan \emph{driver} FTDI untuk Mac OS X sudah terinstal, agar komputer dapat mendeteksi XBee yang terhubung melalui USB.
 
-					Walaupun kode sumber untuk IQRF ditulis dengan bantuan Sublime Text 3, proses kompilasinya dilakukan dengan aplikasi IQRF IDE v 2.08 for TR-53B. Proses pengunduhan file ke IQRF juga dilakukan dengan aplikasi yang sama.
+				Walaupun kode sumber untuk IQRF ditulis dengan bantuan Sublime Text 3, proses kompilasinya dilakukan dengan aplikasi IQRF IDE v 2.08 for TR-53B. Proses pengunduhan file ke IQRF juga dilakukan dengan aplikasi yang sama.
 
-					Semua proses instalasi aplikasi yang dibutuhkan dilakukan dengan prosedur standar dari Mac OS X. Yaitu memperoleh file binary-nya dan kemudian menyalin file tersebut ke direktori Application atau mengikuti prosedur standar dari masing-masing aplikasi.
+				Semua proses instalasi aplikasi yang dibutuhkan dilakukan dengan prosedur standar dari Mac OS X. Yaitu memperoleh file binary-nya dan kemudian menyalin file tersebut ke direktori Application atau mengikuti prosedur standar dari masing-masing aplikasi.
 
-					Langkah terakhir yang dilakukan adalah memastikan AP dapat mengakses komputer melalui SSH. Pastikan \emph{remote sharing} dalam keadaan tercentang di \emph{System Preference}, \emph{Sharing}. Atau untuk lebih jelasnya dapat melihat pada Gambar \ref{mac-sharing}.
+				Langkah terakhir yang dilakukan adalah memastikan AP dapat mengakses komputer melalui SSH. Pastikan \emph{remote sharing} dalam keadaan tercentang di \emph{System Preference}, \emph{Sharing}. Atau untuk lebih jelasnya dapat melihat pada Gambar \ref{mac-sharing}.
 
-					\begin{figure}[H]
-					  \centering
-					    \includegraphics[width=0.8\textwidth]{gambar/mac-sharing}
-					    \caption{Konfigurasi SSH pada Mac OS X.}
-					    \label{mac-sharing}
-					\end{figure}
+				\begin{figure}[H]
+				  \centering
+				    \includegraphics[width=0.8\textwidth]{gambar/mac-sharing}
+				    \caption{Konfigurasi SSH pada Mac OS X.}
+				    \label{mac-sharing}
+				\end{figure}
 
-				\item Peranti XBee
+			\subsubsection{Peranti XBee}\
 
-					Setiap peranti XBee yang akan digunakan harus terkonfigurasi terlebih dahulu. Parameter-parameter yang harus terkonfigurasi adalah ATID (alamat dari jaringan/\emph{network ID}), ATMY (alamat peranti itu sendiri), ATDH (\emph{destination address high}), dan ATDL (\emph{destination address low}).
+				Setiap peranti XBee yang akan digunakan harus terkonfigurasi terlebih dahulu. Parameter-parameter yang harus terkonfigurasi adalah ATID (alamat dari jaringan/\emph{network ID}), ATMY (alamat peranti itu sendiri), ATDH (\emph{destination address high}), dan ATDL (\emph{destination address low}).
 
-					Proses konfigurasi dilakukan dengan menyambungkan XBee Radio dengan \emph{XBee Explorer USB Board} ke komputer dan menjalankan aplikasi untuk membaca kanal serial, misalnya CoolTerm pada Mac OS X. Setelah CoolTerm dibuka, buka koneksi kanal serial ke XBee dan jalankan perintah dengan format:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							+++		#masuk ke AT Mode
-							ATID <id jaringan>
-							ATMY <alamat dari zigbee>
-							ATDH <destination high>
-							ATDL <destination low>
-							ATWR 	#tulis ke non volatile memory
-					    \end{verbatim}  
-					\endgroup
+				Proses konfigurasi dilakukan dengan menyambungkan XBee Radio dengan \emph{XBee Explorer USB Board} ke komputer dan menjalankan aplikasi untuk membaca kanal serial, misalnya CoolTerm pada Mac OS X. Setelah CoolTerm dibuka, buka koneksi kanal serial ke XBee dan jalankan perintah dengan format:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						+++		#masuk ke AT Mode
+						ATID <id jaringan>
+						ATMY <alamat dari zigbee>
+						ATDH <destination high>
+						ATDL <destination low>
+						ATWR 	#tulis ke non volatile memory
+				    \end{verbatim}  
+				\endgroup
 
-					Contoh perintahnya adalah:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							+++		#masuk ke AT Mode
-							ATID 1234
-							ATMY 5
-							ATDH 0
-							ATDL 1
-							ATWR 	#tulis ke non volatile memory
-					    \end{verbatim}  
-					\endgroup
-			\end{enumerate}
+				Contoh perintahnya adalah:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						+++		#masuk ke AT Mode
+						ATID 1234
+						ATMY 5
+						ATDH 0
+						ATDL 1
+						ATWR 	#tulis ke non volatile memory
+				    \end{verbatim}  
+				\endgroup
 
 		\subsection{Pengembangan Aplikasi WSN}
 			Langkah selanjutnya yang dilakukan dalam pengembangan adalah pengembangan aplikasi untuk WSN yang terdiri atas aplikasi C yang masing-masing ditujukan untuk IQRF dan XBee. Setelah aplikasi selesai ditulis, kode sumber kemudian di-\emph{compile} dan diunduh ke dalam WSN.
 
-			\begin{enumerate}
-				\item IQRF
+			\subsubsection{Aplikasi IQRF}\
 
-					Peranti IQRF dalam penelitian ini ada dua jenis, begitu pula aplikasi yang tertanam di dalamnya. Aplikasi tersebut adalah \emph{Sink} dan \emph{Node}. Aplikasi \emph{Sink} akan ditanamkan pada koordinator dari IQRF yang terhubung langsung dengan AP melalui kabel USB dan jumlahnya hanya satu. Sedangkan aplikasi \emph{Node} akan ditanamkan pada sensor-sensor IQRF yang akan saling membentuk jaringan jala (\emph{mesh network}) dan jumlahnya lebih dari satu.
+				Peranti IQRF dalam penelitian ini ada dua jenis, begitu pula aplikasi yang tertanam di dalamnya. Aplikasi tersebut adalah \emph{Sink} dan \emph{Node}. Aplikasi \emph{Sink} akan ditanamkan pada koordinator dari IQRF yang terhubung langsung dengan AP melalui kabel USB dan jumlahnya hanya satu. Sedangkan aplikasi \emph{Node} akan ditanamkan pada sensor-sensor IQRF yang akan saling membentuk jaringan jala (\emph{mesh network}) dan jumlahnya lebih dari satu.
 
-					Aplikasi \emph{Sink} lebih ditekankan pada pembentukan ikatan (\emph{bond}) antara koordinator dan sensor-sensor, pengendalian sensor-sensor, serta pengakuisisian data dari masing-masing sensor.
+				Aplikasi \emph{Sink} lebih ditekankan pada pembentukan ikatan (\emph{bond}) antara koordinator dan sensor-sensor, pengendalian sensor-sensor, serta pengakuisisian data dari masing-masing sensor.
 
-					Sedangkan aplikasi \emph{Node} lebih bersifat pasif karena hanya akan merespon perintah-perintah yang akan dikirimkan oleh koordinator, seperti pembentukan ikatan dan pembacaan temperatur.
+				Sedangkan aplikasi \emph{Node} lebih bersifat pasif karena hanya akan merespon perintah-perintah yang akan dikirimkan oleh koordinator, seperti pembentukan ikatan dan pembacaan temperatur.
 
-					Data yang akan diakuisisi dari masing-masing sensor adalah temperatur yang terbaca di masing-masing sensor.
+				Data yang akan diakuisisi dari masing-masing sensor adalah temperatur yang terbaca di masing-masing sensor.
 
-					Aplikasi yang digunakan adalah aplikasi iHome yang dikembangkan oleh \cite{widyawan2012ihome} yang fiturnya sebenarnya tidak terbatas hanya pada pembacaan temperatur sekitar.
+				Aplikasi yang digunakan adalah aplikasi iHome yang dikembangkan oleh \cite{widyawan2012ihome} yang fiturnya sebenarnya tidak terbatas hanya pada pembacaan temperatur sekitar.
 
-				\item XBee
+			\subsubsection{Aplikasi XBee}\
 
-					Sama seperti IQRF, peranti XBee terdiri dari dua jenis peranti, yaitu koordinator dan sensor-sensor. Koordinator bertugas menyalakan atau mematikan relay-relay yang terdapat di masing-masing sensor sesuai permintaan pengguna.
+				Sama seperti IQRF, peranti XBee terdiri dari dua jenis peranti, yaitu koordinator dan sensor-sensor. Koordinator bertugas menyalakan atau mematikan relay-relay yang terdapat di masing-masing sensor sesuai permintaan pengguna.
 
-					Koordinator tersusun atas \emph{XBee 802.15.4 Radios (Series 1)} yang tertanam pada \emph{XBee Explorer USB Board} dan terkoneksi langsung dengan AP dengan kabel USB.
+				Koordinator tersusun atas \emph{XBee 802.15.4 Radios (Series 1)} yang tertanam pada \emph{XBee Explorer USB Board} dan terkoneksi langsung dengan AP dengan kabel USB.
 
-					Sedangkan sensornya terdiri dari tiga bagian, yaitu \emph{XBee 802.15.4 Radios (Series 1)}, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan Arduino Uno. Ketiga bagian tersebut saling terhubung dengan pin-pin yang tersedia.
+				Sedangkan sensornya terdiri dari tiga bagian, yaitu \emph{XBee 802.15.4 Radios (Series 1)}, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan Arduino Uno. Ketiga bagian tersebut saling terhubung dengan pin-pin yang tersedia.
 
-					XBee pada hakikatnya hanya sebatas peranti komunikasi antara AP dengan relay-relay yang tersedia, sehingga pemrograman teletak pada masing-masing Arduino pada relay. Bahasa yang digunakan adalah bahasa C (Arduino). Aplikasi yang dikembangkan akan menunggu perintah dari AP untuk menyalakan atau mematikan relay.
-
-			\end{enumerate}
+				XBee pada hakikatnya hanya sebatas peranti komunikasi antara AP dengan relay-relay yang tersedia, sehingga pemrograman teletak pada masing-masing Arduino pada relay. Bahasa yang digunakan adalah bahasa C (Arduino). Aplikasi yang dikembangkan akan menunggu perintah dari AP untuk menyalakan atau mematikan relay.
 
 		\subsection{Pengembangan Aplikasi Python}
 			Aplikasi Python adalah jantung dari penelitian ini karena menghubungkan aplikasi berbasis web dengan peranti-peranti IQRF dan XBee.	Aplikasi terdiri dari tiga bagian yang ditujukan untuk penggunaan berbeda, yaitu komunikasi dengan sensor IQRF, XBee, dan profil untuk automatisasi.
 
-			\begin{enumerate}
-				\item IQRF
+			\subsubsection{Manipulasi Komunikasi Data Serial}\
 
-					Aplikasi Python IQRF memiliki kemampuan untuk melakukan \emph{bonding} antara koordinator dan sensor, dan pembacaan temperatur pada sensor dengan ID tertentu.
+				Aplikasi yang nantinya tertanam pada AP, yaitu aplikasi berbasis web dan aplikasi Python, akan berjalan di atas sistem operasi OpenWrt. Hal ini berarti aplikasi yang dibangun tidak akan bersentuhan secara langsung dengan aliran data aras rendah seperti aliran bit-bit data. Segala bentuk komunikasi data aras rendah yang melibatkan bit-bit data dikelolah sepenuhnya oleh OpenWrt sehingga aras terendah dari komunikasi data yang terbaca oleh aplikasi adalah pada aras karakter yang saling dipertukarkan oleh masing-masing aplikasi yang dibangun. Hal ini dijelaskan dengan ilustrasi sebagai berikut.
 
-					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-iqrf}.
+				\begin{figure}[H]
+				  \centering
+				    \includegraphics[width=0.4\textwidth]{gambar/manipulation}
+				    \caption{Manipulasi komunikasi data serial \cite{wibowo2013wireless}.}
+				    \label{manipulation}
+				\end{figure}
 
-					\begin{figure}[H]
-					  \centering
-					    \includegraphics[width=0.6\textwidth]{gambar/python-iqrf}
-					    \caption{Diagram alir aplikasi Python untuk IQRF.}
-					    \label{python-iqrf}
-					\end{figure}
+				Dari Gambar \ref{manipulation}, tampak bahwa alur manipulasi data serial aras rendah dari \emph{sink node} dimulai dari USB to serial, sistem operasi OpenWrt, aplikasi Python, kemudian pada akhirnya aplikasi berbasis web. Pengubahan bit-bit data serial terjadi pada bagian OpenWrt OS.
 
-					Aplikasi dijalankan dengan menjalankan format perintah berikut pada \emph{terminal console}:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							$ python iqrf.py <perintah><ID node>
-					    \end{verbatim}  
-					\endgroup
+			\subsubsection{Aplikasi IQRF}\
 
-					Aplikasi ini berjalan dalam bentuk CLI dan membutuhkan satu parameter, yaitu perintah yang langsung disambung dengan ID node tanpa spasi. Perintah yang tersedia yaitu membaca gemperatur pada node ID tertentu (g), \emph{bonding} node ID tertentu (b), \emph{unbonding} node ID tertentu (u).
+				Aplikasi Python IQRF memiliki kemampuan untuk melakukan \emph{bonding} antara koordinator dan sensor, dan pembacaan temperatur pada sensor dengan ID tertentu.
 
-					Sehingga contoh penggunaan aplikasi pada \emph{terminal console}:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							$ python iqrf.py g3
-					    \end{verbatim}  
-					\endgroup
-					Perintah di atas adalah perintah untuk membaca temperatur pada node ID 3.
+				Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-iqrf}.
 
-				\item XBee
+				\begin{figure}[H]
+				  \centering
+				    \includegraphics[width=0.6\textwidth]{gambar/python-iqrf}
+				    \caption{Diagram alir aplikasi Python untuk IQRF.}
+				    \label{python-iqrf}
+				\end{figure}
 
-					Aplikasi Python XBee memiliki kemampuan untuk menyalakan atau mematikan relay pada peranti tertentu dan membaca status relay pada peranti tertentu, apakah relay tersebut sedang menyala atau mati.
+				Aplikasi dijalankan dengan menjalankan format perintah berikut pada \emph{terminal console}:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						$ python iqrf.py <perintah><ID node>
+				    \end{verbatim}  
+				\endgroup
 
-					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-xbee}.
+				Aplikasi ini berjalan dalam bentuk CLI dan membutuhkan satu parameter, yaitu perintah yang langsung disambung dengan ID node tanpa spasi. Perintah yang tersedia yaitu membaca gemperatur pada node ID tertentu (g), \emph{bonding} node ID tertentu (b), \emph{unbonding} node ID tertentu (u).
 
-					\begin{figure}[H]
-					  \centering
-					    \includegraphics[width=0.6\textwidth]{gambar/python-xbee}
-					    \caption{Diagram alir aplikasi Python untuk menangani peranti XBee.}
-					    \label{python-xbee}
-					\end{figure}
+				Sehingga contoh penggunaan aplikasi pada \emph{terminal console}:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						$ python iqrf.py g3
+				    \end{verbatim}  
+				\endgroup
+				Perintah di atas adalah perintah untuk membaca temperatur pada node ID 3.
 
-					Aplikasi dijalankan dengan menjalankan format perintah berikut pada \emph{terminal console}:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							$ python xbee.py <perintah> <ATMY peranti> <ID relay>
-					    \end{verbatim}  
-					\endgroup
+			\subsubsection{Aplikasi XBee}\
 
-					Aplikasi ini berjalan dalam bentuk CLI dan membutuhkan tiga parameter, yaitu perintah, alamat peranti (ATMY), dan ID relay (terdapat dua relay di tiap peranti). Perintah yang tersedia yaitu menyalakan relay, `on', mematikan relay, `off', dan membaca status relay, `status'.
+				Aplikasi Python XBee memiliki kemampuan untuk menyalakan atau mematikan relay pada peranti tertentu dan membaca status relay pada peranti tertentu, apakah relay tersebut sedang menyala atau mati.
 
-					Sehingga contoh penggunaan aplikasi pada \emph{terminal console}:
-					\begingroup
-					    \fontsize{10pt}{12pt}\selectfont
-					    \begin{verbatim}
-							$ python iqrf.py status 2 1
-					    \end{verbatim}  
-					\endgroup
-					Perintah di atas akan membaca status (on/off) dari relay 1 pada peranti dengan alamat (ATMY) 2 dan menampilkannya pada layar dalam karakter `H' (menyala) atau `L' (mati).
+				Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-xbee}.
 
-				\item \emph{Profile}
+				\begin{figure}[H]
+				  \centering
+				    \includegraphics[width=0.6\textwidth]{gambar/python-xbee}
+				    \caption{Diagram alir aplikasi Python untuk menangani peranti XBee.}
+				    \label{python-xbee}
+				\end{figure}
 
-					Aplikasi ini memanfaatkan aplikasi \emph{at} pada Linux yang dapat menjalankan perintah tertentu di \emph{terminal console} pada waktu tertentu. Dengan aplikasi ini, pengguna dapat menyala-matikan relay pada waktu tertentu. Jika hal ini dikombinasikan dengan bacaan temperatur dari sensor IQRF, maka pengguna dapat menyala-matikan relay tertentu pada saat temperatur pada sensor IQRF node tertentu mencapai suhu tertentu, dan juga bisa hanya terjadi saat waktu tertentu.
+				Aplikasi dijalankan dengan menjalankan format perintah berikut pada \emph{terminal console}:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						$ python xbee.py <perintah> <ATMY peranti> <ID relay>
+				    \end{verbatim}  
+				\endgroup
 
-					Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-profile}.
+				Aplikasi ini berjalan dalam bentuk CLI dan membutuhkan tiga parameter, yaitu perintah, alamat peranti (ATMY), dan ID relay (terdapat dua relay di tiap peranti). Perintah yang tersedia yaitu menyalakan relay, `on', mematikan relay, `off', dan membaca status relay, `status'.
 
-					\begin{figure}[H]
-					  \centering
-					    \includegraphics[width=0.8\textwidth]{gambar/python-profile}
-					    \caption{Diagram alir aplikasi Python untuk menyala-matikan lampu pada kondisi tertentu.}
-					    \label{python-profile}
-					\end{figure}
+				Sehingga contoh penggunaan aplikasi pada \emph{terminal console}:
+				\begingroup
+				    \fontsize{10pt}{12pt}\selectfont
+				    \begin{verbatim}
+						$ python iqrf.py status 2 1
+				    \end{verbatim}  
+				\endgroup
+				Perintah di atas akan membaca status (on/off) dari relay 1 pada peranti dengan alamat (ATMY) 2 dan menampilkannya pada layar dalam karakter `H' (menyala) atau `L' (mati).
 
-			\end{enumerate}
+			\subsubsection{\emph{Profiling}}\
+
+				Aplikasi ini memanfaatkan aplikasi \emph{at} pada Linux yang dapat menjalankan perintah tertentu di \emph{terminal console} pada waktu tertentu. Dengan aplikasi ini, pengguna dapat menyala-matikan relay pada waktu tertentu. Jika hal ini dikombinasikan dengan bacaan temperatur dari sensor IQRF, maka pengguna dapat menyala-matikan relay tertentu pada saat temperatur pada sensor IQRF node tertentu mencapai suhu tertentu, dan juga bisa hanya terjadi saat waktu tertentu.
+
+				Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-profile}.
+
+				\begin{figure}[H]
+				  \centering
+				    \includegraphics[width=0.8\textwidth]{gambar/python-profile}
+				    \caption{Diagram alir aplikasi Python untuk menyala-matikan lampu pada kondisi tertentu.}
+				    \label{python-profile}
+				\end{figure}
+
 
 		\subsection{Pengembangan Aplikasi Berbasis Web}
 			Aplikasi web untuk mengendalikan sensor-sensor IQRF dan XBee dibangun dengan PHP dan basis data MySQL. Aplikasi ini dibangun tanpa menggunakan \emph{framework} karena aplikasi ini tergolong tidak terlalu rumit, aplikasi ini hanya memliki lima halaman utama seperti terlihat pada sitemap Gambar \ref{sitemap}. Penggunaan \emph{framework} juga akan memakan sumber daya komputasi sedikit lebih banyak, padahal aplikasi ini akan diimplementasikan pada sebuah AP yang memiliki tingkat komputasi yang rendah.
@@ -375,12 +382,18 @@
 
 			Penambahan peranti IQRF mengharuskan pengguna untuk menekan tombol yang ada pada sensor IQRF, sedangkan penambahan peranti XBee tidak mengharuskan pengguna untuk menekan tombol atau mengintervensi perangkat keras XBee.
 
+		\subsection{Skalabilitas Sistem}
+			Seperti yang sudah dijelaskan sebelumnya tentang rancangan teknis sistem, secara \emph{default} aplikasi ini hanya mendukung interoperabilitas antara dua jenis WSN. Karena pendekatan interoperabilitas dilakukan pada ranah data dan aplikasi disusun hanya untuk mendukun dua jenis WSN, sistem tidak memiliki skalabilitas dalam hal penambahan jenis WSN. Jika diinginkan jenis WSN baru yang ingin diinteroperabilitaskan, maka harus ditambahkan beberapa baris kode baru untuk menangani WSN baru yang mungkin struktur komunikasinya sedikit berbeda.
+
+			Walaupun demikian, sistem yang dibangun memiliki skalabilitas dalam hal penambahan jumlah peranti yang terpasang. Peranti atau \emph{node} yang ingin dipantau dengan aplikasi dapat ditambahkan dan dikurangi melalui antarmuka yang telah dirancang dengam mudah.
+
+
 		\subsection{Evaluasi dan Perbaikan}
 			Evaluasi dilakukan dengan mengujikan semua fitur yang dimiliki oleh aplikasi. Jika terdapat kesalahan, maka dilacak dimanakah letak kesalahan berada, apakah pada aplikasi berbasis web, aplikasi Python, atau aplikasi C pada sensor.
 
 			Masalah yang timbul adalah saat akan merevisi aplikasi yang sudah terlanjur tertanam pada AP karena AP, dengan sistem operasi OpenWRT, tidak memiliki aplikasi teks editor yang mumpuni untuk melakukan pengeditan kode sumber dengan nyaman. Oleh karena itu, seluruh kode sumber tetap berada pada komputer agar tetap bisa dibuka dengan Sublime Text 3, namun AP me-\emph{mount}-nya dengan bantuan SSHFS sehingga seolah-olah kode sumber tersebut berada dalam dua tempat dan saling tersinkronisasi.
 
-			Untuk melakukan \emph{mounting} pada AP, menggunakan perintah:
+			\emph{Mounting} pada AP dilakukan dengan menggunakan perintah:
 			\begingroup
 			    \fontsize{10pt}{12pt}\selectfont
 			    \begin{verbatim}
