@@ -6,7 +6,7 @@
 \chapter{TINJAUAN PUSTAKA DAN DASAR TEORI}                
 
 \section{Tinjauan Pustaka}
-  Secara umum, cara untuk menghubungkan \emph{Wireless Sensor Network} (WSN) dengan jaringan internet dapat dikelompokkan menjadi dua \cite{Rodrigues2010}. Cara pertama adalah menggunakan \emph{gateway} dan cara yang kedua adalah dengan menggunakan simpul sensor yang sudah dilengkapi dengan protokol internet. Cara yang lebih mudah ditempuh adalah dengan cara yang pertama karena pengubahan yang dilakukan relatif tidak terlalu besar. Sedangkan cara yang kedua akan menemui banyak kendala terutama pada WSN yang sudah terpasang karena harus dilakukan penggantian tiap simpul sensor.
+  Secara umum, cara untuk menghubungkan \emph{Wireless Sensor Network} (WSN) dengan jaringan internet dapat dikelompokkan menjadi dua \cite{Rodrigues2010}. Cara pertama adalah menggunakan \emph{gateway} \cite{DaSilvaCampos2011} dan cara yang kedua adalah dengan menggunakan simpul sensor yang sudah dilengkapi dengan protokol internet. Cara yang lebih mudah ditempuh adalah dengan cara yang pertama karena pengubahan yang dilakukan relatif tidak terlalu besar. Sedangkan cara yang kedua akan menemui banyak kendala terutama pada WSN yang sudah terpasang karena harus dilakukan penggantian tiap simpul sensor.
 
   Salah satu usaha untuk mengintegrasikan jaringan WSN dengan jaringan WiFi menggunakan \emph{gateway} misalnya dilakukan pada penelitian yang dilakukan oleh \cite{Spinar2009}. Pada penelitian tersebut pengintegrasian dilakukan dengan sebuah komputer yang didedikasikan untuk keperluan tertentu. Penggunaan komputer khusus ini adalah \emph{hardware-solution} yang membutuhkan biaya dan kerumitan sistem.
 
@@ -14,11 +14,11 @@
 
   Penelitian \cite{wibowo2013wireless} sudah berhasil mengembangkan sebuah \emph{Access Point} (AP) menjadi \emph{gateway} yang dapat digunakan untuk menghubungkan sebuah protokol WSN dengan jaringan IP. Protokol WSN yang digunakan adalah protokol dari IQRF. Penelitian tersebut kemudian dilanjutkan dengan penelitian \cite{widyawan2012ihome} yang sudah diterapkan dalam sistem \emph{domotic}.
 
-  Penelitian ini merupakan kelanjutan dari penelitian yang telah dikembangkan oleh \cite{widyawan2012ihome} dan \cite{wibowo2013wireless}. Pada penelitian tersebut, belum ada interoperabilitas berbagai \emph{vendor} ke dalam sebuah AP. Oleh karena itu, penelitian ini berusaha untuk, selain menginteroperabilitaskan WSN dan IP, juga mengintegrasikan dua jenis WSN ke dalam sebuah AP untuk meningkatkan sisi interoperabilitas. Selain itu, penelitian ini juga mengembangkan antarmuka berbasis web yang responsif, yang akan beradaptasi dengan ukuran layar secara otomatis, sehingga pengendalian WSN dapat dilakukan dari komputer hingga ponsel cerdas.
+  Penelitian ini merupakan kelanjutan dari penelitian yang telah dikembangkan oleh \cite{wibowo2013wireless} dan \cite{widyawan2012ihome}. Pada penelitian tersebut, belum ada interoperabilitas berbagai \emph{vendor} ke dalam sebuah AP. Oleh karena itu, penelitian ini berusaha untuk, selain menginteroperabilitaskan WSN dan IP, juga mengintegrasikan dua jenis WSN ke dalam sebuah AP untuk meningkatkan sisi interoperabilitas. Selain itu, penelitian ini juga mengembangkan antarmuka berbasis web yang responsif, yang akan beradaptasi dengan ukuran layar secara otomatis, sehingga pengendalian WSN dapat dilakukan dari komputer hingga ponsel cerdas.
 
 \section{Landasan Teori}
   \subsection{\emph{Wireless Sensor Network}}
-    Jaringan sensor nirkabel, atau yang juga dikenal dengan \emph{Wireless Sensor Network}, adalah jaringan simpul sensor otonom yang terdistribusi digunakan untuk memonitor kondisi fisik atau lingkungan misalnya suhu, suara, getaran, kelembaban, dan lain-lain. Selain itu, tidak menutup kemungkinan untuk menambahkan fungsi tambahan pada setiap simpul misalnya port masukan/keluaran (I/O port) yang terdapat dalam setiap simpul dihubungkan dengan aktuator sehingga dapat digunakan untuk mengendalikan piranti elektrik atau elektronis.
+    Jaringan sensor nirkabel, atau yang juga dikenal dengan \emph{Wireless Sensor Network}, adalah jaringan simpul sensor otonom yang terdistribusi digunakan untuk memonitor kondisi fisik atau lingkungan \cite{Erratt2013} misalnya suhu, suara, getaran, kelembaban, dan lain-lain. Selain itu, tidak menutup kemungkinan untuk menambahkan fungsi tambahan pada setiap simpul misalnya port masukan/keluaran (I/O port) yang terdapat dalam setiap simpul dihubungkan dengan aktuator sehingga dapat digunakan untuk mengendalikan piranti elektrik atau elektronis.
 
     Secara umum, WSN dapat diilustrasikan seperti Gambar \ref{wsn}. Pada gambar tersebut terlihat adanya beberapa simpul yang diwakili dengan titik berukuran kecil dan satu buah simpul yang diwakili dengan titik berukuran lebih besar. Titik yang berukuran kecil mewakili simpul sensor sedangkan titik yang berukuran besar mewakili \emph{gateway} yang berfungsi menghubungkan jaringan sensor nirkabel dengan pengendali utama yang dalam gambar tersebut diwakili oleh sebuah komputer. Contoh sebuah simpul dari IQRF ditunjukkan pada Gambar \ref{iqrf}.
 
@@ -52,11 +52,11 @@
     Jika dilihat lebih dalam lagi, AP ini sebenarnya adalah piranti tertanam (\emph{embedded device}) yang didalamnya sudah terdapat pusat pengolahan utama, memori, dan penyimpanan (\emph{storage}). Dengan kenyataan inilah maka AP mempunyai potensi untuk menjagi \emph{gateway} bagi jaringan WiFi (IP) dan WSN ke jaringan internet. Untuk mengembangkan aplikasi yang akan ditanamkan ke dalam AP, maka diperlukan sistem operasi yang sesuai untuk AP. Karena pada dasarnya sistem Operasi dari pabrikan yang sudah tertanam pada AP tidak dapat dimodifikasi dan dikonfigurasi secara mudah. Oleh karena itu, sistem operasi harus diganti dengan sistem operasi baru yang dapat dikustomisasi dengan mudah.
 
   \subsection{IQRF}
-    IQRF adalah teknologi komunikasi nirkabel berbasis paket melalui frekuensi radio dalam pita frekuensi sub-GHz. Teknologi ini dimaksudkan untuk penggunaan umum saat konektivitas nirkabel dibutuhkan, entah \emph{point to point} atau jaringan yang kompleks. Fungsionalitas lengkapnya bergantung semata-mata pada aplikasi berbahasa C yang ditulis oleh pengguna.
+    IQRF adalah teknologi komunikasi nirkabel berbasis paket melalui frekuensi radio dalam pita frekuensi sub-GHz \cite{MICRORISCs.r.o.2013,Sulc2011}. Teknologi ini dimaksudkan untuk penggunaan umum saat konektivitas nirkabel dibutuhkan, entah \emph{point to point} atau jaringan yang kompleks. Fungsionalitas lengkapnya bergantung semata-mata pada aplikasi berbahasa C yang ditulis oleh pengguna.
 
-    Peranti komunikasi dasar dari IQRF adalah sebuah modul pancar-rima (\emph{transceiver}), termasuk unit mikrokontroller dengan sistem operasi tertanam yang mengimplementasikan lapisan \emph{link} dan lapisan jaringan (\emph{network layer}) yang mendukung jaringan jala (\emph{mesh network}). Tidak ada tingkat komunikasi yang lebih tinggi seperti lapisan \emph{transport} yang termasuk kedalam teknologi ini.
+    Piranti komunikasi dasar dari IQRF adalah sebuah modul pancar-rima (\emph{transceiver}), termasuk unit mikrokontroller dengan sistem operasi tertanam yang mengimplementasikan lapisan \emph{link} dan lapisan jaringan (\emph{network layer}) yang mendukung jaringan jala (\emph{mesh network}). Tidak ada tingkat komunikasi yang lebih tinggi seperti lapisan \emph{transport} yang termasuk kedalam teknologi ini.
 
-    Protokol jaringan jala dari peranti IQRF adalah IQMESH (\cite{Seflova2012}). IQMESH menggunakan koordinator jaringan untuk mengendalikan keseluruhan komunikasi. Sebuah jaringan IQMESH dapat menampung hingga 65.000 sensor. Setiap sensor di dalam jaringan memiliki alamat yang unik (\emph{logical address}) yang diberikan pada saat \emph{bonding}. Algoritma perutean \emph{Discovered Full Mesh} (DFM) memanfaatkan \emph{Virtual Routing Structure} (VRS) yang dibentuk pada saat proses \emph{discovery}.
+    Protokol jaringan jala dari piranti IQRF adalah IQMESH (\cite{Seflova2012}). IQMESH menggunakan koordinator jaringan untuk mengendalikan keseluruhan komunikasi. Sebuah jaringan IQMESH dapat menampung hingga 65.000 sensor. Setiap sensor di dalam jaringan memiliki alamat yang unik (\emph{logical address}) yang diberikan pada saat \emph{bonding}. Algoritma perutean \emph{Discovered Full Mesh} (DFM) memanfaatkan \emph{Virtual Routing Structure} (VRS) yang dibentuk pada saat proses \emph{discovery}.
 
     Fitur-fitur yang dimiliki antara lain:
       \begin{itemize}
@@ -65,24 +65,24 @@
         \item pita frekuensi sub-GHz (868 MHz, 916 MHz, dst.), \emph{multichannel}, dan modulasi FSK,
         \item \emph{bit rate} 1.2 kb/s - 86.2 kb/s,
         \item daya keluaran maksimal 20 mW,
-        \item maksimal 65.000 peranti dalam satu jaringan,
+        \item maksimal 65.000 piranti dalam satu jaringan,
         \item konsumsi daya yang rendah: 380 nA saat \emph{standby}, 25 $\mu$A saat menerima.
       \end{itemize}
 
 
   \subsection{XBee}
-    XBee adalah sebuah merk dari Digi International untuk keluarga modul radio. XBee pertama diperkenalkan dalam merk MaxStream pada tahun 2005 yang berdasarkan pada standar IEEE 802.15.4-2003 untuk \emph{point to point} dan komunikasi bintang dalam \emph{baud rate} 250 kbit/s.
+    XBee adalah sebuah merk dari Digi International untuk keluarga modul radio \cite{DigiInternationalInc.2013}. XBee pertama diperkenalkan dalam merk MaxStream pada tahun 2005 yang berdasarkan pada standar IEEE 802.15.4-2003 untuk \emph{point to point} dan komunikasi bintang dalam \emph{baud rate} 250 kbit/s.
 
-    Pada awalnya diperkenalkan dua model, yaitu 1mW XBee dan 100mW XBee-PRO. Sejak pertama kali diperkenalkan, beberapa buah XBee baru juga diperkenalkan dan semua XBee sekarang dipasarkan dengan merk Digi. Contoh peranti XBee dapat dilihat pada Gambar \ref{xbee}.
+    Pada awalnya diperkenalkan dua model, yaitu 1mW XBee dan 100mW XBee-PRO. Sejak pertama kali diperkenalkan, beberapa buah XBee baru juga diperkenalkan dan semua XBee sekarang dipasarkan dengan merk Digi. Contoh piranti XBee dapat dilihat pada Gambar \ref{xbee}.
 
       \begin{figure}[H]
         \centering
           \includegraphics[width=0.5\textwidth]{gambar/xbee}
-          \caption{Sepasang peranti XBee.}
+          \caption{Sepasang piranti XBee.}
           \label{xbee}
       \end{figure}
 
-    Pada Gambar \ref{xbee} dapat dilihat dua buah XBee radio yang tidak tertanam pada peranti lain. XBee radio memiliki 20 kaki (\emph{pin}) yang dapat ditancapkan pada peranti lain.
+    Pada Gambar \ref{xbee} dapat dilihat dua buah XBee radio yang tidak tertanam pada piranti lain. XBee radio memiliki 20 kaki (\emph{pin}) yang dapat ditancapkan pada piranti lain.
 
   \subsection{TCP/IP}
     Protokol internet adalah kumpulan protokol-protokol komunikasi yang digunakan dalam internet dan jaringan komputer sejenis, dan umumnya merupakan protokol yang paling populer untuk WAN. Pada umumnya hal ini dikenal dengan TCP/IP, karena protokol utamanya merupakan protokol jaringan pertama yang terstandarisasi. Terkadang hal ini dikenal dengan model DoD karena pengaruh ARPANET pada dekade 1970an.
@@ -90,14 +90,14 @@
     TCP/IP menyediakan konektivitas antar ujung yang menspesifikasikan bagaimana data harus diformat, dialamatkan, ditransmisikan, dirutekan, dan diterima di tujuan. TCP/IP memiliki empat layer abstraksi yang digunakan untuk mengurutkan semua protokol internet menurut jangkauan jaringan yang terlibat. Dari terendah sampai tertinggi, lapisan-lapisan tersebut adalah layer link, layer internet, layer transport, dan layer aplikasi.
 
   \subsection{\emph{Access Point}}
-    \emph{Access Point}, disingkat AP, atau juga dikenal dengan istilah \emph{Wireless Access Point} adalah sebuah peranti yang memungkinkan peranti-peranti nirkabel untuk terkoneksi dengan jaringan kabel menggunakan Wi-Fi atau standar lain. AP biasanya terkoneksi dengan sebuah \emph{router} (melalui jaringan kabel) sebagai peranti yang berdiri sendiri, namun juga dapat menjadi bagian dalam komponen \emph{router} tersebut.
+    \emph{Access Point}, disingkat AP, atau juga dikenal dengan istilah \emph{Wireless Access Point} adalah sebuah piranti yang memungkinkan piranti-piranti nirkabel untuk terkoneksi dengan jaringan kabel menggunakan Wi-Fi atau standar lain. AP biasanya terkoneksi dengan sebuah \emph{router} (melalui jaringan kabel) sebagai piranti yang berdiri sendiri, namun juga dapat menjadi bagian dalam komponen \emph{router} tersebut.
 
     Penggunaan secara korporat melibatkan beberapa AP ke dalam jaringan kabel dan menyediakan akses nirkabel ke LAN kantor. AP diatur dengan WLAN \emph{Controller} yang menangani pengaturan daya RF, kanal-kanal, autentikasi, dan keamanan.
     
-    Sebuah \emph{hotspot} adalah aplikasi dari satu atau beberapa AP, yang memungkinkan peranti dapat terhubung ke Internet dengan mudah. Konsep ini sudah menjadi hal yang umum di beberapa kota besar. Kombinasi dari warung kopi, perpustakaan, dan AP milik pribadi memungkinkan klien untuk terkoneksi dengan Internet. Koleksi dari \emph{hotspot} yang terkoneksi dapat disebut sebagai sebuah jaringan \emph{lily pad}.
+    Sebuah \emph{hotspot} adalah aplikasi dari satu atau beberapa AP, yang memungkinkan piranti dapat terhubung ke Internet dengan mudah. Konsep ini sudah menjadi hal yang umum di beberapa kota besar. Kombinasi dari warung kopi, perpustakaan, dan AP milik pribadi memungkinkan klien untuk terkoneksi dengan Internet. Koleksi dari \emph{hotspot} yang terkoneksi dapat disebut sebagai sebuah jaringan \emph{lily pad}.
 
   \subsection{TP-LINK MR3020}
-    TP-LINK MR3020 adalah \emph{Portable 3G/4G Wireless N Router} keluaran TP-LINK, perusahaan asal Shenzen, China, yang bergerak dalam bidang peranti jaringan komputer. TP-LINK MR3020 pada dasarnya adalah Wi-Fi router yang dapat meneruskan internet dari modem 3G/4G yang terpasang di port USB-nya. TP-LINK MR3020 termasuk AP yang populer karena bentuknya yang kecil, seperti dapat dilihat pada Gambar \ref{mr3020}, sehingga mudah dibawa dan harganya yang tergolong murah. Banyak forum di internet yang membahas AP jenis ini, sehingga dukungan untuk memanipulasinya luas dari komunitas. Penelitian ini menggunakan sistem operasi OpenWRT guna memberikan fleksibilitas dalam pengembangan aplikasi \emph{gateway} berbasis web.
+    TP-LINK MR3020 adalah \emph{Portable 3G/4G Wireless N Router} keluaran TP-LINK, perusahaan asal Shenzen, China, yang bergerak dalam bidang piranti jaringan komputer. TP-LINK MR3020 pada dasarnya adalah Wi-Fi router yang dapat meneruskan internet dari modem 3G/4G yang terpasang di port USB-nya. TP-LINK MR3020 termasuk AP yang populer karena bentuknya yang kecil, seperti dapat dilihat pada Gambar \ref{mr3020}, sehingga mudah dibawa dan harganya yang tergolong murah. Banyak forum di internet yang membahas AP jenis ini, sehingga dukungan untuk memanipulasinya luas dari komunitas. Penelitian ini menggunakan sistem operasi OpenWRT guna memberikan fleksibilitas dalam pengembangan aplikasi \emph{gateway} berbasis web.
 
     \begin{figure}[H]
       \centering
@@ -145,7 +145,7 @@
 
     Penggunaan web server yang paling umum adalah sebagai host untuk halaman web, walaupun ada beberapa penggunaan lain seperti game, media penyimpan data, atau penjalanan aplikasi perusahaan.
 
-    Pemilihan aplikasi yang bertindak sebagai Web Server pada peranti tertanam (\emph{embedded device}) harus mempertimbangkan spesifikasi dari peranti tersebut. Penggunaan aplikasi Web Server yang biasa ditanamkan pada komputer \emph{desktop} bahkan \emph{server}, misal Apache, sangat tidak tepat bila ditanamkan pada peranti tertanam. Hal ini akan mengakibatkan pemborosan pada penggunaan sumber daya karena peranti tertanam memiliki sumber daya yang sangat terbatas. Peranti tertanam sebaiknya menggunakan aplikasi web server yang dirancang secara spesifik untuk peranti tersebut. Pilihan yang ada antara lain uhttpd dan light-httpd.
+    Pemilihan aplikasi yang bertindak sebagai Web Server pada piranti tertanam (\emph{embedded device}) harus mempertimbangkan spesifikasi dari piranti tersebut. Penggunaan aplikasi Web Server yang biasa ditanamkan pada komputer \emph{desktop} bahkan \emph{server}, misal Apache, sangat tidak tepat bila ditanamkan pada piranti tertanam. Hal ini akan mengakibatkan pemborosan pada penggunaan sumber daya karena piranti tertanam memiliki sumber daya yang sangat terbatas. Piranti tertanam sebaiknya menggunakan aplikasi web server yang dirancang secara spesifik untuk piranti tersebut. Pilihan yang ada antara lain uhttpd dan light-httpd.
 
 
   \subsection{\emph{Asynchronous JavaScript and XML}}
@@ -155,7 +155,7 @@
 
 
   \subsection{OpenWRT}
-    OpenWRT adalah sebuah sistem operasi untuk \emph{embedded device} yang berbasis pada Linux kernel. OpenWRT pada umumnya digunakan dalam routing \emph{network traffic}. Komponen-komponen utamanya adalah Linux kernel, util-linux, uClibc dan BusyBox. Semua komponen sudah dioptimalkan dan dimampatkan untuk bisa dimuat dalam \emph{router} rumahan yang memiliki keterbatasan media penyimpan dan memori. OpenWRT dapat dikonfigurasikan melalui antarmuka \emph{command-line} (\emph{ash shell}), seperti dapat dilihat pada Gambar \ref{openwrt}, atau dengan antarmuka Web (LuCI). Terdapat kurang lebih 3.500 paket-paket perangkat lunak tambahan yang tersedia untuk diinstal melalui sistem manajemen paket \emph{opkg}.
+    OpenWRT adalah sebuah sistem operasi untuk \emph{embedded device} yang berbasis pada Linux kernel \cite{OpenWrtProject2013}. OpenWRT pada umumnya digunakan dalam routing \emph{network traffic}. Komponen-komponen utamanya adalah Linux kernel, util-linux, uClibc dan BusyBox. Semua komponen sudah dioptimalkan dan dimampatkan untuk bisa dimuat dalam \emph{router} rumahan yang memiliki keterbatasan media penyimpan dan memori. OpenWRT dapat dikonfigurasikan melalui antarmuka \emph{command-line} (\emph{ash shell}), seperti dapat dilihat pada Gambar \ref{openwrt}, atau dengan antarmuka Web (LuCI). Terdapat kurang lebih 3.500 paket-paket perangkat lunak tambahan yang tersedia untuk diinstal melalui sistem manajemen paket \emph{opkg}.
 
       \begin{figure}[ht!]
         \centering

@@ -15,8 +15,8 @@
 			\begin{itemize}
 			\begin{singlespace}
 				\item Mampu membaca dan menampilkan suhu yang terbaca pada sensor IQRF,
-				\item mampu menyala-matikan relay pada peranti yang diinginkan,
-				\item mampu menambah dan mengurangi peranti baru baik IQRF atau XBee,
+				\item mampu menyala-matikan relay pada piranti yang diinginkan,
+				\item mampu menambah dan mengurangi piranti baru baik IQRF atau XBee,
 				\item mampu menjalankan \emph{profile} tertentu dari kombinasi suhu dan relay atau waktu tertentu.
 			\end{singlespace}
 			\end{itemize}
@@ -44,7 +44,7 @@
 			Pada Gambar \ref{usecase}, menambah-kurangi sensor XBee tidak melibatkan sensor XBee (tidak ada garis yang menghubungkan keduanya), pada \emph{case} tersebut hanya melibatkan aplikasi. Saat \emph{case} ini dijalankan, data sensor pada basis data dihapus. Namun, menambah-kurangi sensor IQRF melibatkan sensor IQRF (ada garis yang menghubungkan keduanya). Karena pada \emph{case} ini, selain menghapus data pada basis data, proses \emph{unbonding} pada IQRF juga melibatkan \emph{node} IQRF.
 
 		\subsection{Diagram Arsitektur Sistem}
-			Penelitian ini menggunakan AP, \emph{sensor coordinator}, dan \emph{sensor node} sebagai peranti keras. Sedangkan peranti lunak yang dikembangkan meliputi aplikasi berbasis web, aplikasi Python, dan aplikasi C yang terunggah pada sensor-sensor. Gambar \ref{system-architecture} menggambarkan diagram arsitektur sistem.
+			Penelitian ini menggunakan AP, \emph{sensor coordinator}, dan \emph{sensor node} sebagai piranti keras. Sedangkan piranti lunak yang dikembangkan meliputi aplikasi berbasis web, aplikasi Python, dan aplikasi C yang terunggah pada sensor-sensor. Gambar \ref{system-architecture} menggambarkan diagram arsitektur sistem.
 			
 			\begin{figure}[H]
 			  \centering
@@ -112,7 +112,7 @@
 				    \end{verbatim}  
 				\endgroup
 
-				Konfigurasi di atas akan memetakan direktori \emph{root} (/) ke dalam peranti (\emph{device}) /dev/sda1 yang di-\emph{mount} pada direktori /mnt dengan format \emph{filesystem} ext3 dan dan mode baca tulis.
+				Konfigurasi di atas akan memetakan direktori \emph{root} (/) ke dalam piranti (\emph{device}) /dev/sda1 yang di-\emph{mount} pada direktori /mnt dengan format \emph{filesystem} ext3 dan dan mode baca tulis.
 
 				Setelah proses implementasi extroot selesai, berarti AP sudah memiliki memori penyimpanan yang cukup (atau mungkin lebih) untuk menginstal aplikasi-aplikasi pendukung lainnya. Penelitian ini menggunakan memori USB 4 Gigabyte.
 
@@ -186,9 +186,9 @@
 				    \label{mac-sharing}
 				\end{figure}
 
-			\subsubsection{Peranti XBee}\
+			\subsubsection{Piranti XBee}\
 
-				Setiap peranti XBee yang akan digunakan harus terkonfigurasi terlebih dahulu. Parameter-parameter yang harus terkonfigurasi adalah ATID (alamat dari jaringan/\emph{network ID}), ATMY (alamat peranti itu sendiri), ATDH (\emph{destination address high}), dan ATDL (\emph{destination address low}).
+				Setiap piranti XBee yang akan digunakan harus terkonfigurasi terlebih dahulu. Parameter-parameter yang harus terkonfigurasi adalah ATID (alamat dari jaringan/\emph{network ID}), ATMY (alamat piranti itu sendiri), ATDH (\emph{destination address high}), dan ATDL (\emph{destination address low}).
 
 				Proses konfigurasi dilakukan dengan menyambungkan XBee Radio dengan \emph{XBee Explorer USB Board} ke komputer dan menjalankan aplikasi untuk membaca kanal serial, misalnya CoolTerm pada Mac OS X. Setelah CoolTerm dibuka, buka koneksi kanal serial ke XBee dan jalankan perintah dengan format:
 				\begingroup
@@ -221,7 +221,7 @@
 
 			\subsubsection{Aplikasi IQRF}\
 
-				Peranti IQRF dalam penelitian ini ada dua jenis, begitu pula aplikasi yang tertanam di dalamnya. Aplikasi tersebut adalah \emph{Sink} dan \emph{Node}. Aplikasi \emph{Sink} akan ditanamkan pada koordinator dari IQRF yang terhubung langsung dengan AP melalui kabel USB dan jumlahnya hanya satu. Sedangkan aplikasi \emph{Node} akan ditanamkan pada sensor-sensor IQRF yang akan saling membentuk jaringan jala (\emph{mesh network}) dan jumlahnya lebih dari satu.
+				Piranti IQRF dalam penelitian ini ada dua jenis, begitu pula aplikasi yang tertanam di dalamnya. Aplikasi tersebut adalah \emph{Sink} dan \emph{Node}. Aplikasi \emph{Sink} akan ditanamkan pada koordinator dari IQRF yang terhubung langsung dengan AP melalui kabel USB dan jumlahnya hanya satu. Sedangkan aplikasi \emph{Node} akan ditanamkan pada sensor-sensor IQRF yang akan saling membentuk jaringan jala (\emph{mesh network}) dan jumlahnya lebih dari satu.
 
 				Aplikasi \emph{Sink} lebih ditekankan pada pembentukan ikatan (\emph{bond}) antara koordinator dan sensor-sensor, pengendalian sensor-sensor, serta pengakuisisian data dari masing-masing sensor.
 
@@ -233,16 +233,16 @@
 
 			\subsubsection{Aplikasi XBee}\
 
-				Sama seperti IQRF, peranti XBee terdiri dari dua jenis peranti, yaitu koordinator dan sensor-sensor. Koordinator bertugas menyalakan atau mematikan relay-relay yang terdapat di masing-masing sensor sesuai permintaan pengguna.
+				Sama seperti IQRF, piranti XBee terdiri dari dua jenis piranti, yaitu koordinator dan sensor-sensor. Koordinator bertugas menyalakan atau mematikan relay-relay yang terdapat di masing-masing sensor sesuai permintaan pengguna.
 
 				Koordinator tersusun atas \emph{XBee 802.15.4 Radios (Series 1)} yang tertanam pada \emph{XBee Explorer USB Board} dan terkoneksi langsung dengan AP dengan kabel USB.
 
 				Sedangkan sensornya terdiri dari tiga bagian, yaitu \emph{XBee 802.15.4 Radios (Series 1)}, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan Arduino Uno. Ketiga bagian tersebut saling terhubung dengan pin-pin yang tersedia.
 
-				XBee pada hakikatnya hanya sebatas peranti komunikasi antara AP dengan relay-relay yang tersedia, sehingga pemrograman teletak pada masing-masing Arduino pada relay. Bahasa yang digunakan adalah bahasa C (Arduino). Aplikasi yang dikembangkan akan menunggu perintah dari AP untuk menyalakan atau mematikan relay.
+				XBee pada hakikatnya hanya sebatas piranti komunikasi antara AP dengan relay-relay yang tersedia, sehingga pemrograman teletak pada masing-masing Arduino pada relay. Bahasa yang digunakan adalah bahasa C (Arduino). Aplikasi yang dikembangkan akan menunggu perintah dari AP untuk menyalakan atau mematikan relay.
 
 		\subsection{Pengembangan Aplikasi Python}
-			Aplikasi Python adalah jantung dari penelitian ini karena menghubungkan aplikasi berbasis web dengan peranti-peranti IQRF dan XBee.	Aplikasi terdiri dari tiga bagian yang ditujukan untuk penggunaan berbeda, yaitu komunikasi dengan sensor IQRF, XBee, dan profil untuk automatisasi.
+			Aplikasi Python adalah jantung dari penelitian ini karena menghubungkan aplikasi berbasis web dengan piranti-piranti IQRF dan XBee.	Aplikasi terdiri dari tiga bagian yang ditujukan untuk penggunaan berbeda, yaitu komunikasi dengan sensor IQRF, XBee, dan profil untuk automatisasi.
 
 			\subsubsection{Manipulasi Komunikasi Data Serial}\
 
@@ -291,14 +291,14 @@
 
 			\subsubsection{Aplikasi XBee}\
 
-				Aplikasi Python XBee memiliki kemampuan untuk menyalakan atau mematikan relay pada peranti tertentu dan membaca status relay pada peranti tertentu, apakah relay tersebut sedang menyala atau mati.
+				Aplikasi Python XBee memiliki kemampuan untuk menyalakan atau mematikan relay pada piranti tertentu dan membaca status relay pada piranti tertentu, apakah relay tersebut sedang menyala atau mati.
 
 				Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-xbee}.
 
 				\begin{figure}[H]
 				  \centering
 				    \includegraphics[width=0.6\textwidth]{gambar/python-xbee}
-				    \caption{Diagram alir aplikasi Python untuk menangani peranti XBee.}
+				    \caption{Diagram alir aplikasi Python untuk menangani piranti XBee.}
 				    \label{python-xbee}
 				\end{figure}
 
@@ -306,11 +306,11 @@
 				\begingroup
 				    \fontsize{10pt}{12pt}\selectfont
 				    \begin{verbatim}
-						$ python xbee.py <perintah> <ATMY peranti> <ID relay>
+						$ python xbee.py <perintah> <ATMY piranti> <ID relay>
 				    \end{verbatim}  
 				\endgroup
 
-				Aplikasi ini berjalan dalam bentuk CLI dan membutuhkan tiga parameter, yaitu perintah, alamat peranti (ATMY), dan ID relay (terdapat dua relay di tiap peranti). Perintah yang tersedia yaitu menyalakan relay, `on', mematikan relay, `off', dan membaca status relay, `status'.
+				Aplikasi ini berjalan dalam bentuk CLI dan membutuhkan tiga parameter, yaitu perintah, alamat piranti (ATMY), dan ID relay (terdapat dua relay di tiap piranti). Perintah yang tersedia yaitu menyalakan relay, `on', mematikan relay, `off', dan membaca status relay, `status'.
 
 				Sehingga contoh penggunaan aplikasi pada \emph{terminal console}:
 				\begingroup
@@ -319,7 +319,7 @@
 						$ python iqrf.py status 2 1
 				    \end{verbatim}  
 				\endgroup
-				Perintah di atas akan membaca status (on/off) dari relay 1 pada peranti dengan alamat (ATMY) 2 dan menampilkannya pada layar dalam karakter `H' (menyala) atau `L' (mati).
+				Perintah di atas akan membaca status (on/off) dari relay 1 pada piranti dengan alamat (ATMY) 2 dan menampilkannya pada layar dalam karakter `H' (menyala) atau `L' (mati).
 
 			\subsubsection{\emph{Profiling}}\
 
@@ -338,7 +338,7 @@
 		\subsection{Pengembangan Aplikasi Berbasis Web}
 			Aplikasi web untuk mengendalikan sensor-sensor IQRF dan XBee dibangun dengan PHP dan basis data MySQL. Aplikasi ini dibangun tanpa menggunakan \emph{framework} karena aplikasi ini tergolong tidak terlalu rumit, aplikasi ini hanya memliki lima halaman utama seperti terlihat pada sitemap Gambar \ref{sitemap}. Penggunaan \emph{framework} juga akan memakan sumber daya komputasi sedikit lebih banyak, padahal aplikasi ini akan diimplementasikan pada sebuah AP yang memiliki tingkat komputasi yang rendah.
 
-			Antarmuka yang dikembangkan adalah hasil \emph{fork} dari \emph{template} halaman administrator buatan Vince G. Antarmuka ditulis menggunakan HTML5 dan CSS3, dengan tambahan pemrograman JavaScript pada sisi klien agar menambah interaktivitas. Pustaka Bootstrap digunakan untuk membuat halaman web menjadi responsif, sehingga dapat menyesuaikan diri secara otomatis sesuai dengan ukuran layar. Pustaka jQuery digunakan untuk membantu pemrograman di sisi klien.
+			Antarmuka yang dikembangkan adalah hasil \emph{fork} dari \emph{template} halaman administrator buatan Vince G \cite{Gabriel2013}. Antarmuka ditulis menggunakan HTML5 dan CSS3, dengan tambahan pemrograman JavaScript pada sisi klien agar menambah interaktivitas. Pustaka Bootstrap digunakan untuk membuat halaman web menjadi responsif, sehingga dapat menyesuaikan diri secara otomatis sesuai dengan ukuran layar. Pustaka jQuery digunakan untuk membantu pemrograman di sisi klien.
 
 			Kode sumber untuk aplikasi berbasis web ditulis dengan bantuan Sublime Text 3.
 			
@@ -351,7 +351,7 @@
 			    \label{sitemap}
 			\end{figure}
 
-			Total halaman utama dari situs ada enam halaman, seperti dapat dilihat pada Gambar \ref{sitemap} dengan tambahan halaman login, halaman yang harus diakses sebelum pengguna dapat masuk ke dalam sistem. Empat halaman utama mempunyai halaman anak yang secara garis besar ditujukan untuk melihat, menghapus dan menambah peranti, profil, atau pengguna.
+			Total halaman utama dari situs ada enam halaman, seperti dapat dilihat pada Gambar \ref{sitemap} dengan tambahan halaman login, halaman yang harus diakses sebelum pengguna dapat masuk ke dalam sistem. Empat halaman utama mempunyai halaman anak yang secara garis besar ditujukan untuk melihat, menghapus dan menambah piranti, profil, atau pengguna.
 
 			Basis data yang dikembangkan tergolong sederhana karena hanya dimaksudkan untuk menyimpan data-data yang sifatnya kecil, seperti tampak pada Gambar \ref{erd}.
 
@@ -364,28 +364,28 @@
 
 			Seperti yang terpampang pada Gambar \ref{erd}, basis data terdiri atas empat tabel. Relasi yang ada pada basis data hanya relasi tabel \emph{iqrf\_device} dengan \emph{profile} dan \emph{xbee\_device} dengan \emph{profile}.
 
-			Sedangkan diagram alir untuk menambah peranti IQRF dan XBee dijelaskan pada Gambar \ref{add-iqrf} dan Gambar \ref{add-xbee}.
+			Sedangkan diagram alir untuk menambah piranti IQRF dan XBee dijelaskan pada Gambar \ref{add-iqrf} dan Gambar \ref{add-xbee}.
 
 			\begin{figure}[H]
 			  \centering
 			    \includegraphics[width=0.6\textwidth]{gambar/add-iqrf}
-			    \caption{Diagram Alir Penambahan Peranti IQRF ke Aplikasi.}
+			    \caption{Diagram Alir Penambahan Piranti IQRF ke Aplikasi.}
 			    \label{add-iqrf}
 			\end{figure}
 
 			\begin{figure}[H]
 			  \centering
 			    \includegraphics[width=0.6\textwidth]{gambar/add-xbee}
-			    \caption{Diagram Alir Penambahan Peranti XBee ke Aplikasi.}
+			    \caption{Diagram Alir Penambahan Piranti XBee ke Aplikasi.}
 			    \label{add-xbee}
 			\end{figure}
 
-			Penambahan peranti IQRF mengharuskan pengguna untuk menekan tombol yang ada pada sensor IQRF, sedangkan penambahan peranti XBee tidak mengharuskan pengguna untuk menekan tombol atau mengintervensi perangkat keras XBee.
+			Penambahan piranti IQRF mengharuskan pengguna untuk menekan tombol yang ada pada sensor IQRF, sedangkan penambahan piranti XBee tidak mengharuskan pengguna untuk menekan tombol atau mengintervensi perangkat keras XBee.
 
 		\subsection{Skalabilitas Sistem}
 			Seperti yang sudah dijelaskan sebelumnya tentang rancangan teknis sistem, secara \emph{default} aplikasi ini hanya mendukung interoperabilitas antara dua jenis WSN. Karena pendekatan interoperabilitas dilakukan pada ranah data dan aplikasi disusun hanya untuk mendukun dua jenis WSN, sistem tidak memiliki skalabilitas dalam hal penambahan jenis WSN. Jika diinginkan jenis WSN baru yang ingin diinteroperabilitaskan, maka harus ditambahkan beberapa baris kode baru untuk menangani WSN baru yang mungkin struktur komunikasinya sedikit berbeda.
 
-			Walaupun demikian, sistem yang dibangun memiliki skalabilitas dalam hal penambahan jumlah peranti yang terpasang. Peranti atau \emph{node} yang ingin dipantau dengan aplikasi dapat ditambahkan dan dikurangi melalui antarmuka yang telah dirancang dengam mudah.
+			Walaupun demikian, sistem yang dibangun memiliki skalabilitas dalam hal penambahan jumlah piranti yang terpasang. Piranti atau \emph{node} yang ingin dipantau dengan aplikasi dapat ditambahkan dan dikurangi melalui antarmuka yang telah dirancang dengam mudah.
 
 
 		\subsection{Evaluasi dan Perbaikan}
@@ -429,35 +429,35 @@
 					    \caption{Dibuka di layar ponsel yang kecil.}
 					    \label{dashboard-small}
 					\end{subfigure}
-					\caption{Halaman \emph{dashboard} saat belum ada peranti terpasang.}
+					\caption{Halaman \emph{dashboard} saat belum ada piranti terpasang.}
 					\label{dashboard}
 				\end{figure}
 
 			Seperti dapat dilihat pada Gambar \ref{dashboard-small}, ukuran layar akan menjadi lebih kecil jika dibanding dengan Gambar \ref{dashboard-full-page} karena halaman dibuka pada ponsel cerdas yang memiliki ukuran layar lebih kecil dari komputer.
 
-			Aplikasi mempunyai halaman untuk menambahkan peranti IQRF, sehingga pengguna dapat menambahkan peranti IQRF baru ke dalam sistem menggunakan halaman ini. Gambar \ref{iqrf-add} menunjukkan halaman untuk menambahkan peranti IQRF.
+			Aplikasi mempunyai halaman untuk menambahkan piranti IQRF, sehingga pengguna dapat menambahkan piranti IQRF baru ke dalam sistem menggunakan halaman ini. Gambar \ref{iqrf-add} menunjukkan halaman untuk menambahkan piranti IQRF.
 
 				\begin{figure}[H]
 				  \centering
 				    \includegraphics[width=0.9\textwidth]{gambar/iqrf-add}
-				    \caption{Halaman untuk menambahkan peranti IQRF.}
+				    \caption{Halaman untuk menambahkan piranti IQRF.}
 				    \label{iqrf-add}
 				\end{figure}
 
-			Seperti dapat dilihat pada Gambar \ref{iqrf-add}, pengguna diharuskan untuk memasukkan alamat \emph{node} dari IQRF yang akan ditambahkan. Alamat tersebut adalah bilangan bulat dari dua dan tidak boleh menggunakan alamat yang sudah terpasang pada sistem. Pada bagian atas halaman, terdapat langkah-langkah yang harus diikuti pengguna untuk menambahkan peranti IQRF baru.
+			Seperti dapat dilihat pada Gambar \ref{iqrf-add}, pengguna diharuskan untuk memasukkan alamat \emph{node} dari IQRF yang akan ditambahkan. Alamat tersebut adalah bilangan bulat dari dua dan tidak boleh menggunakan alamat yang sudah terpasang pada sistem. Pada bagian atas halaman, terdapat langkah-langkah yang harus diikuti pengguna untuk menambahkan piranti IQRF baru.
 
-			Seperti peranti IQRF, aplikasi juga menyediakan halaman khusus untuk menambahkan peranti XBee, seperti yang dapat dilihat pada Gambar \ref{xbee-add}.
+			Seperti piranti IQRF, aplikasi juga menyediakan halaman khusus untuk menambahkan piranti XBee, seperti yang dapat dilihat pada Gambar \ref{xbee-add}.
 
 				\begin{figure}[H]
 				  \centering
 				    \includegraphics[width=0.9\textwidth]{gambar/xbee-add}
-				    \caption{Halaman untuk menambahkan peranti XBee.}
+				    \caption{Halaman untuk menambahkan piranti XBee.}
 				    \label{xbee-add}
 				\end{figure}
 
-			Pengguna juga diharuskan untuk memasukkan alamat ATMY dari XBee yang akan ditambahkan, seperti cara menambahkan peranti IQRF. Pada bagian atas halaman, terdapat langkah-langkah yang harus diikuti pengguna untuk menambahkan peranti XBee baru.
+			Pengguna juga diharuskan untuk memasukkan alamat ATMY dari XBee yang akan ditambahkan, seperti cara menambahkan piranti IQRF. Pada bagian atas halaman, terdapat langkah-langkah yang harus diikuti pengguna untuk menambahkan piranti XBee baru.
 
-			Saat peranti sudah ditambahkan melalui halaman-halaman yang sudah dijelaskan sebelumnya, halaman \emph{dashboard} akan berubah, seperti yang tergambar pada Gambar \ref{dashboard-full-device}. Halaman ini masih bersifat responsif, sehingga akan menyesuaikan dengan layar di mana halaman tertampil.
+			Saat piranti sudah ditambahkan melalui halaman-halaman yang sudah dijelaskan sebelumnya, halaman \emph{dashboard} akan berubah, seperti yang tergambar pada Gambar \ref{dashboard-full-device}. Halaman ini masih bersifat responsif, sehingga akan menyesuaikan dengan layar di mana halaman tertampil.
 
 				\begin{figure}[H]
 				  \begin{subfigure}[b]{\textwidth}
@@ -473,35 +473,35 @@
 				    \caption{Dibuka pada layar ponsel yang kecil.}
 				    \label{dashboard-full-small}
 				  \end{subfigure}
-				  \caption{Halaman \emph{dashboard} saat peranti sudah terpasang.}
+				  \caption{Halaman \emph{dashboard} saat piranti sudah terpasang.}
 				  \label{dashboard-full-device}
 				\end{figure}
 
 			Pada saat halaman dibuka pada layar yang kecil, maka perbedaan yang signifikan adalah hilangnya \emph{sidebar} dan mengecilnya \emph{navigation bar} seperti yang dapat dilihat pada Gambar \ref{dashboard-full} dan \ref{dashboard-full-small}.
 
-			Berapapun banyaknya sensor IQRF atau XBee yang terpasang, halaman \emph{dashboard} tetap akan menampilkan satu peranti saja, yaitu peranti yang pertama kali terpasang. Jika penggune ingin melihat semua sensor yang terpasang, pengguna dapat membuka halaman khusus untuk melihat semua sensor IQRF yang terpasang, seperti yang ditunjukkan pada Gambar \ref{iqrf-list}.
+			Berapapun banyaknya sensor IQRF atau XBee yang terpasang, halaman \emph{dashboard} tetap akan menampilkan satu piranti saja, yaitu piranti yang pertama kali terpasang. Jika penggune ingin melihat semua sensor yang terpasang, pengguna dapat membuka halaman khusus untuk melihat semua sensor IQRF yang terpasang, seperti yang ditunjukkan pada Gambar \ref{iqrf-list}.
 
 				\begin{figure}[H]
 				  \centering
 				    \includegraphics[width=0.9\textwidth]{gambar/iqrf-list}
-				    \caption{Halaman daftar peranti IQRF yang terpasang.}
+				    \caption{Halaman daftar piranti IQRF yang terpasang.}
 				    \label{iqrf-list}
 				\end{figure}
 
 			Pada Gambar \ref{iqrf-list} tertampil tiga buah termometer digital yang masing-masing menampilkan hasil bacaan temperatur dari masing-masing sensor IQRF. Perubahan suhu dapat dilihat secara langsung.
 
-			Pengguna juga dapat melihat semua peranti XBee yang terpasang dengan halaman khusus yang tertera pada Gambar \ref{xbee-list}. Halaman ini akan menampilkan semua peranti XBee yang terdaftar pada aplikasi.
+			Pengguna juga dapat melihat semua piranti XBee yang terpasang dengan halaman khusus yang tertera pada Gambar \ref{xbee-list}. Halaman ini akan menampilkan semua piranti XBee yang terdaftar pada aplikasi.
 
 				\begin{figure}[H]
 				  \centering
 				    \includegraphics[width=0.9\textwidth]{gambar/xbee-list}
-				    \caption{Halaman daftar peranti XBee yang terpasang.}
+				    \caption{Halaman daftar piranti XBee yang terpasang.}
 				    \label{xbee-list}
 				\end{figure}
 
-			Seperti yang dapat dilihat pada Gambar \ref{xbee-list}, terdapat tiga peranti XBee yang terdaftar pada aplikasi. Melalui halaman ini, pengguna dapat memati-nyalakan sensor dengan meng-klik saklar yang diinginkan. Dibutuhkan sekitar dua sampai tiga detik untuk menyalakan relay.
+			Seperti yang dapat dilihat pada Gambar \ref{xbee-list}, terdapat tiga piranti XBee yang terdaftar pada aplikasi. Melalui halaman ini, pengguna dapat memati-nyalakan sensor dengan meng-klik saklar yang diinginkan. Dibutuhkan sekitar dua sampai tiga detik untuk menyalakan relay.
 
-			Seperti yang sudah dijelaskan, aplikasi mendukung profil guna otomatisasi tugas-tugas tertentu. Jika pengguna mengiginkan untuk menambahkan profil tertentu, tersedia halaman khusus seperti yang terlihat pada Gambar \ref{profile-add}. Jika suhu yang terbaca di sensor IQRF tertentu mencapai nilai yang diinginkan, maka kondisi relay pada peranti XBee tertentu akan terkonfigurasi seperti yang diinginkan pengguna. Untuk lebih jelasnya bisa dilihat pada Gambar \ref{profile-add}.
+			Seperti yang sudah dijelaskan, aplikasi mendukung profil guna otomatisasi tugas-tugas tertentu. Jika pengguna mengiginkan untuk menambahkan profil tertentu, tersedia halaman khusus seperti yang terlihat pada Gambar \ref{profile-add}. Jika suhu yang terbaca di sensor IQRF tertentu mencapai nilai yang diinginkan, maka kondisi relay pada piranti XBee tertentu akan terkonfigurasi seperti yang diinginkan pengguna. Untuk lebih jelasnya bisa dilihat pada Gambar \ref{profile-add}.
 
 				\begin{figure}[H]
 				  \centering
@@ -517,7 +517,7 @@
 					\item konfigurasi relay saat temperatur tercapai,
 					\item nama profil,
 					\item alamat sensor IQRF yang diinginkan (pembacaan temperatur),
-					\item alamat ATMY peranti XBee yang diinginkan (relay),
+					\item alamat ATMY piranti XBee yang diinginkan (relay),
 					\item dan tanggal dan waktu yang diinginkan.
 				\end{itemize}
 
@@ -572,9 +572,9 @@
 
 
 	\section{Analisis Unjuk Kerja Aplikasi}
-		Bagian terakhir dari skripsi ini akan ini menjelaskan hal-hal terkait tentang cara perangkaian perangkat keras sehingga dapat difungsikan, instalasi aplikasi ke peranti sehingga sesuai kondisi sesungguhnya, hasil uji coba aplikasi, serta masalah yang dihadapi dan penyelesaiannya.
+		Bagian terakhir dari skripsi ini akan ini menjelaskan hal-hal terkait tentang cara perangkaian perangkat keras sehingga dapat difungsikan, instalasi aplikasi ke piranti sehingga sesuai kondisi sesungguhnya, hasil uji coba aplikasi, serta masalah yang dihadapi dan penyelesaiannya.
 
-		\subsection{Instalasi Peranti}
+		\subsection{Instalasi Piranti}
 			Perangkat keras pertama yang akan dirakit adalah koordinator IQRF yang tersambung langsung pada AP. Koordinator IQRF ini terdiri atas kabel USB to Serial Prolific, kit pengembangan CK-EVAL-04, dan IQRF TR-52B seperti dapat dilihat pada Gambar \ref{iqrf-coordinator}. Kondisi koordinator sensor IQRF sebelum dirakit dapat dilihat pada Gambar \ref{iqrf-stripped}.
 
 			\begin{figure}[H]
@@ -597,7 +597,7 @@
 
 			Kemudian semua bagian disambungkan pada tempatnya. Untuk kabel USB to Serial Prolific, posisi kabel \emph{ground} terpasang pada bagian bawah seperti terlihat pada Gambar \ref{iqrf-complete}.
 
-			Koordinator peranti XBee pada AP terdiri atas \emph{XBee 802.15.4 Radios (Series 1)} dan \emph{XBee Explorer USB Board} yang tersambung pada AP dengan kabel mini-USB seperti dapat dilihat pada Gambar \ref{xbee-sink}.
+			Koordinator piranti XBee pada AP terdiri atas \emph{XBee 802.15.4 Radios (Series 1)} dan \emph{XBee Explorer USB Board} yang tersambung pada AP dengan kabel mini-USB seperti dapat dilihat pada Gambar \ref{xbee-sink}.
 
 			\begin{figure}[H]
 				\begin{subfigure}[b]{\textwidth}
@@ -613,11 +613,11 @@
 				    \caption{Koordinator XBee saat telah dirakit.}
 				    \label{xbee-sink-complete}
 				\end{subfigure}
-				\caption{Koordinator peranti XBee yang akan disambungkan pada AP.}
+				\caption{Koordinator piranti XBee yang akan disambungkan pada AP.}
 				\label{xbee-sink}
 			\end{figure}
 
-			Merakit koordinator peranti XBee termasuk mudah, karena hanya perlu memasang \emph{XBee 802.15.4 Radios (Series 1)} pada \emph{XBee Explorer USB Board}, kemudian menghubungkan keduanya ke AP, seperti yang dapat dilihat pada Gambar \ref{xbee-sink-complete}.
+			Merakit koordinator piranti XBee termasuk mudah, karena hanya perlu memasang \emph{XBee 802.15.4 Radios (Series 1)} pada \emph{XBee Explorer USB Board}, kemudian menghubungkan keduanya ke AP, seperti yang dapat dilihat pada Gambar \ref{xbee-sink-complete}.
 
 			AP yang digunakan adalah TP-LINK MR3020 dengan USB Hub, seperti yang dapat dilihat pada Gambar \ref{ap-stripped}. USB Hub digunakan untuk menyambungkan USB \emph{flash drive}, koordinator IQRF, dan koordinator XBee.
 
@@ -639,9 +639,9 @@
 				\label{ap}
 			\end{figure}
 
-			Urutan peranti yang terpasang ke AP, dari atas ke bawah, adalah USB \emph{flash drive}, koordinator XBee, dan koordinator IQRF. Posisi tersebut tidak boleh terbalik karena tidak sesuai dengan konfigurasi aplikasi yang sudah dirancang dan kembangkan. Sehingga kondisi saat semua peranti sudah dipasangkan dapat dilihat pada Gambar \ref{ap-complete}.
+			Urutan piranti yang terpasang ke AP, dari atas ke bawah, adalah USB \emph{flash drive}, koordinator XBee, dan koordinator IQRF. Posisi tersebut tidak boleh terbalik karena tidak sesuai dengan konfigurasi aplikasi yang sudah dirancang dan kembangkan. Sehingga kondisi saat semua piranti sudah dipasangkan dapat dilihat pada Gambar \ref{ap-complete}.
 
-			Setelah AP sudah siap, langkah selanjutnya adalah perakitan sensor IQRF dan peranti XBee. Sensor-sensor IQRF terdiri atas TR-52B dan kit pengembangan DK-EVAL-03 seperti dapat dilihat pada Gambar \ref{iqrf-node}.
+			Setelah AP sudah siap, langkah selanjutnya adalah perakitan sensor IQRF dan piranti XBee. Sensor-sensor IQRF terdiri atas TR-52B dan kit pengembangan DK-EVAL-03 seperti dapat dilihat pada Gambar \ref{iqrf-node}.
 
 			\begin{figure}[H]
 				\begin{subfigure}[b]{\textwidth}
@@ -663,7 +663,7 @@
 
 			Untuk merakit sensor IQRF, masukkan TR-52B ke dalam kit pengembangan DK-EVAL-03 pada \emph{slot} yang sudah disediakan. Kondisi setelah dipasangkan dapat dilihat pada Gambar \ref{iqrf-node-complete}.
 
-			Sedangkan peranti XBee relay terdiri atas tiga bagian, yaitu \emph{XBee 802.15.4 Radios (Series 1)}, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan Arduino Uno yang tersambung ke sumber listrik dengan kabel USB seperti dapat dilihat pada Gambar \ref{xbee-relay}.
+			Sedangkan piranti XBee relay terdiri atas tiga bagian, yaitu \emph{XBee 802.15.4 Radios (Series 1)}, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan Arduino Uno yang tersambung ke sumber listrik dengan kabel USB seperti dapat dilihat pada Gambar \ref{xbee-relay}.
 
 			\begin{figure}[H]
 				\begin{subfigure}[b]{\textwidth}
@@ -679,11 +679,11 @@
 				    \caption{Setelah dirakit.}
 				    \label{xbee-complete}
 				\end{subfigure}
-				\caption{Peranti XBee.}
+				\caption{Piranti XBee.}
 				\label{xbee-relay}
 			\end{figure}
 
-			Peranti XBee akan tersusun dalam tiga lapis rangkaian, mulai dari bawah, Arduino Uno, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan \emph{XBee 802.15.4 Radios (Series 1)}. Hasil rakitan peranti XBee dapat dilihat pada Gambar \ref{xbee-complete}.
+			Piranti XBee akan tersusun dalam tiga lapis rangkaian, mulai dari bawah, Arduino Uno, \emph{2 channel Relay Shield For Arduino (With XBee/BTBee interface)}, dan \emph{XBee 802.15.4 Radios (Series 1)}. Hasil rakitan piranti XBee dapat dilihat pada Gambar \ref{xbee-complete}.
 
 		\subsection{Hasil Uji Coba Aplikasi}
 			Uji coba yang dilakukan menggunakan satu set AP lengkap yang sudah dilengkapi dengan koordinator IQRF dan XBee. Sensor yang digunakan adalah dua buah IQRF dan satu buah XBee.
@@ -721,7 +721,7 @@
 			\begin{itemize}
 			\begin{singlespace}
 				\item mampu mengintegerasikan dua jenis WSN,
-				\item jumlah peranti yang terpasang dapat ditambah dan dikurangi secara mudah,
+				\item jumlah piranti yang terpasang dapat ditambah dan dikurangi secara mudah,
 				\item aplikasi web yang dibangun dapat diakses dari komputer maupun ponsel cerdas karena bersifat responsif,
 				\item mendukung fitur profil guna mendukung implementasinya pada \emph{green building} dan \emph{smart house},
 				\item biaya yang dibutuhkan tergolong murah, dan
