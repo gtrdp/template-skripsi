@@ -247,7 +247,7 @@
   \setcounter{page}{1}
     \begin{center}
       \begin{singlespace}
-      \MakeUppercase{\normalfont\bfseries\@titleind}\par\nobreak
+      \fontsize{14pt}{16pt}\selectfont\MakeUppercase{\normalfont\bfseries\@titleind}\par\nobreak
       \vspace{1.5cm}
       \MakeUppercase{\normalfont\bfseries Skripsi}\\
       \vspace{1.0cm}

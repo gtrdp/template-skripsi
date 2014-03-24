@@ -327,9 +327,9 @@
 
 				Diagram alir dari aplikasi berikut dapat dilihat pada Gambar \ref{python-profile}.
 
-				\begin{figure}[H]
+				\begin{figure}[ht!]
 				  \centering
-				    \includegraphics[width=0.8\textwidth]{gambar/python-profile}
+				    \includegraphics[width=0.7\textwidth]{gambar/python-profile}
 				    \caption{Diagram alir aplikasi Python untuk menyala-matikan lampu pada kondisi tertentu.}
 				    \label{python-profile}
 				\end{figure}
@@ -338,9 +338,7 @@
 		\subsection{Pengembangan Aplikasi Berbasis Web}
 			Aplikasi web untuk mengendalikan sensor-sensor IQRF dan XBee dibangun dengan PHP dan basis data MySQL. Aplikasi ini dibangun tanpa menggunakan \emph{framework} karena aplikasi ini tergolong tidak terlalu rumit, aplikasi ini hanya memliki lima halaman utama seperti terlihat pada sitemap Gambar \ref{sitemap}. Penggunaan \emph{framework} juga akan memakan sumber daya komputasi sedikit lebih banyak, padahal aplikasi ini akan diimplementasikan pada sebuah AP yang memiliki tingkat komputasi yang rendah.
 
-			Antarmuka yang dikembangkan adalah hasil \emph{fork} dari \emph{template} halaman administrator buatan Vince G \cite{Gabriel2013}. Antarmuka ditulis menggunakan HTML5 dan CSS3, dengan tambahan pemrograman JavaScript pada sisi klien agar menambah interaktivitas. Pustaka Bootstrap digunakan untuk membuat halaman web menjadi responsif, sehingga dapat menyesuaikan diri secara otomatis sesuai dengan ukuran layar. Pustaka jQuery digunakan untuk membantu pemrograman di sisi klien.
-
-			Kode sumber untuk aplikasi berbasis web ditulis dengan bantuan Sublime Text 3.
+			Antarmuka yang dikembangkan adalah hasil \emph{fork} dari \emph{template} halaman administrator buatan Vince G \cite{Gabriel2013}. Antarmuka ditulis menggunakan HTML5 dan CSS3, dengan tambahan pemrograman JavaScript pada sisi klien agar menambah interaktivitas. Pustaka Bootstrap digunakan untuk membuat halaman web menjadi responsif, sehingga dapat menyesuaikan diri secara otomatis sesuai dengan ukuran layar. Pustaka jQuery digunakan untuk membantu pemrograman di sisi klien, sedangkan kode sumber untuk aplikasi berbasis web ditulis dengan bantuan Sublime Text 3.
 			
 			Peta situs dari aplikasi berbasis web yang dikembangkan dapat dilihat pada Gambar \ref{sitemap}.
 			
