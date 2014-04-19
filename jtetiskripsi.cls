@@ -170,6 +170,7 @@
 \def\abstractname{Intisari}%
 \def\acknowledgmentname{HALAMAN PERSEMBAHAN}%
 \def\approvalname{HALAMAN PENGESAHAN}
+\def\statementname{HALAMAN PERNYATAAN}
 \def\partname{BAGIAN}%
 \def\chaptername{BAB}%
 \def\appendixname{LAMPIRAN}%
@@ -273,42 +274,26 @@
 %Approval Page
 %------------------------------------------------------------
 \def\approvalpage{%
-  \chapter*{\approvalname}%
-  \begin{center}
-  \begin{doublespace}
-        \MakeUppercase{\normalfont\bfseries\@titleind}\par\nobreak
-    \vspace{1.0cm}
-    \MakeUppercase{\normalfont\bfseries\expandafter{Skripsi}}\\
-    \vspace{1.0cm}
-    Diajukan Sebagai Salah Satu Syarat untuk Memperoleh\\
-    Gelar Sarjana Teknik Program S-1\\
-    Pada Jurusan \@dept \ \@faculty \\
-    \@university
-
-    \vspace{1.0cm}
-    \textbf{Disusun oleh:}\\
-    \begin{singlespace}
-      \underline{\bfseries \@fullname}\\
-      \textbf{\@idnum}\\
-    \end{singlespace}
-    \vspace{1.0cm}
-    Telah disetujui dan disahkan\\
-    pada tanggal \@approvaldate
-    \vspace{1.0cm}
-
-    \begin{singlespace}
-    \begin{tabular}{ccc}
-      Dosen Pembimbing I & & Dosen Pembimbing II \\
-      \vspace{1cm} & \vspace{1cm} & \vspace{1cm}\\
-      \textbf{\underline{\@firstsupervisor}}& &
-      \textbf{\underline{\@secondsupervisor}} \\
-      \bfseries NIP. \@firstnip & & \bfseries NIP. \@secondnip    
-    \end{tabular}
-    \end{singlespace}
-
-  \end{doublespace}
-  \end{center}
+\begin{figure}[p]
+    \vspace*{-4cm}
+    \makebox[\linewidth]{
+        \includegraphics[width=1.3\linewidth]{gambar/lembar_pengesahan.jpg}
+    }
+\end{figure}
 \addcontentsline{toc}{chapter}{\approvalname}
+}
+
+%------------------------------------------------------------
+%Statement Page
+%------------------------------------------------------------
+\def\statementpage{%
+\begin{figure}[p]
+    \vspace*{-4cm}
+    \makebox[\linewidth]{
+        \includegraphics[width=1.3\linewidth]{gambar/pernyataan.jpg}
+    }
+\end{figure}
+\addcontentsline{toc}{chapter}{\statementname}
 }
 
 %------------------------------------------------------------
