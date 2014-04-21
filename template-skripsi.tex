@@ -1,0 +1,274 @@
+%-------------------------------------------------------------------------------
+%                      Template Naskah Skripsi
+%               	Berdasarkan format JTETI FT UGM
+% 						(c) @gunturdputra 2014
+%-------------------------------------------------------------------------------
+
+%Template pembuatan naskah skripsi.
+\documentclass{jtetiskripsi}
+
+%Untuk prefiks pada daftar gambar dan tabel
+\usepackage[titles]{tocloft}
+\renewcommand\cftfigpresnum{Gambar\  }
+\renewcommand\cfttabpresnum{Tabel\   }
+
+%Untuk hyperlink dan table of content
+\usepackage{hyperref}
+\newlength{\mylenf}
+\settowidth{\mylenf}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+2em}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+2em}
+
+%Untuk Bold Face pada Keterangan Gambar
+\usepackage[labelfont=bf]{caption}
+
+%Untuk caption dan subcaption
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+%-----------------------------------------------------------------
+%Disini awal masukan untuk data proposal skripsi
+%-----------------------------------------------------------------
+\titleind{TEMPLATE SKRIPSI JTETI DENGAN MENGGUNAKAN \emph{TYPESETTING} \LaTeX}
+
+\fullname{GUNTUR D PUTRA}
+
+\idnum{09/123456/TK/12345}
+
+\approvaldate{3 Februari 2014}
+
+\degree{Sarjana Teknik Elektro}
+
+\yearsubmit{2014}
+
+\program{Teknik Elektro}
+
+\dept{Teknik Elektro dan Teknologi Informasi}
+
+\firstsupervisor{Sigit Basuki Wibowo, S.T., M.Eng.}
+\firstnip{1976 0501 2002 12 1 002}
+
+\secondsupervisor{Bimo Sunarfri Hantono, S.T., M.Eng.}
+\secondnip{1977 0131 2002 12 1 003}
+
+%-----------------------------------------------------------------
+%Disini akhir masukan untuk data proposal skripsi
+%-----------------------------------------------------------------
+
+\begin{document}
+
+\cover
+
+\approvalpage
+
+%-----------------------------------------------------------------
+%Disini awal masukan Acknowledment
+%-----------------------------------------------------------------
+\acknowledgment
+\begin{flushright}
+\emph{Untuk Ibu, Bapak,\\dan Adik-adikku tercinta.}
+\end{flushright}
+
+%-----------------------------------------------------------------
+%Disini awal masukan untuk Prakata
+%-----------------------------------------------------------------
+\preface
+Assalamu'alaikum Wr. Wb.
+
+\vspace{0.5cm}
+
+Puji syukur penulis panjatkan ke hadirat Allah SWT karena hanya dengan rahmat dan hidayah-Nya, Tugas Akhir ini dapat terselesaikan tanpa halangan berarti. Keberhasilan dalam menyusun laporan Tugas Akhir ini tidak lepas dari bantuan berbagai pihak yang mana dengan tulus dan ikhlas memberikan masukan guna sempurnanya Tugas Akhir ini. Oleh karena itu dalam kesempatan ini, dengan kerendahan hati penulis mengucapkan terima kasih kepada:
+
+\begin{enumerate}
+\item{Bapak Sarjiya, S.T., M.T., Ph.D., selaku Ketua Jurusan Teknik Elektro dan Teknologi Informasi Fakultas Teknik Universitas Gadjah Mada,}
+\item{Bapak Sigit Basuki Wibowo, S.T., M.Eng. selaku dosen pembimbing pertama yang telah memberikan banyak bantuan, bimbingan, serta arahan dalam Tugas Akhir ini,}
+\item{Bapak Bimo Sunarfri Hantono, S.T., M.Eng. selaku dosen pembimbing kedua yang juga telah memberikan banyak bantuan, bimbingan, serta arahan dalam Tugas Akhir dan kegiatan-kegiatan yang lain,}
+\item{Bapak Warsun Najib, S.T., M.Sc. selaku dosen pembimbing akademis penulis dan juga dosen pembimbing lapangan penulis pada KKN-PPM UGM 2013 Unit SLM07,}
+\item{Seluruh Dosen di Jurusan Teknik Elektro dan Teknologi Informasi FT UGM, yang tidak bisa disebutkan satu-satu, atas ilmu dan bimbingannya selama penulis berkuliah di JTETI,}
+\item{Ibu dan Bapak yang selama ini telah sabar membimbing, mengarahkan, dan mendoakan penulis tanpa kenal lelah untuk selama-lamanya, dan}
+\item{Cantumkan pihak-pihak lain yang ingin anda berikan ucapan terimakasih.}
+\end{enumerate}
+
+Penulis menyadari bahwa penyusunan Tugas Akhir ini jauh dari sempurna. Kritik dan saran dapat ditujukan langsung pada e-mail atau \emph{mention} langsung pada akun \emph{twitter} saya. Akhir kata penulis mohon maaf yang sebesar-besarnya apabila ada kekeliruan di dalam penulisan Tugas Akhir ini.
+
+\vspace{0.5cm}
+
+Wassalamu'alaikum Wr. Wb.
+
+\begin{tabular}{p{7.5cm}c}
+&Yogyakarta, 15 Januari 2014\\
+&\\
+&\\
+&\textbf{Penulis}
+\end{tabular}
+
+%-----------------------------------------------------------------
+%Disini akhir masukan untuk muka skripsi
+%-----------------------------------------------------------------
+\tableofcontents
+\addcontentsline{toc}{chapter}{DAFTAR ISI}
+\listoftables
+\addcontentsline{toc}{chapter}{DAFTAR TABEL}
+\listoffigures
+\addcontentsline{toc}{chapter}{DAFTAR GAMBAR}
+
+%-----------------------------------------------------------------
+%Daftar Singkatan [Optional]
+%-----------------------------------------------------------------
+\singkatan
+\noindent
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{A}\\
+AJAX & & Asynchronous JavaScript and XML\\
+AP & & Access Point\\
+API & & Application Programming Interface\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{C}\\
+CLI & & Command Line Interface\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{C}\\
+DFM & & Discovered Full Mesh\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{E}\\
+ERD & & Entity Relationship Diagram\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{F}\\
+FTDI & & Future Technology Devices International\\
+FUSE & & Filesystem in Userspace\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{I}\\
+IP & & Internet Protocol\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{J}\\
+JTETI & & Jurusan Teknik Elektro dan Teknologi Informasi\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{L}\\
+LAN & & Local Area Network\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{O}\\
+OSI & & Open Systems Interconnection\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{R}\\
+RF & & Radio Frequency\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{S}\\
+SDLC & & Software Development Life Cycle\\
+SFTP & & Secure Shell File Transfer Protocol\\
+SSHFS & & Secure Shell Filesystem\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{U}\\
+UGM & & Universitas Gadjah Mada\\
+USB & & Universal Serial Bus\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{V}\\
+VRS & & Virtual Routing Structure\\
+\\
+\end{tabular}
+
+\begin{tabular}{p{20pt}p{3pt}l}
+\textbf{W}\\
+WAP & & Wireless Access Point\\
+WIT & & Western Indonesian Time\\
+WLAN & & Wireless Local Area Network\\
+WSN & & Wireless Sensor Network\\
+\end{tabular}
+
+%-----------------------------------------------------------------
+%Disini awal masukan Intisari
+%-----------------------------------------------------------------
+\begin{abstractind}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+
+
+\bigskip
+\noindent
+\textbf{Kata kunci :} \emph{wireless sensor network}, \emph{Internet Protocol}, WiFi, interoperabilitas.
+\end{abstractind}
+
+\begin{abstracteng}
+\emph{
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+
+\emph{Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.}
+
+\bigskip
+\noindent
+\textbf{\emph{Keywords :}} \emph{wireless sensor network, Internet Protokol, WiFi, interoperability}.
+\end{abstracteng}
+%-----------------------------------------------------------------
+%Disini akhir masukan Intisari
+%-----------------------------------------------------------------
+
+%-----------------------------------------------------------------
+%Disini awal masukan untuk Bab
+%-----------------------------------------------------------------
+\include{bab1}
+
+\include{bab2}
+
+\include{bab3}
+
+\include{bab4}
+
+\include{bab5}
+
+%-----------------------------------------------------------------
+%Disini akhir masukan Bab
+%-----------------------------------------------------------------
+
+
+%-----------------------------------------------------------------
+% Disini awal masukan untuk Daftar Pustaka
+% - Daftar pustaka diambil dari file .bib yang ada pada folder ini
+%   juga.
+% - Untuk memudahkan dalam memanajemen dan menggenerate file .bib
+%   gunakan reference manager seperti Mendeley, Zotero, EndNote,
+%   dll.
+%-----------------------------------------------------------------
+\bibliography{IEEEabrv,daftar-pustaka}
+\addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
+%-----------------------------------------------------------------
+%Disini akhir masukan Daftar Pustaka
+%-----------------------------------------------------------------
+
+\end{document}
