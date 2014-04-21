@@ -20,8 +20,10 @@ Contents
 --------
 Berikut penjelasan dari file-file utama dalam template ini. File lain yang tidak tercantum hanya pelengkap dalam repository ini.
 
-		template-skripsi
-			├── README.md
+		template-skripsi/
+			├── gambar/
+			│	   ├── logougm.png
+			│	   └── wsn.png
 			├── bab1.tex
 			├── bab2.tex
 			├── bab3.tex
@@ -31,9 +33,6 @@ Berikut penjelasan dari file-file utama dalam template ini. File lain yang tidak
 			├── template-skripsi.pdf
 			├── template-skripsi.tex
 			└── jtetiskripsi.cls
-
-### README.md
-Berisi informasi dasar tentang template skripsi ini.
 
 ### bab1.tex - bab5.tex
 Konten utama dari skripsi, mulai dari BAB I (pendahuluan) sampe BAB V (kesimpulan). Silakan disesuaikan dengan jumlah bab skripsi anda, hapus file yang tidak perlu atau tambahkan file baru untuk bab baru.
@@ -53,6 +52,9 @@ File ini adalah skripsi anda dalam bentuk matang. Sudah rapi dan dapat dicetak u
 File yang berisi aturan-aturan format skripsi. Contoh, format cover, halaman pengesahan, daftar isi, daftar pustaka, dan konten skripsi.
 
 Jika anda ingin memodifikasi template skripsi ini, ubahlah file *jtetiskripsi.cls* ini.
+
+### gambar/
+Masukkan gambar-gambar pada skripsi anda di folder ini. Gambar default: logougm.png (dipakai di cover) dan wsn.png (hanya dipakai di template awal, silakan dihapus jika tidak diperlukan).
 			
 Bonus
 -----
