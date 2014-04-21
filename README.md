@@ -3,7 +3,9 @@ Template Naskah Skripsi LaTeX
 
 Template Naskah Skripsi dengan typesetting LaTeX untuk JTETI Universitas Gadjah Mada. Template ini merupakan hasil modifikasi dari versi pak Pekik Nurwantoro (FMIPA) dan mas Yohan (JTETI 2008).
 
-Semoga bermanfaat. Silakan turut berkontribusi dalam project ini.
+Semoga bermanfaat. Anda sangat dibolehkan untuk turut berkontribusi dalam project ini dengan *Fork*, *Pull Request*, atau *Create New Issue*
+
+Terimakasih.
 
 Quick Start
 -----------
@@ -14,10 +16,10 @@ Quick Start
 
 2. Clone repository ini dengan [Git](https://www.google.com/search?q=windows+setup+latex&oq=windows+setup+latex&aqs=chrome..69i57.6207j0j7&sourceid=chrome&es_sm=91&ie=UTF-8#q=setup+git). Atau [unduh](https://github.com/gtrdp/template-skripsi/releases) repository ini (cara ini lebih mudah).
 3. Mulai tulis naskah anda, keterangan dari masing-masing file dalam template ini ada di bawah.
-4. New to LaTeX? Butuh bantuan? Pergunakanlah Google dengan baik dan bijak. Saya bantu:
+4. Pertamakali pakai LaTeX? Butuh bantuan? Pergunakanlah Google dengan baik dan bijak. Saya bantu:
 	- [Bahasa Indonesia](https://www.google.com/search?q=tutorial+menggunakan+latex&oq=tutorial+menggunakan+latex&aqs=chrome..69i57j0.3219j0j7&sourceid=chrome&es_sm=91&ie=UTF-8)
 	- [English](https://www.google.com/search?q=latex+tutorial&oq=latex+tutorial&aqs=chrome..69i57j69i65l3j69i60l2.1884j0j7&sourceid=chrome&es_sm=91&ie=UTF-8)
-	- Email saya ke: [guntur.dharma@gmail.com](mailto:guntur.dharma@gmail.com)
+	- Atau kontak saya melalui email: [guntur.dharma@gmail.com](mailto:guntur.dharma@gmail.com)
 
 Contents
 --------
