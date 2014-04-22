@@ -3,9 +3,13 @@ Template Naskah Skripsi LaTeX
 
 Template Naskah Skripsi dengan typesetting LaTeX untuk JTETI Universitas Gadjah Mada. Template ini merupakan hasil modifikasi dari versi pak Pekik Nurwantoro (FMIPA) dan mas Yohan (JTETI 2008).
 
-Semoga bermanfaat. Anda sangat dibolehkan untuk turut berkontribusi dalam project ini dengan *Fork*, *Pull Request*, atau *Create New Issue*
+Semoga bermanfaat. Anda sangat dibolehkan untuk turut berkontribusi dalam project ini dengan *Fork*, *Pull Request*, *Create New Issue*, atau turut menjadi kontributor repo ini.
 
 Terimakasih.
+
+Download
+--------
+Silakan download versi terakhir di [https://github.com/gtrdp/template-skripsi/releases](https://github.com/gtrdp/template-skripsi/releases).
 
 Quick Start
 -----------
